@@ -23,7 +23,7 @@ const CrowdfundingForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black p-8 py-12 pt-24">
+    <div className="min-h-screen bg-black p-4 py-12 pt-24">
       <div className="max-w-2xl mx-auto">
         <Card className="bg-[#0A0C10] border-gray-800 text-white">
           <CardHeader className="text-center space-y-4">
