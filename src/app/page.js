@@ -1,4 +1,6 @@
 import Image from "next/image";
+import AboutMission from "./components/about";
+import EmailSection from "./components/contact";
 // import FeaturesSection from "./components/features";
 import FeaturesSection from "./components/features_section";
 import LandingPage from "./components/landing";
@@ -10,6 +12,8 @@ export default function Home() {
     <LandingPage2/>
       {/* <LandingPage/> */}
       <FeaturesSection/>
+      <AboutMission/>
+      <EmailSection/>
     </>
   );
 }
