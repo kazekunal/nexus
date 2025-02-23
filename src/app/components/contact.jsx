@@ -21,7 +21,7 @@ const EmailSection = () => {
 
     const formData = new FormData(e.target);
     const data = {
-      access_key: "77857d85-8d56-4e25-9c13-7247134d2421",
+      access_key: "78c300b1-3b35-420c-bcad-7d33998dfbba",
       from_name: "Website Contact Form",
       subject: formData.get("subject"),
       email: formData.get("email"),
