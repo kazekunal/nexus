@@ -16,7 +16,7 @@ export default function Page() {
         
       {/* Navigation */}
       {/* top-0 hides the support banner if it is not needed */}
-      <nav className="fixed top-8 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/10">
+      <nav className="fixed top-10 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/10">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center h-20">  {/* Changed h-20 to h-16 */}
             <div className="text-2xl font-bold tracking-tighter text-white" >CHAUFF-IT</div>
@@ -162,8 +162,10 @@ export default function Page() {
                 <p className="text-sm text-gray-400">Trusted by 10,000+ clients</p>
               </div>
             </div>
+            <div id="services"></div>
           </div>
         </div>
+        
       </div>
     </div>
   )
