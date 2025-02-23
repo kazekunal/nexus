@@ -19,8 +19,9 @@ export default function Page() {
       <nav className="fixed top-10 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/10">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center h-20">  {/* Changed h-20 to h-16 */}
+    <a href="/">
             <div className="text-2xl font-bold tracking-tighter text-white" >CHAUFF-IT</div>
-            
+            </a>
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {["Fleet", "Services", "About", "Contact"].map((item) => (
@@ -114,10 +115,12 @@ export default function Page() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="group">
+                <a href="/bookings">
+              <Button  size="lg" className="group">
                 Book Now
                 <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
+              </a>
               <Button size="lg" variant="outline">
                 View Fleet
               </Button>
