@@ -5,16 +5,20 @@ import { ChevronRight, Star, Shield, Clock, Car, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import bgimg from "../../../public/bg_img.jpg"
 import { motion, AnimatePresence } from "framer-motion"
+import SupportBanner from "./support"
 
 export default function Page() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-black">
+        <SupportBanner/>
+        
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+      {/* top-0 hides the support banner if it is not needed */}
+      <nav className="fixed top-8 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/10">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-between items-center h-20">  {/* Changed h-20 to h-16 */}
             <div className="text-2xl font-bold tracking-tighter text-white" >CHAUFF-IT</div>
             
             {/* Desktop Navigation */}
@@ -61,7 +65,7 @@ export default function Page() {
                 {["Fleet", "Services", "About", "Contact"].map((item) => (
                   <a
                     key={item}
-                    href={`/${item.toLowerCase()}`}
+                    href={`#${item.toLowerCase()}`}
                     className="text-white hover:text-[#C9C7BA] transition-colors text-lg font-light tracking-wide"
                   >
                     {item}
