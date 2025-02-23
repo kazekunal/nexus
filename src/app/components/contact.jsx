@@ -60,7 +60,7 @@ const EmailSection = () => {
   };
 
   return (
-    <section id="contact" className="w-full py-8 bg-black">
+    <section id="contact" className="w-full py-16 pt-0 bg-black">
       <div className="max-w-6xl mx-auto px-4">
         <Card className="relative overflow-hidden border border-gray-700 bg-black/40 backdrop-blur-sm">
           {/* Enhanced Gradient Effects */}
@@ -85,10 +85,10 @@ const EmailSection = () => {
                 </p>
                 <div className="flex gap-6">
                   {[
-                    { icon: <Linkedin className="w-6 h-6" />, href: "https://www.linkedin.com/in/saranbluri/" },
-                    { icon: <Github className="w-6 h-6" />, href: "https://github.com/SaranBodduluri" },
-                    { icon: <BsSubstack className="w-6 h-6" />, href: "https://saranbluri.substack.com/" },
-                    { icon: <Youtube className="w-6 h-6" />, href: "https://www.youtube.com/@SaranBluri" },
+                    { icon: <Linkedin className="w-6 h-6" />, href: "#" },
+                    { icon: <Github className="w-6 h-6" />, href: "#" },
+                    { icon: <BsSubstack className="w-6 h-6" />, href: "#" },
+                    { icon: <Youtube className="w-6 h-6" />, href: "#" },
                   ].map((social, index) => (
                     <Link 
                       key={index}
