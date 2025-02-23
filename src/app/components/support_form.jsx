@@ -27,9 +27,9 @@ const CrowdfundingForm = () => {
       <div className="max-w-2xl mx-auto">
         <Card className="bg-[#0A0C10] border-gray-800 text-white">
           <CardHeader className="text-center space-y-4">
-            <CardTitle className="text-3xl font-bold">Support Our Project</CardTitle>
+            <CardTitle className="text-3xl font-bold">Join Us in Making a Difference</CardTitle>
             <p className="text-gray-400">
-              Help us reach our goal by contributing to this campaign
+            Help us reach our goal and be a part of something impactful. Every contribution brings us closer to success!
             </p>
             <div className="flex justify-center items-center gap-8 py-6">
               <div className="text-center">
@@ -60,7 +60,7 @@ const CrowdfundingForm = () => {
         />
               </div>
               <p className="text-gray-400 text-sm">
-                Scan QR code to contribute or use UPI ID: 8510002052@pthdfc
+              Scan the QR code to donate or use UPI ID: 8510002052@pthdfc
               </p>
             </div>
 
