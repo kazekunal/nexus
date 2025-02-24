@@ -12,7 +12,7 @@ const AboutMission = () => {
   }
 
   const missionPoints = [
-    "Fostering Sustainable Growth and Green Development",
+    "Fostering Growth and Green Development",
     "Innovating for a Sustainable Future",
     "Customer-Centric Approach",
     "Building Stronger Communities",

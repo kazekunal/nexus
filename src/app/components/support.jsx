@@ -22,10 +22,22 @@ const SupportBanner = () => {
           </p>
           <Link
             href="/support"
-            className="inline-flex items-center gap-2 text-base bg-white text-black px-4 py-1 rounded-full hover:bg-gray-100 transition-all"
+            className={`
+              relative overflow-hidden
+              inline-flex items-center gap-1 text-sm
+              bg-gradient-to-r from-cyan-500 to-blue-600 
+              text-white font-medium px-4 py-1 rounded-full
+              shadow-md hover:shadow-cyan-500/50 
+              transition-all duration-300 ease-in-out
+              group
+            `}
           >
-            Back Us Now! ⚡️
-            <ArrowRight className="w-4 h-4" />
+            <span className="absolute inset-0 bg-white/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            <span className="relative z-10 flex items-center">
+              Back Us Now! ⚡️
+              <ArrowRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
+            </span>
+            <span className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur opacity-30 group-hover:opacity-70 transition duration-1000 group-hover:duration-200"></span>
           </Link>
         </div>
       </div>

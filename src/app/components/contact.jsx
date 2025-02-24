@@ -131,6 +131,18 @@ const EmailSection = () => {
                         </div>
                       )}
                       <div>
+                        <label htmlFor="subject" className="text-white text-sm font-medium block mb-2">
+                          Name
+                        </label>
+                        <Input
+                          id="subject"
+                          name="subject"
+                          required
+                          className="bg-gray-900/50 border-gray-800 text-white w-full"
+                          placeholder="Just saying hi"
+                        />
+                      </div>
+                      <div>
                         <label htmlFor="email" className="text-white text-sm font-medium block mb-2">
                           Your email
                         </label>
@@ -141,18 +153,6 @@ const EmailSection = () => {
                           required
                           className="bg-gray-900/50 border-gray-800 text-white w-full"
                           placeholder="abc@gmail.com"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="subject" className="text-white text-sm font-medium block mb-2">
-                          Subject
-                        </label>
-                        <Input
-                          id="subject"
-                          name="subject"
-                          required
-                          className="bg-gray-900/50 border-gray-800 text-white w-full"
-                          placeholder="Just saying hi"
                         />
                       </div>
                       <div>
