@@ -144,7 +144,7 @@ export default function Page() {
                 <Car color="white" className="h-8 w-8 text-primary" />
                 <div>
                   <h3 className="font-semibold text-white">Luxury Fleet</h3>
-                  <p className="text-sm text-gray-400">Premium vehicles</p>
+                  <p className="text-sm text-gray-400">Professional chauffeur</p>
                 </div>
               </div>
             </div>

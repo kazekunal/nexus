@@ -32,7 +32,7 @@ const FeaturesSection = () => {
     "Professional chauffeurs with extensive training",
     "Seamless booking with 15-20 minute driver availability",
     "Dashcam access for security and trip memories",
-    "Flexible payment options, including distance-based pricing"
+    "Chauffeurs dressed in black suits for a premium experience."
   ]
 
   return (

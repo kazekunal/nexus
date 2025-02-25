@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Check, Linkedin, Github, Youtube } from 'lucide-react';
+import { Check, Linkedin, Github, Youtube, Instagram } from 'lucide-react';
 import { BsSubstack } from "react-icons/bs";
 
 const EmailSection = () => {
@@ -82,7 +82,7 @@ const EmailSection = () => {
                 </p>
                 <div className="flex gap-4">
                   {[
-                    { icon: <Linkedin className="w-6 h-6" />, href: "#" },
+                    { icon: <Instagram className="w-6 h-6" />, href: "https://www.instagram.com/chauff.it?igsh=dmUxZjQxMnhlMXYy&utm_source=qr" },
                     { icon: <Github className="w-6 h-6" />, href: "#" },
                     { icon: <BsSubstack className="w-6 h-6" />, href: "#" },
                     { icon: <Youtube className="w-6 h-6" />, href: "#" },
@@ -139,7 +139,7 @@ const EmailSection = () => {
                           name="subject"
                           required
                           className="bg-gray-900/50 border-gray-800 text-white w-full"
-                          placeholder="Just saying hi"
+                          placeholder="Name..."
                         />
                       </div>
                       <div>
