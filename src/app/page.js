@@ -11,15 +11,15 @@ import SupportSection from "./components/support__section";
 
 export default function Home() {
   return (
-    <>
+    <div className="w-full max-w-full overflow-x-hidden">
     
     <LandingPage2/>
       {/* <LandingPage/> */}
       <FeaturesSection/>
       <AboutMission/>
-      <SupportSection/>
+      {/* <SupportSection/> */}
       <EmailSection/>
       <Footer/>
-    </>
+    </div>
   );
 }
