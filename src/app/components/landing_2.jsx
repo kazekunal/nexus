@@ -121,7 +121,7 @@ export default function Page() {
               </Button>
               </a>
               {/* <Button size="lg" variant="outline">
-                View Fleet
+                Add as an App
               </Button> */}
             </div>
 
