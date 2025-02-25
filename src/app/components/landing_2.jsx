@@ -151,20 +151,20 @@ export default function Page() {
 
             <div className="flex items-center gap-4 pt-8">
             <div className="flex -space-x-2">
-  {[
-    { letter: "K", color: "bg-blue-600" },
-    { letter: "V", color: "bg-red-600" },
-    { letter: "L", color: "bg-yellow-600" },
-    { letter: "R", color: "bg-green-600" }
-  ].map((item, i) => (
-    <div 
-      key={i} 
-      className={`flex items-center justify-center w-8 sm:w-10 h-8 sm:h-10 rounded-full border-2 border-black ${item.color} text-white font-bold text-sm sm:text-base`}
-    >
-      {item.letter}
-    </div>
-  ))}
-</div>
+            {[
+              { letter: "K", color: "bg-blue-600" },
+              { letter: "V", color: "bg-red-600" },
+              { letter: "L", color: "bg-yellow-600" },
+              { letter: "R", color: "bg-green-600" }
+            ].map((item, i) => (
+              <div 
+                key={i} 
+                className={`flex items-center justify-center w-8 sm:w-10 h-8 sm:h-10 rounded-full border-2 border-black ${item.color} text-white font-bold text-sm sm:text-base`}
+              >
+                {item.letter}
+              </div>
+            ))}
+          </div>
 
 
               <div>

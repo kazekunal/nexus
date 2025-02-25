@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Upload, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
-import qr from '../../../public/qr.jpeg';
+import qr from '../../../public/qr_2.png';
 import { motion, AnimatePresence } from "framer-motion";
 
 const CrowdfundingForm = () => {
@@ -112,7 +112,7 @@ const CrowdfundingForm = () => {
                 />
               </div>
               <p className="text-gray-400 text-sm">
-                Scan the QR code to donate or use UPI ID: 8510002052@pthdfc
+                Scan the QR code to donate or use UPI ID: razorpay.me/@chauff-it
               </p>
             </div>
 
