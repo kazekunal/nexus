@@ -69,11 +69,13 @@ const AboutMission = () => {
                 transition={{ delay: index * 0.2 }}
               >
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-black flex items-center justify-center">
-                  <Check className="w-5 h-5 text-white" />
+                  <Check color="green" className="w-5 h-5 text-white" />
                 </div>
+                
                 <span className="text-lg text-white">{point}</span>
               </motion.div>
             ))}
+            <div id="support"></div>
           </div>
         </motion.div>
       </div>

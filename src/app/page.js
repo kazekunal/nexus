@@ -7,6 +7,7 @@ import Footer from "./components/footer";
 import LandingPage from "./components/landing";
 import LandingPage2 from "./components/landing_2";
 import SupportBanner from "./components/support";
+import SupportSection from "./components/support__section";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       {/* <LandingPage/> */}
       <FeaturesSection/>
       <AboutMission/>
+      <SupportSection/>
       <EmailSection/>
       <Footer/>
     </>

@@ -15,7 +15,7 @@ const FeaturesSection = () => {
       icon: <Shield color="white" className="w-10 h-10 text-primary" />,
       title: "Enhanced Safety",
       description:
-        "Two-factor authentication, detailed driver profiles, and dashcam footage available for 24 hours ensuring your security.",
+        "Two-factor authentication, driver profiles, dashcam footage, and live tracking available for 24 hours with sharing options.",
     },
     {
       icon: <MapPin color="white" className="w-10 h-10 text-primary" />,
@@ -30,8 +30,9 @@ const FeaturesSection = () => {
     "Live tracking and enhanced security measures",
     "24/7 customer support and immediate assistance",
     "Professional chauffeurs with extensive training",
-    "Luxury vehicle fleet maintenance and cleanliness",
-    "Complimentary amenities in every vehicle",
+    "Seamless booking with 15-20 minute driver availability",
+    "Dashcam access for security and trip memories",
+    "Flexible payment options, including distance-based pricing"
   ]
 
   return (

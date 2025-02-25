@@ -24,7 +24,7 @@ export default function Page() {
             </a>
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {["Fleet", "Services", "About", "Contact"].map((item) => (
+              {["Services" , "About", "Support", "Contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -63,7 +63,7 @@ export default function Page() {
               className="fixed top-20 left-0 right-0 bg-[#0A0A0A] z-40 px-6 py-8 md:hidden"
             >
               <div className="flex flex-col gap-6">
-                {["Fleet", "Services", "About", "Contact"].map((item) => (
+                {["Services" , "About", "Support", "Contact"].map((item) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
@@ -109,8 +109,7 @@ export default function Page() {
                 Let yourself be transported by excellence
               </h1>
               <p className="text-lg sm:text-xl text-gray-300 max-w-2xl">
-                Your premium mobility solution that redefines luxury travel. With a curated fleet of prestigious
-                vehicles and professional chauffeurs, we deliver sophistication on every journey.
+              Redefining luxury travel with highly professional chauffeurs, ensuring every journey is seamless, secure, and tailored to your needs with the utmost sophistication and reliability.
               </p>
             </div>
 
@@ -151,11 +150,23 @@ export default function Page() {
             </div>
 
             <div className="flex items-center gap-4 pt-8">
-              <div className="flex -space-x-2">
-                {[...Array(4)].map((_, i) => (
-                  <div key={i} className="w-8 sm:w-10 h-8 sm:h-10 rounded-full border-2 border-black bg-gray-800" />
-                ))}
-              </div>
+            <div className="flex -space-x-2">
+  {[
+    { letter: "K", color: "bg-blue-600" },
+    { letter: "C", color: "bg-red-600" },
+    { letter: "L", color: "bg-yellow-600" },
+    { letter: "U", color: "bg-green-600" }
+  ].map((item, i) => (
+    <div 
+      key={i} 
+      className={`flex items-center justify-center w-8 sm:w-10 h-8 sm:h-10 rounded-full border-2 border-black ${item.color} text-white font-bold text-sm sm:text-base`}
+    >
+      {item.letter}
+    </div>
+  ))}
+</div>
+
+
               <div>
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
