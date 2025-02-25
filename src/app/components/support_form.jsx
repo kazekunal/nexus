@@ -85,7 +85,7 @@ const CrowdfundingForm = () => {
             </p>
             <div className="flex justify-center items-center gap-8 py-6">
               <div className="text-center">
-                <p className="text-2xl font-bold text-white">₹50,000</p>
+                <p className="text-2xl font-bold text-white">₹8,00,000</p>
                 <p className="text-sm text-gray-400">Target</p>
               </div>
               <div className="text-center">
@@ -93,7 +93,7 @@ const CrowdfundingForm = () => {
                 <p className="text-sm text-gray-400">Raised</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-white">142</p>
+                <p className="text-2xl font-bold text-white">7</p>
                 <p className="text-sm text-gray-400">Backers</p>
               </div>
             </div>
