@@ -127,10 +127,10 @@ export default function Page() {
 
             <div className="pt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               <div className="flex items-center gap-3">
-                <Shield color="white" className="h-8 w-8 text-primary" />
+                <Car color="white" className="h-8 w-8 text-primary" />
                 <div>
                   <h3 className="font-semibold text-white">Premium Service</h3>
-                  <p className="text-sm text-gray-400">Luxury guaranteed</p>
+                  <p className="text-sm text-gray-400">Professional chauffeur</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -141,10 +141,10 @@ export default function Page() {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Car color="white" className="h-8 w-8 text-primary" />
+                <Shield color="white" className="h-8 w-8 text-primary" />
                 <div>
-                  <h3 className="font-semibold text-white">Luxury Fleet</h3>
-                  <p className="text-sm text-gray-400">Professional chauffeur</p>
+                  <h3 className="font-semibold text-white">Trusted & Secure</h3>
+                  <p className="text-sm text-gray-400">Your safety is our top priority</p>
                 </div>
               </div>
             </div>
