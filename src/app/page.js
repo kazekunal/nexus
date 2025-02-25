@@ -17,7 +17,7 @@ export default function Home() {
       {/* <LandingPage/> */}
       <FeaturesSection/>
       <AboutMission/>
-      {/* <SupportSection/> */}
+      <SupportSection/>
       <EmailSection/>
       <Footer/>
     </div>
