@@ -73,12 +73,10 @@ const EmailSection = () => {
                 transition={{ duration: 0.5 }}
               >
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">
-                  Let&apos;s Connect
+                Let&apos;s Ride in Style
                 </h2>
                 <p className="text-gray-400 text-lg mb-6 leading-relaxed">
-                  I&apos;m currently looking for new opportunities, my inbox is always
-                  open. Whether you have a question or just want to say hi, I&apos;ll
-                  get back to you!
+                Our team is committed to providing a seamless, comfortable, and professional experience from start to finish. Reach out to us, and we&apos;ll get back to you promptly!
                 </p>
                 <div className="flex gap-4">
                   {[

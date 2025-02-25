@@ -116,13 +116,13 @@ export default function Page() {
             <div className="flex flex-wrap gap-4">
                 <a href="/bookings">
               <Button  size="lg" className="group">
-                Book Now
+                View Fleet
                 <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               </a>
-              <Button size="lg" variant="outline">
+              {/* <Button size="lg" variant="outline">
                 View Fleet
-              </Button>
+              </Button> */}
             </div>
 
             <div className="pt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -153,9 +153,9 @@ export default function Page() {
             <div className="flex -space-x-2">
   {[
     { letter: "K", color: "bg-blue-600" },
-    { letter: "C", color: "bg-red-600" },
+    { letter: "V", color: "bg-red-600" },
     { letter: "L", color: "bg-yellow-600" },
-    { letter: "U", color: "bg-green-600" }
+    { letter: "R", color: "bg-green-600" }
   ].map((item, i) => (
     <div 
       key={i} 

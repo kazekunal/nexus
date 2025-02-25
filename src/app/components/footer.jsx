@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col items-center space-y-2 text-gray-400 text-sm">
             <Link href="Tncs.pdf"  target="_blank">
-          <p>Copyright © 2025. CHAUFF-IT, Terms and Conditions Applied</p>
+          <p>Copyright © 2025. CHAUFF-IT, Terms and Conditions</p>
           </Link>
           <p>
             Designed and Developed by{' '}
