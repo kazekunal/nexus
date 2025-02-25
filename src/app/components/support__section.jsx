@@ -17,7 +17,7 @@ const SupportSection = () => {
             transition={{ duration: 0.6 }}
             className="w-full lg:w-1/2 space-y-8"
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight bg-clip-text text-transparent text-white">
               Join Our Journey to Redefine Luxury Transportation
             </h2>
 
