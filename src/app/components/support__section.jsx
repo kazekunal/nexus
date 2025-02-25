@@ -7,7 +7,7 @@ import soon_2 from "../../../public/soon_2.webp"
 
 const SupportSection = () => {
   return (
-    <section className="w-full py-16 md:py-24 bg-black text-white">
+    <section className="w-full py-16 md:py-16 bg-black text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
           {/* Left column - Information */}

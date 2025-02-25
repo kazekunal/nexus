@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Chauff-it",
-  description: "Your premium mobility solution that redefines luxury travel. With a curated fleet of prestigious vehicles and professional chauffeurs, we deliver sophistication on every journey.",
+  description: "Your premium mobility solution that redefines luxury travel. With a curated fleet of professional chauffeurs, we deliver sophistication on every journey.",
 };
 
 export default function RootLayout({ children }) {
