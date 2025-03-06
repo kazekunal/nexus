@@ -30,7 +30,15 @@ export default function Page() {
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center h-20">  {/* Changed h-20 to h-16 */}
     <a href="/">
-            <div className="text-2xl font-bold tracking-tighter text-white" >CHAUFF-IT</div>
+            <div className="text-2xl font-bold tracking-tighter text-white" >
+            <Image
+              src="/logo3.png"
+              alt="Luxury car"
+              width="150"
+              height="50"
+              className="object-cover object-center"
+            />
+            </div>
             </a>
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
@@ -132,7 +140,7 @@ export default function Page() {
                 </a>
                 <Sheet>
                   <SheetTrigger asChild>
-                    <Button size="lg" variant="outline">
+                    <Button className="md:hidden" size="lg" variant="outline">
                       Add as App
                     </Button>
                   </SheetTrigger>
@@ -255,3 +263,4 @@ export default function Page() {
     </div>
   )
 }
+
