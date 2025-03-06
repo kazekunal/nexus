@@ -5,6 +5,7 @@ import { ChevronRight, Star, Shield, Clock, Car, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import bgimg from "../../../public/bg_img.jpg"
 import { motion, AnimatePresence } from "framer-motion"
+import logo from "../../../public/logo3.png"
 import SupportBanner from "./support"
 import {
   Sheet,
@@ -33,7 +34,7 @@ export default function Page() {
     <a href="/">
             <div className="text-2xl font-bold tracking-tighter text-white" >
             <Image
-              src="/logo3.png"
+              src={logo}
               alt="Luxury car"
               width="150"
               height="50"
