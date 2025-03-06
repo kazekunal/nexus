@@ -5,7 +5,7 @@ import { ChevronRight, Star, Shield, Clock, Car, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import bgimg from "../../../public/bg_img.jpg"
 import { motion, AnimatePresence } from "framer-motion"
-import logo from "../../../public/logo3.png"
+import logo from "../../../public/logo3"
 import SupportBanner from "./support"
 import {
   Sheet,
