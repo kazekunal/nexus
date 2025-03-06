@@ -20,7 +20,7 @@ const ServiceCards = () => {
       icon: <Clock className="w-8 h-8 text-white" />,
       features: [
         "Professional chauffeur",
-        "Luxury vehicle",
+        "Enhanced safety",
         "Door-to-door service",
         "Live tracking"
       ]
