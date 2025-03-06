@@ -20,6 +20,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 export default function Page() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  //changes
   return (
     <div className="min-h-screen bg-black">
         <SupportBanner/>
