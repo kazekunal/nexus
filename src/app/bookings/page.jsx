@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Clock, Shield, MapPin, Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button"
 import ServiceCards from '../components/booking'
+import logo from "../../../public/navbar.png"
+
 
 function page() {
 
