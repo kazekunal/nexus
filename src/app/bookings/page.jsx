@@ -40,12 +40,11 @@ function page() {
             </div>
             
             {/* Desktop Auth Buttons */}
+            <a href="/bookings">
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="ghost" className="text-gray-300 hover:text-black">
-                Login
-              </Button>
-              <Button>Sign Up</Button>
-            </div>
+              
+              <Button>Book Now</Button>
+            </div></a>
 
             {/* Mobile Menu Button */}
             <button

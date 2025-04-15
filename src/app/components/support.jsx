@@ -9,7 +9,7 @@ const SupportBanner = () => {
         {/* Mobile Version - Text only */}
         <Link href="/support" className="block sm:hidden">
           <div className="flex justify-center">
-            <p className="text-white text-sm">
+            <p className="text-[#d9d1c6] text-sm">
               🚀 Exclusive Chauffeur Service Coming Soon!
             </p>
           </div>
@@ -17,7 +17,7 @@ const SupportBanner = () => {
 
         {/* Desktop Version */}
         <div className="hidden sm:flex items-center justify-center gap-4">
-          <p className="text-white text-base">
+          <p className="text-[#d9d1c6] text-base">
             🚀 Exclusive Chauffeur Service Coming Soon!
           </p>
           <Link
@@ -25,7 +25,7 @@ const SupportBanner = () => {
             className={`
               relative overflow-hidden
               inline-flex items-center gap-1 text-sm
-              bg-gradient-to-r from-cyan-500 to-blue-600 
+              bg-[#314b4c]
               text-white font-medium px-4 py-1 rounded-full
               shadow-md hover:shadow-cyan-500/50 
               transition-all duration-300 ease-in-out
@@ -37,7 +37,7 @@ const SupportBanner = () => {
               Back Us Now! ⚡️
               <ArrowRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
-            <span className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur opacity-30 group-hover:opacity-70 transition duration-1000 group-hover:duration-200"></span>
+            {/* <span className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur opacity-30 group-hover:opacity-70 transition duration-1000 group-hover:duration-200"></span> */}
           </Link>
         </div>
       </div>

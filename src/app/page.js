@@ -16,7 +16,7 @@ export default function Home() {
     <LandingPage2/>
       {/* <LandingPage/> */}
       <FeaturesSection/>
-      <AboutMission/>
+      {/* <AboutMission/> */}
       <SupportSection/>
       <EmailSection/>
       <Footer/>
