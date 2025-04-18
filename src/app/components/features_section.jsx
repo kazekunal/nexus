@@ -1,24 +1,28 @@
 "use client"
 import { Card, CardContent } from "@/components/ui/card"
-import { Clock, Shield, MapPin, CheckCircle2 } from "lucide-react"
+import { Clock, Shield, MapPin, CheckCircle2, Award, Car, Headphones } from "lucide-react"
 import { motion } from "framer-motion"
 
 const FeaturesSection = () => {
+  const accentColor = "#bd8c5e";
+  const accentColorLight = "#e0b088";
+  const accentColorDark = "#8a6548";
+
   const features = [
     {
-      icon: <Clock color="white" className="w-10 h-10 text-primary" />,
-      title: "Quick Booking",
-      description:
-        "Book experienced chauffeurs within 15-20 minutes through our seamless online platform or at our venue partners.",
-    },
-    {
-      icon: <Shield color="white" className="w-10 h-10 text-primary" />,
+      icon: <Shield className="w-10 h-10" style={{ color: accentColor }} />,
       title: "Enhanced Safety",
       description:
         "Two-factor authentication, driver profiles, dashcam footage, and live tracking available for 24 hours with sharing options.",
     },
     {
-      icon: <MapPin color="white" className="w-10 h-10 text-primary" />,
+      icon: <Car className="w-10 h-10" style={{ color: accentColor }} />,
+      title: "Premium Chauffeurs",
+      description:
+        "Professionally trained drivers ensuring a comfortable and reliable experience for all your transportation needs.",
+    },
+    {
+      icon: <MapPin className="w-10 h-10" style={{ color: accentColor }} />,
       title: "Venue Partners",
       description:
         "Find our suited teams at five premium nightlife venues in Gurgaon, ready to assist you with immediate bookings.",
@@ -26,17 +30,14 @@ const FeaturesSection = () => {
   ]
 
   const services = [
-    "Multiple trip options: short, long, and one-sided journeys",
     "Live tracking and enhanced security measures",
-    "24/7 customer support and immediate assistance",
     "Professional chauffeurs with extensive training",
     "Seamless booking with 15-20 minute driver availability",
     "Dashcam access for security and trip memories",
-    "Chauffeurs dressed in black suits for a premium experience."
   ]
 
   return (
-    <section className="w-full py-24 bg-black">
+    <section className="w-full py-24 bg-black" id="features">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.div
@@ -45,8 +46,8 @@ const FeaturesSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Premium Features
+            <h2 className="text-4xl font-bold mb-4 text-white">
+              Premium <span style={{ color: accentColor }}>Features</span>
             </h2>
             <p className="text-lg text-gray-400 max-w-3xl mx-auto">
               Your luxury travel companion in Gurgaon, combining online convenience with premium offline service for an
@@ -64,10 +65,11 @@ const FeaturesSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
-              <Card className="group bg-gray-900/50 border-gray-800 backdrop-blur-sm hover:bg-gray-900/80 transition-all duration-300">
+              <Card className="group bg-black border border-gray-800 hover:border-[#c2946b] transition-all duration-300 overflow-hidden">
+                <div className="h-2 bg-gradient-to-r" style={{ from: accentColorDark, to: accentColor }}></div>
                 <CardContent className="p-8">
                   <div className="flex flex-col items-center text-center">
-                    <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                    <div className="mb-6 p-4 bg-black rounded-full border-2 transform group-hover:scale-110 transition-transform duration-300" style={{ borderColor: accentColor }}>
                       {feature.icon}
                     </div>
                     <h3 className="text-xl font-semibold mb-3 text-white">{feature.title}</h3>
@@ -84,19 +86,33 @@ const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="relative"
         >
-          <Card className="border-gray-800 bg-gradient-to-br from-gray-900 to-black overflow-hidden">
+          {/* Accent elements */}
+          <div className="absolute -top-4 -left-4 w-24 h-24 border-l-2 border-t-2" style={{ borderColor: accentColorDark, opacity: 0.5 }}></div>
+          <div className="absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2" style={{ borderColor: accentColorDark, opacity: 0.5 }}></div>
+
+          <Card className="border border-gray-800 bg-gradient-to-br" style={{ from: "gray-900", to: `rgba(${parseInt(accentColor.slice(1, 3), 16)}, ${parseInt(accentColor.slice(3, 5), 16)}, ${parseInt(accentColor.slice(5, 7), 16)}, 0.3)` }}>
             <CardContent className="p-0 flex flex-col md:flex-row">
               <div className="md:w-1/2 relative">
-                <div className="absolute inset-0 bg-black/40 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/80" style={{ to: `rgba(${parseInt(accentColor.slice(1, 3), 16)}, ${parseInt(accentColor.slice(3, 5), 16)}, ${parseInt(accentColor.slice(5, 7), 16)}, 0.3)` }} />
                 <img
                   src="feat2.jpg?height=600&width=800"
                   alt="Luxury Chauffeur Service"
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute bottom-6 left-6 z-20">
+                  <div className="flex items-center gap-2 text-white">
+                    <Award className="w-6 h-6" style={{ color: accentColor }} />
+                    <span className="font-bold">Trusted by 10,000+ clients</span>
+                  </div>
+                </div>
               </div>
               <div className="md:w-1/2 p-8 lg:p-12">
-                <h3 className="text-2xl font-semibold mb-6 text-white">All-Inclusive Service</h3>
+                <div className="inline-block mb-4 px-3 py-1 rounded-full" style={{ backgroundColor: `rgba(${parseInt(accentColor.slice(1, 3), 16)}, ${parseInt(accentColor.slice(3, 5), 16)}, ${parseInt(accentColor.slice(5, 7), 16)}, 0.3)`, borderColor: accentColor, borderWidth: '1px' }}>
+                  <span className="text-sm font-medium" style={{ color: accentColorLight }}>Premium Service</span>
+                </div>
+                <h3 className="text-2xl font-semibold mb-6 text-white">All-Inclusive Experience</h3>
                 <div className="grid gap-4">
                   {services.map((service, index) => (
                     <motion.div
@@ -107,10 +123,22 @@ const FeaturesSection = () => {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       className="flex items-start gap-3"
                     >
-                      <CheckCircle2 color="green" className="w-5 h-5 text-primary mt-1 shrink-0" />
+                      <CheckCircle2 className="w-5 h-5 mt-1 shrink-0" style={{ color: accentColor }} />
                       <span className="text-gray-300">{service}</span>
                     </motion.div>
                   ))}
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-gray-800">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-full" style={{ backgroundColor: `rgba(${parseInt(accentColor.slice(1, 3), 16)}, ${parseInt(accentColor.slice(3, 5), 16)}, ${parseInt(accentColor.slice(5, 7), 16)}, 0.2)` }}>
+                      <Headphones className="w-5 h-5" style={{ color: accentColor }} />
+                    </div>
+                    <div>
+                      <p className="text-gray-400 text-sm">Need assistance?</p>
+                      <p className="text-white font-semibold">24/7 Customer Support</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>

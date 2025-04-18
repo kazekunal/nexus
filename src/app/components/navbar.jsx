@@ -1,62 +1,104 @@
-import React from 'react';
+// components/navbar.jsx
+'use client';
+import Image from "next/image";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
+import logo from "../../../public/navbar.png";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose
+} from "@/components/ui/sheet";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const Navbar = () => {
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <div className="flex items-center justify-between w-full px-4 py-4 md:px-8 lg:px-16">
-      {/* Logo */}
-      <div className="flex items-center">
-        <div className="text-white text-2xl font-semibold flex items-center">
-          <div className="h-8 w-8 bg-green-500 rounded-md flex items-center justify-center mr-2">
-            <span className="text-white">U</span>
+    <nav className="fixed  w-full z-50 bg-[#d9d1c6]/80 backdrop-blur-lg border-b border-[#bd8c5e]/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          <a href="/">
+            <div className="text-2xl font-bold tracking-tighter text-white">
+              <Image
+                src={logo}
+                alt="Luxury car"
+                width="150"
+                height="50"
+                className="object-cover object-center"
+              />
+            </div>
+          </a>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {["Features", "How it works", "About us", "Contact"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="text-[#720c17] hover:text-[#bd8c5e] transition-colors"
+              >
+                {item}
+              </a>
+            ))}
           </div>
-          upgrade
+
+          {/* Desktop Auth Buttons */}
+          <a href="/bookings">
+            <div className="hidden md:flex items-center space-x-4">
+              <Button className="bg-[#720c17] hover:bg-[#5a0912] text-white">
+                Book Now
+              </Button>
+            </div>
+          </a>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-[#720c17] p-2 hover:text-[#bd8c5e]"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
-      
-      {/* Desktop navigation */}
-      <div className="hidden md:block">
-        <NavigationMenu>
-          <NavigationMenuList className="gap-6">
-            <NavigationMenuItem>
-              <NavigationMenuLink className="text-white hover:text-green-300 text-sm font-medium transition-colors">
-                Personal Loan
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink className="text-white hover:text-green-300 text-sm font-medium transition-colors">
-                One Card
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink className="text-white hover:text-green-300 text-sm font-medium transition-colors">
-                Savings
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink className="text-white hover:text-green-300 text-sm font-medium transition-colors">
-                Checking
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink className="text-white hover:text-green-300 text-sm font-medium transition-colors">
-                Help
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-      </div>
-      
-      {/* Sign in button */}
-      <div>
-        <Button variant="outline" className="border-white text-white hover:bg-white hover:text-green-800 transition-colors">
-          Sign In
-        </Button>
-      </div>
-    </div>
-  );
-};
 
-export default Navbar;
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-20 left-0 right-0 bg-black z-40 px-6 py-8 md:hidden border-b border-[#bd8c5e]/30 bg-[#d9d1c6]"
+          >
+            <div className="flex flex-col gap-6">
+              {["Features", "How it works", "About us", "Contact"].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-[#720c17] hover:text-[#bd8c5e] transition-colors text-lg font-light tracking-wide"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item}
+                </a>
+              ))}
+              <div className="flex flex-col gap-4 pt-4 border-t border-[#bd8c5e]/30">
+                <a href="/bookings" className="w-full">
+                  <Button
+                    className="bg-[#720c17] hover:bg-[#5a0912] text-white w-full text-base font-medium"
+                  >
+                    Book Now
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+}
