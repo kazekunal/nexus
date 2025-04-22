@@ -153,8 +153,8 @@ export default function Landing() {
               <div className="flex items-center gap-3 bg-[#111]/80 p-4 rounded-lg transition-colors text-center flex-col">
                 <Umbrella className="h-8 w-8 text-[#bd8c5e]" />
                 <div>
-                  <h3 className="font-semibold text-white">Trip <br/>Insurance</h3>
-                  <p className="text-sm text-[#d9d1c6]">At affordable <br/>rates</p>
+                  <h3 className="font-semibold text-white">Trip <br className="hidden md:block"/>Insurance</h3>
+                  <p className="text-sm text-[#d9d1c6]">At affordable <br className="hidden md:block"/>rates</p>
                 </div>
               </div>
             </div>
