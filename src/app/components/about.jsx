@@ -82,20 +82,17 @@ const HowItWorks = () => {
 
             {/* Illustration on the right */}
             <motion.div 
-              className="bg-[#111] rounded-lg p-6 h-64 flex items-center justify-center border border-[#d9d1c6]/20"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-            >
-              <div className="text-center">
-                <div className="w-24 h-24 rounded-full bg-[#222] mx-auto mb-4 flex items-center justify-center border-2 border-[#720c17]">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-[#d9d1c6]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <p className="text-sm text-[#d9d1c6]">Online Booking Illustration</p>
-              </div>
-            </motion.div>
+  className="bg-[#111] rounded-lg p-6 h-auto max-h-96 flex items-center justify-center"
+  initial={{ opacity: 0, x: 30 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ delay: 0.5, duration: 0.8 }}
+>
+  <img
+    src="/online.png"
+    alt="Luxury Chauffeur Service"
+    className="w-full h-auto max-h-full object-cover rounded-md"
+  />
+</motion.div>
           </div>
         </div>
 
@@ -113,19 +110,16 @@ const HowItWorks = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Illustration on the left for desktop, but will appear below heading on mobile */}
             <motion.div 
-              className="bg-[#111] rounded-lg p-6 h-64 flex items-center justify-center md:order-1 order-2 border border-[#d9d1c6]/20"
-              initial={{ opacity: 0, x: -30 }}
+              className="bg-[#111] rounded-lg p-6 h-auto max-h-96 flex items-center justify-center"
+              initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.0, duration: 0.8 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
             >
-              <div className="text-center">
-                <div className="w-24 h-24 rounded-full bg-[#222] mx-auto mb-4 flex items-center justify-center border-2 border-[#720c17]">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-[#d9d1c6]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                  </svg>
-                </div>
-                <p className="text-sm text-[#d9d1c6]">Offline Booking Illustration</p>
-              </div>
+              <img
+                src="/offline.jpg"
+                alt="Luxury Chauffeur Service"
+                className="w-full h-auto max-h-full object-cover rounded-md"
+              />
             </motion.div>
 
             {/* Steps on the right for desktop */}

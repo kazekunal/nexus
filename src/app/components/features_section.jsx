@@ -25,7 +25,7 @@ const FeaturesSection = () => {
       icon: <MapPin className="w-10 h-10" style={{ color: accentColor }} />,
       title: "Venue Partners",
       description:
-        "Find our suited teams at five premium nightlife venues in Gurgaon, ready to assist you with immediate bookings.",
+        "Find our suited teams at five premium nightlife venues in Gurgaon soon, ready to assist you with immediate bookings.",
     },
   ]
 

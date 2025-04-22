@@ -1,7 +1,7 @@
 // components/landing.jsx
 'use client';
 import Image from "next/image";
-import { ChevronRight, Star, Shield, Clock, Car } from "lucide-react";
+import { ChevronRight, Star, Shield, Clock, Car, Umbrella } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import bgimg from "../../../public/bg_img.jpg";
 import {
@@ -42,12 +42,12 @@ export default function Landing() {
       </div>
 
       {/* Content section below the image */}
-      <div id="content-section" className="w-full bg-[#BD8C5E] min-h-screen">
+      <div id="content-section" className="w-full bg-black min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-24 md:pt-32">
           <div className="max-w-3xl mx-auto space-y-8 text-center">
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white [text-wrap:balance] mx-auto">
-                Your Personal <span className="text-[#314b4c]">Chauffeur</span><br/>  Just a Tap Away!
+                Your Personal <span className="text-[#bd8c5e]">Chauffeur</span><br/>  Just a Tap Away!
               </h1>
               <p className="text-lg sm:text-xl text-[#d9d1c6] max-w-2xl mx-auto">
               Professional, safe, and reliable chauffeurs for your personal car – now available in Gurgaon for Friday & Saturday nights!
@@ -128,7 +128,7 @@ export default function Landing() {
               </Sheet>
             </div>
 
-            <div className="pt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="pt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               <div className="flex items-center gap-3 bg-[#111]/80 p-4 rounded-lg transition-colors text-center flex-col">
                 <Car className="h-8 w-8 text-[#bd8c5e]" />
                 <div>
@@ -150,7 +150,13 @@ export default function Landing() {
                   <p className="text-sm text-[#d9d1c6]">Your safety, Our priority</p>
                 </div>
               </div>
-              
+              <div className="flex items-center gap-3 bg-[#111]/80 p-4 rounded-lg transition-colors text-center flex-col">
+                <Umbrella className="h-8 w-8 text-[#bd8c5e]" />
+                <div>
+                  <h3 className="font-semibold text-white">Trip <br/>Insurance</h3>
+                  <p className="text-sm text-[#d9d1c6]">At affordable <br/>rates</p>
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-col items-center gap-4 pt-8 bg-[#111]/80 p-4 rounded-lg">
