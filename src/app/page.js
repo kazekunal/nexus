@@ -10,8 +10,11 @@ import LandingPage from "./components/landing";
 import LandingPage2 from "./components/landing_2";
 import Navbar from "./components/navbar";
 import PricingComponent from "./components/pricing";
+import ReferralLoyaltyPage from "./components/referal";
 import SupportBanner from "./components/support";
 import SupportSection from "./components/support__section";
+import TripInsurancePage from "./components/trip_insu";
+import WhyChooseUsPage from "./components/whyus";
 
 export default function Home() {
   return (
@@ -24,7 +27,10 @@ export default function Home() {
       <AboutMission/>
       <AboutUs/>
       <PricingComponent/>
+      <WhyChooseUsPage/>
       <SupportSection/>
+      <ReferralLoyaltyPage/>
+      <TripInsurancePage/>
       <EmailSection/>
       <Footer/>
     </div>
