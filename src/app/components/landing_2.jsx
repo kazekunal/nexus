@@ -42,12 +42,12 @@ export default function Landing() {
       </div>
 
       {/* Content section below the image */}
-      <div id="content-section" className="w-full bg-black min-h-screen">
+      <div id="content-section" className="w-full bg-[#BD8C5E] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-24 md:pt-32">
           <div className="max-w-3xl mx-auto space-y-8 text-center">
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white [text-wrap:balance] mx-auto">
-                Your Personal <span className="text-[#bd8c5e]">Chauffeur</span><br/>  Just a Tap Away!
+                Your Personal <span className="text-[#314b4c]">Chauffeur</span><br/>  Just a Tap Away!
               </h1>
               <p className="text-lg sm:text-xl text-[#d9d1c6] max-w-2xl mx-auto">
               Professional, safe, and reliable chauffeurs for your personal car – now available in Gurgaon for Friday & Saturday nights!
