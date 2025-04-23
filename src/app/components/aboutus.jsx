@@ -23,37 +23,11 @@ const AboutUs = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <p className="text-lg mb-6 leading-relaxed">
+            <p className="text-lg mb-6 leading-relaxed text-center">
               Discover the concept behind Chauffit and why we exist. Chauffit is a premium chauffeur-on-demand
               service designed for customers who want the convenience and safety of a professional chauffeur for
               their personal vehicle.
             </p>
-
-            <h3 className="text-2xl font-bold mb-4 text-[#d9d1c6]">We offer:</h3>
-
-            <ul className="space-y-3">
-              {[
-                "Every chauffeur undergoes rigorous background checks and professional training. Your safety is our top priority.",
-                "No hidden fees or surprises. Our competitive rates mean luxury service without the luxury price tag.",
-                "We treat your vehicle with the same care and respect as our own, ensuring a worry-free experience.",
-                "Enjoy your weekend nights without worrying about driving. We're available when you need us most in Gurgaon."
-              ].map((item, index) => (
-                <motion.li
-                  key={index}
-                  className="flex items-start gap-3"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 + (index * 0.1), duration: 0.5 }}
-                >
-                  <div className="flex-shrink-0 mt-1">
-                    <div className="bg-[#720c17] rounded-full w-5 h-5 flex items-center justify-center">
-                      <Check size={12} className="text-[#d9d1c6]" />
-                    </div>
-                  </div>
-                  <span>{item}</span>
-                </motion.li>
-              ))}
-            </ul>
           </motion.div>
 
           {/* Right side: Visual Card */}
@@ -65,11 +39,11 @@ const AboutUs = () => {
           >
             <div className="bg-[#111] rounded-lg overflow-hidden border border-[#d9d1c6]/20 h-full">
               <div className="relative w-full h-48 md:h-64">
-                {/* Map iframe */}
+                {/* Map iframe<iframe  width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.799298814015!2d77.08624658446485!3d28.45546591326581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d18c61126d983%3A0x13afd371e441dbd5!2sGolf%20Course%20Rd%2C%20Sector%2043%2C%20Gurugram%2C%20Haryana%20122022!5e0!3m2!1sen!2sin!4v1744792304997!5m2!1sen!2sin"
-                  width="100%"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.3799341406184!2d77.06038057580592!3d28.46810257575496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1998d93a2cfb%3A0x6738361a7da66f53!2sDowntown%20Diner%20%26%20Fresh%20Beer%20Cafe!5e0!3m2!1sen!2sin!4v1745415254024!5m2!1sen!2sin"
                   height="100%"
+                  width="100%"
                   style={{ border: 0 }}
                   allowFullScreen={true}
                   loading="lazy"
@@ -89,7 +63,7 @@ const AboutUs = () => {
                 </p>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-[#720c17]"></div>
-                  <span className="text-[#d9d1c6] text-sm" id='pricing'>Service available from 8 PM to 3 AM</span>
+                  <span className="text-[#d9d1c6] text-sm" id='pricing'>Service available from 10 PM to 3:30 AM</span>
                 </div>
               </div>
             </div>

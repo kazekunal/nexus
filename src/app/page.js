@@ -27,9 +27,10 @@ export default function Home() {
       <FeaturesSection/>
       <AboutMission/>
       <AboutUs/>
+      <WhyChooseUsPage/>
       <PricingComponent/>
       <TripInsurancePage/>
-      <WhyChooseUsPage/>
+      
       {/* <SupportSection/> */}
       <ReferralLoyaltyPage/>
       <EmailSection/>

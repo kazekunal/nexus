@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { Award } from 'lucide-react';
+import { Award, Check, Star } from 'lucide-react';
 
 export default function PricingComponent() {
   const [activeTab, setActiveTab] = useState('perMin');
@@ -8,10 +8,10 @@ export default function PricingComponent() {
   const carSegments = [
     { name: 'Hatchback', fixed: '₹749', perKm: '₹349', perMin: '₹225', badge: '' },
     { name: 'Micro SUV', fixed: '₹849', perKm: '₹375', perMin: '₹275', badge: '' },
-    { name: 'Mid-size SUV', fixed: '₹899', perKm: '₹425', perMin: '₹349', badge: 'Popular' },
+    { name: 'Mid-size SUV', fixed: '₹899', perKm: '₹425', perMin: '₹349', badge: '' },
     { name: 'Sedan', fixed: '₹899', perKm: '₹425', perMin: '₹375', badge: '' },
     { name: 'Full-size SUV', fixed: '₹999', perKm: '₹499', perMin: '₹425', badge: '' },
-    { name: 'Luxury', fixed: '₹1199', perKm: '₹699', perMin: '₹699', badge: 'Best Value' },
+    { name: 'Luxury', fixed: '₹1199', perKm: '₹699', perMin: '₹699', badge: '' },
   ];
 
   return (
@@ -38,14 +38,24 @@ export default function PricingComponent() {
             </button>
             <button 
               onClick={() => setActiveTab('fixed')} 
-              className={`flex-1 py-4 px-6 font-medium text-center ${activeTab === 'fixed' ? 'bg-red-800 text-white' : 'text-gray-300 hover:bg-gray-800'}`}
+              className={`relative flex-1 py-4 px-6 font-medium text-center ${activeTab === 'fixed' ? 'bg-red-800 text-white' : 'text-gray-300 hover:bg-gray-800'}`}
             >
+              <div className="absolute -top-3.5 left-0 right-0 flex justify-center">
+                <span className="bg-yellow-500 text-black text-[8px] font-bold px-2 py-0.5 rounded-full flex items-center">
+                  <Star size={10} className="mr-1" /> MOST POPULAR
+                </span>
+              </div>
               Fixed Price Plan
             </button>
             <button 
               onClick={() => setActiveTab('perKm')} 
-              className={`flex-1 py-4 px-6 font-medium text-center ${activeTab === 'perKm' ? 'bg-red-800 text-white' : 'text-gray-300 hover:bg-gray-800'}`}
+              className={`relative flex-1 py-4 px-6 font-medium text-center ${activeTab === 'perKm' ? 'bg-red-800 text-white' : 'text-gray-300 hover:bg-gray-800'}`}
             >
+              <div className="absolute -top-3.5 left-0 right-0 flex justify-center">
+                <span className="bg-green-500 text-black text-[8px] font-bold px-2 py-0.5 rounded-full flex items-center">
+                  <Check size={10} className="mr-1" /> BEST <br/> VALUE
+                </span>
+              </div>
               Per Km Plan
             </button>
             <button 
@@ -63,10 +73,20 @@ export default function PricingComponent() {
                 <tr className="bg-gray-800 text-white">
                   <th className="py-3 px-4 text-left border-b border-gray-700">Car Segment</th>
                   {(activeTab === 'all' || activeTab === 'fixed') && 
-                    <th className="py-3 px-4 text-left border-b border-gray-700">Fixed Cost (0–15 km)</th>
+                    <th className="py-3 px-4 text-left border-b border-gray-700">
+                      <div className="flex items-center">
+                        Fixed Cost (0–15 km)
+                       
+                      </div>
+                    </th>
                   }
                   {(activeTab === 'all' || activeTab === 'perKm') && 
-                    <th className="py-3 px-4 text-left border-b border-gray-700">Base Fair (+ ₹25 Per Km)</th>
+                    <th className="py-3 px-4 text-left border-b border-gray-700">
+                      <div className="flex items-center">
+                        Base Fair (+ ₹25 Per Km)
+                        
+                      </div>
+                    </th>
                   }
                   {(activeTab === 'all' || activeTab === 'perMin') && 
                     <th className="py-3 px-4 text-left border-b border-gray-700">Base Fair (+ ₹15 Per Min)</th>
@@ -88,10 +108,30 @@ export default function PricingComponent() {
                       </div>
                     </td>
                     {(activeTab === 'all' || activeTab === 'fixed') && 
-                      <td className="py-4 px-4 font-bold text-white">{car.fixed}</td>
+                      <td className="py-4 px-4 font-bold text-white">
+                        {activeTab === 'all' && (
+                          <div className="flex items-center">
+                            {car.fixed}
+                            <span className="ml-2 bg-yellow-500 text-black text-xs font-bold px-2 py-0.5 rounded-full flex items-center">
+                              <Star size={10} className="mr-1" /> POPULAR
+                            </span>
+                          </div>
+                        )}
+                        {activeTab !== 'all' && car.fixed}
+                      </td>
                     }
                     {(activeTab === 'all' || activeTab === 'perKm') && 
-                      <td className="py-4 px-4 font-bold text-white">{car.perKm}</td>
+                      <td className="py-4 px-4 font-bold text-white">
+                        {activeTab === 'all' && (
+                          <div className="flex items-center">
+                            {car.perKm}
+                            <span className="ml-2 bg-green-500 text-black text-xs font-bold px-2 py-0.5 rounded-full flex items-center">
+                              <Check size={10} className="mr-1" /> BEST VALUE
+                            </span>
+                          </div>
+                        )}
+                        {activeTab !== 'all' && car.perKm}
+                      </td>
                     }
                     {(activeTab === 'all' || activeTab === 'perMin') && 
                       <td className="py-4 px-4 font-bold text-white">{car.perMin}</td>
@@ -105,8 +145,18 @@ export default function PricingComponent() {
           {/* Legend */}
           <div className="bg-gray-800 p-4">
             <div className="text-sm text-gray-400">
-              <p className="mb-2"><span className="font-bold text-gray-300">Fixed Cost:</span> One-time fee for rides up to 15 kilometers</p>
-              <p className="mb-2"><span className="font-bold text-gray-300">Per Km Plan:</span> Base fare plus ₹25 for each additional kilometer</p>
+              <p className="mb-2">
+                <span className="font-bold text-gray-300">Fixed Cost:</span> One-time fee for rides up to 15 kilometers
+                <span className="ml-2 bg-yellow-500 text-black text-xs font-bold px-2 py-0.5 rounded-full inline-flex items-center">
+                  <Star size={10} className="mr-1" /> MOST POPULAR
+                </span>
+              </p>
+              <p className="mb-2">
+                <span className="font-bold text-gray-300">Per Km Plan:</span> Base fare plus ₹25 for each additional kilometer
+                <span className="ml-2 bg-green-500 text-black text-xs font-bold px-2 py-0.5 rounded-full inline-flex items-center">
+                  <Check size={10} className="mr-1" /> BEST VALUE
+                </span>
+              </p>
               <p id='trip%20insurance'><span className="font-bold text-gray-300">Per Min Plan:</span> Base fare plus ₹15 for each minute of journey time</p>
             </div>
           </div>

@@ -170,7 +170,7 @@ export default function ReferralLoyaltyPage() {
                 <Users className="h-5 w-5 text-[#bd8c5e] mr-2" />
                 <p className="text-sm">Ready to start earning rewards?</p>
               </div>
-              <button
+              <button id="contact"
                     className="bg-[#720c17] text-white px-4 py-1.5 rounded text-sm cursor:pointer"
                     onClick={() => {
                         navigator.clipboard.writeText("https://www.instagram.com/chauff.it?igsh=dmUxZjQxMnhlMXYy&utm_source=qr").then(() => {

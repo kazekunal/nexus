@@ -8,17 +8,9 @@ export default function Footer2() {
   return (
     <footer className="bg-gray-900 text-white pt-12 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* About Chauffit */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">About Chauffit</h3>
-            <p className="text-gray-300 mb-4">
-              At Chauffit, your peace of mind is our priority. We provide premium transportation services with optional trip insurance to protect your journey.
-            </p>
-            <p className="text-gray-300">
-              © 2025 Chauffit
-            </p>
-          </div>
+          
 
           {/* Quick Links */}
           <div>

@@ -58,7 +58,7 @@ const EmailSection = () => {
   };
 
   return (
-    <section id="contact" className="w-full py-16 sm:pt-0 bg-black">
+    <section className="w-full py-16 sm:pt-0 bg-black">
       <div className="max-w-6xl mx-auto px-4">
         <Card className="relative overflow-hidden border border-gray-700 bg-black/40 backdrop-blur-sm">
         <div className="absolute -left-32 -top-32 w-80 h-80 bg-gradient-to-br from-[#720c17] via-[#8a1a24] to-[#a22833] opacity-50 rounded-full blur-[90px]" />
