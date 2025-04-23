@@ -19,8 +19,8 @@ export default function Navbar() {
               <Image
                 src={logo}
                 alt="Luxury car"
-                width="150"
-                height="50"
+                width="200"
+                height="100"
                 className="object-cover object-center"
               />
             </div>
