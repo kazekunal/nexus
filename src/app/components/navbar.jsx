@@ -6,16 +6,6 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "../../../public/navbar.png";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  SheetClose
-} from "@/components/ui/sheet";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

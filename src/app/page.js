@@ -15,6 +15,7 @@ import SupportBanner from "./components/support";
 import SupportSection from "./components/support__section";
 import TripInsurancePage from "./components/trip_insu";
 import WhyChooseUsPage from "./components/whyus";
+import Footer2 from "./components/footer2";
 
 export default function Home() {
   return (
@@ -32,7 +33,7 @@ export default function Home() {
       {/* <SupportSection/> */}
       <ReferralLoyaltyPage/>
       <EmailSection/>
-      <Footer/>
+      <Footer2/>
     </div>
   );
 }
