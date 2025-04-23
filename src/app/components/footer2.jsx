@@ -39,20 +39,36 @@ export default function Footer2() {
               <li><a href="/tnc" className="text-gray-300 hover:text-red-400 transition-colors">Terms & Conditions</a></li>
               <li><a href="/insurance" className="text-gray-300 hover:text-red-400 transition-colors">Insurance Terms</a></li>
               <li><a href="#contact" className="text-gray-300 hover:text-red-400 transition-colors">Contact Us</a></li>
-              
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact Info & QR Code */}
           <div>
             <h3 className="text-xl font-bold mb-4">Contact Info</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center text-gray-300">
-                <span className="mr-2">Email:</span>
-                <a href="mailto:chauffit@gmail.com" className="hover:text-red-400 transition-colors">chauffit@gmail.com</a>
-              </li>
+            <div className="flex flex-col space-y-4">
+              <div>
+                <ul className="space-y-2">
+                  <li className="flex items-center text-gray-300">
+                    <span className="mr-2">Email:</span>
+                    <a href="mailto:chauffit@gmail.com" className="hover:text-red-400 transition-colors">chauffit@gmail.com</a>
+                  </li>
+                </ul>
+              </div>
               
-            </ul>
+              {/* QR Code */}
+              <div className="mt-4">
+                <p className="text-xl font-bold mb-4">Scan to connect:</p>
+                <div className="bg-white p-1 w-24 h-24 inline-block">
+                  <Image
+                    src="/qr_3.png"
+                    alt="Chauffit QR Code"
+                    width={90}
+                    height={90}
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -60,16 +76,15 @@ export default function Footer2() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-            <div className="text-2xl font-bold tracking-tighter text-white">
-              <Image
-                src={logo}
-                alt="Luxury car"
-                width="150"
-                height="50"
-                className="object-cover object-center"
-              />
-            </div>
-              {/* <img src="/api/placeholder/160/40" alt="Chauffit Logo" className="h-10" /> */}
+              <div className="text-2xl font-bold tracking-tighter text-white">
+                <Image
+                  src={logo}
+                  alt="Luxury car"
+                  width="150"
+                  height="50"
+                  className="object-cover object-center"
+                />
+              </div>
             </div>
             <div className="flex space-x-4">
               <a href="https://facebook.com" className="text-gray-300 hover:text-red-400 transition-colors">
@@ -90,8 +105,8 @@ export default function Footer2() {
       </div>
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col items-center space-y-2 text-gray-400 text-sm">
-            <Link href="/tnc">
-          <p>Copyright © 2025. CHAUFF-IT, Terms and Conditions</p>
+          <Link href="/tnc">
+            <p>Copyright © 2025. CHAUFF-IT, Terms and Conditions</p>
           </Link>
           <p>
             Designed and Developed by{' '}
