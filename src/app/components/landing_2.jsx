@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { ChevronRight, Star, Shield, Clock, Car, Umbrella } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import bgimg from "../../../public/bg_img.jpg";
+import bgimgDesktop from "../../../public/bg_img.png";
+import bgimgMobile from "../../../public/bg_img_3.png";
 import {
   Sheet,
   SheetContent,
@@ -19,27 +20,47 @@ export default function Landing() {
   return (
     <div className="flex flex-col">
       {/* Full-width hero image section */}
-      <div className="w-full h-screen relative">
-        <Image
-          src={bgimg}
-          alt="Luxury car"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-          priority
-          className="w-full h-full"
-        />
-        <div className="absolute bottom-0 left-0 right-0 text-center p-6 bg-gradient-to-t from-black to-transparent">
-          <Button
-            size="lg"
-            className="group bg-[#720c17] hover:bg-[#5a0912] text-white animate-bounce"
-            onClick={() => document.getElementById('content-section').scrollIntoView({ behavior: 'smooth' })}
-          >
-            Scroll Down
-            <ChevronRight className="ml-2 h-4 w-4 transform rotate-90" />
-          </Button>
-        </div>
-      </div>
+      <div className="relative w-full h-screen">
+  {/* Desktop Image */}
+  <div className="hidden sm:block absolute inset-0">
+    <Image
+      src={bgimgDesktop} // your desktop image
+      alt="Luxury car desktop"
+      fill
+      className="object-cover object-center"
+      priority
+    />
+  </div>
+
+  {/* Mobile Image */}
+  <div className="block w-full h-full sm:hidden absolute inset-0">
+  <Image
+    src={bgimgMobile} // your mobile image
+    alt="Luxury car mobile"
+    fill
+    className=""
+    priority
+  />
+</div>
+
+  {/* Overlay Content */}
+  <div className="absolute bottom-0 left-0 right-0 text-center p-4 md:p-6 bg-gradient-to-t from-black to-transparent">
+    <Button
+      size="lg"
+      className="group bg-[#720c17] hover:bg-[#5a0912] text-white animate-bounce mb-20 md:mb-0"
+      onClick={() =>
+        document
+          .getElementById('content-section')
+          .scrollIntoView({ behavior: 'smooth' })
+      }
+    >
+      Scroll Down
+      <ChevronRight className="ml-2 h-4 w-4 transform rotate-90" />
+    </Button>
+  </div>
+</div>
+
+
 
       {/* Content section below the image */}
       <div id="content-section" className="w-full bg-black min-h-screen">
