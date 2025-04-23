@@ -27,10 +27,10 @@ export default function Home() {
       <AboutMission/>
       <AboutUs/>
       <PricingComponent/>
-      <WhyChooseUsPage/>
-      <SupportSection/>
-      <ReferralLoyaltyPage/>
       <TripInsurancePage/>
+      {/* <WhyChooseUsPage/> */}
+      {/* <SupportSection/> */}
+      <ReferralLoyaltyPage/>
       <EmailSection/>
       <Footer/>
     </div>

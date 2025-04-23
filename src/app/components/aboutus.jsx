@@ -33,10 +33,10 @@ const AboutUs = () => {
 
             <ul className="space-y-3">
               {[
-                "Background-verified, trained chauffeurs",
-                "Flexible pricing options",
-                "Special focus on weekend nights in Gurgaon",
-                "Days: Friday & Saturday nights"
+                "Every chauffeur undergoes rigorous background checks and professional training. Your safety is our top priority.",
+                "No hidden fees or surprises. Our competitive rates mean luxury service without the luxury price tag.",
+                "We treat your vehicle with the same care and respect as our own, ensuring a worry-free experience.",
+                "Enjoy your weekend nights without worrying about driving. We're available when you need us most in Gurgaon."
               ].map((item, index) => (
                 <motion.li
                   key={index}
