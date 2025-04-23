@@ -1,6 +1,6 @@
 "use client"
 import { Card, CardContent } from "@/components/ui/card"
-import { Clock, Shield, MapPin, CheckCircle2, Award, Car, Headphones } from "lucide-react"
+import { Clock, Shield, MapPin, CheckCircle2, Award, Car, Headphones, SquareUserRound, Link } from "lucide-react"
 import { motion } from "framer-motion"
 
 const FeaturesSection = () => {
@@ -16,7 +16,7 @@ const FeaturesSection = () => {
         "Two-factor authentication, driver profiles, dashcam footage, and live tracking available for 24 hours with sharing options.",
     },
     {
-      icon: <Car className="w-10 h-10" style={{ color: accentColor }} />,
+      icon: <SquareUserRound className="w-10 h-10" style={{ color: accentColor }} />,
       title: "Premium Chauffeurs",
       description:
         "Professionally trained drivers ensuring a comfortable and reliable experience for all your transportation needs.",
@@ -32,7 +32,7 @@ const FeaturesSection = () => {
   const services = [
     "Live tracking and enhanced security measures",
     "Professional chauffeurs with extensive training",
-    "Seamless booking with 15-20 minute driver availability",
+    "Seamless booking with 5-10 minute driver availability",
     "Dashcam access for security and trip memories",
   ]
 
@@ -134,10 +134,12 @@ const FeaturesSection = () => {
                     <div className="p-3 rounded-full" style={{ backgroundColor: `rgba(${parseInt(accentColor.slice(1, 3), 16)}, ${parseInt(accentColor.slice(3, 5), 16)}, ${parseInt(accentColor.slice(5, 7), 16)}, 0.2)` }}>
                       <Headphones className="w-5 h-5" style={{ color: accentColor }} />
                     </div>
+                    <a href='#contact'>
                     <div>
                       <p className="text-gray-400 text-sm">Need assistance?</p>
-                      <p className="text-white font-semibold">24/7 Customer Support</p>
+                      <p className="text-white font-semibold">Customer Support Available</p>
                     </div>
+                    </a>
                   </div>
                 </div>
               </div>

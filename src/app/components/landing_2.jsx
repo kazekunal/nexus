@@ -1,7 +1,7 @@
 // components/landing.jsx
 'use client';
 import Image from "next/image";
-import { ChevronRight, Star, Shield, Clock, Car, Umbrella } from "lucide-react";
+import { ChevronRight, Star, Shield, Clock, Car, Umbrella, SquareUserRound} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import bgimgDesktop from "../../../public/bg_img.png";
 import bgimgMobile from "../../../public/bg_img_3.png";
@@ -151,7 +151,7 @@ export default function Landing() {
 
             <div className="pt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               <div className="flex items-center gap-3 bg-[#111]/80 p-4 rounded-lg transition-colors text-center flex-col">
-                <Car className="h-8 w-8 text-[#bd8c5e]" />
+                <SquareUserRound className="h-8 w-8 text-[#bd8c5e]" />
                 <div>
                   <h3 className="font-semibold text-white">Premium Chauffeurs</h3>
                   <p className="text-sm text-[#d9d1c6]">Seamless reservations</p>
@@ -180,7 +180,7 @@ export default function Landing() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-4 pt-8 bg-[#111]/80 p-4 rounded-lg">
+            {/* <div className="flex flex-col items-center gap-4 pt-8 bg-[#111]/80 p-4 rounded-lg">
               <div className="flex -space-x-2">
                 {[
                   { letter: "K", color: "bg-[#720c17]" },
@@ -206,7 +206,7 @@ export default function Landing() {
                 <p className="text-sm text-[#d9d1c6]">Trusted by 10,000+ clients</p>
               </div>
               <div id="services"></div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
