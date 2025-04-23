@@ -74,19 +74,19 @@ export default function Footer2() {
 
         {/* Social Icons */}
         <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-center items-center">
             <div className="mb-4 md:mb-0">
               <div className="text-2xl font-bold tracking-tighter text-white">
                 <Image
                   src={logo}
                   alt="Luxury car"
-                  width="150"
-                  height="50"
+                  width="250"
+                  height="150"
                   className="object-cover object-center"
                 />
               </div>
             </div>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <a href="https://facebook.com" className="text-gray-300 hover:text-red-400 transition-colors">
                 <Facebook size={20} />
               </a>
@@ -99,7 +99,7 @@ export default function Footer2() {
               <a href="https://linkedin.com" className="text-gray-300 hover:text-red-400 transition-colors">
                 <Linkedin size={20} />
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
