@@ -41,7 +41,7 @@ export default function PricingComponent() {
               className={`relative flex-1 py-4 px-6 font-medium text-center ${activeTab === 'fixed' ? 'bg-red-800 text-white' : 'text-gray-300 hover:bg-gray-800'}`}
             >
               <div className="absolute -top-3.5 left-0 right-0 flex justify-center">
-                <span className="bg-yellow-500 text-black text-[8px] font-bold px-2 py-0.5 rounded-full flex items-center">
+                <span className="bg-yellow-500 text-black md:text-xs text-[8px] font-bold px-2 py-0.5 rounded-full flex items-center">
                   <Star size={10} className="mr-1" /> MOST POPULAR
                 </span>
               </div>
@@ -52,8 +52,8 @@ export default function PricingComponent() {
               className={`relative flex-1 py-4 px-6 font-medium text-center ${activeTab === 'perKm' ? 'bg-red-800 text-white' : 'text-gray-300 hover:bg-gray-800'}`}
             >
               <div className="absolute -top-3.5 left-0 right-0 flex justify-center">
-                <span className="bg-green-500 text-black text-[8px] font-bold px-2 py-0.5 rounded-full flex items-center">
-                  <Check size={10} className="mr-1" /> BEST <br/> VALUE
+                <span className="bg-green-500 text-black md:text-xs text-[8px] font-bold px-2 py-0.5 rounded-full flex items-center">
+                  <Check size={10} className="mr-1" /> BEST <br className='md:hidden' /> VALUE
                 </span>
               </div>
               Per Km Plan

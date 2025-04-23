@@ -63,7 +63,7 @@ const AboutUs = () => {
                 </p>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-[#720c17]"></div>
-                  <span className="text-[#d9d1c6] text-sm" id='pricing'>Service available from 10 PM to 3:30 AM</span>
+                  <span className="text-[#d9d1c6] text-sm">Service available from 10 PM to 3:30 AM</span>
                 </div>
               </div>
             </div>

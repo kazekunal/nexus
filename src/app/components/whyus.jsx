@@ -66,7 +66,7 @@ export default function WhyChooseUsPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold mb-2 text-white">Available Friday & Saturday Nights</h3>
-                  <p className="text-gray-300">
+                  <p className="text-gray-300" id='pricing'>
                     Enjoy your weekend nights without worrying about driving. We're available when you need us most in Gurgaon.
                   </p>
                 </div>
