@@ -6,7 +6,7 @@ import { Check } from "lucide-react"
 const AboutUs = () => {
   return (
     <section className="bg-black text-white py-16" id="about us">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4" >
         <motion.h2
           className="text-4xl md:text-5xl font-bold mb-8 text-center pt-8"
           initial={{ opacity: 0, y: -20 }}
@@ -89,7 +89,7 @@ const AboutUs = () => {
                 </p>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-[#720c17]"></div>
-                  <span className="text-[#d9d1c6] text-sm">Service available from 8 PM to 3 AM</span>
+                  <span className="text-[#d9d1c6] text-sm" id='pricing'>Service available from 8 PM to 3 AM</span>
                 </div>
               </div>
             </div>

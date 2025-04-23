@@ -107,7 +107,7 @@ export default function PricingComponent() {
             <div className="text-sm text-gray-400">
               <p className="mb-2"><span className="font-bold text-gray-300">Fixed Cost:</span> One-time fee for rides up to 15 kilometers</p>
               <p className="mb-2"><span className="font-bold text-gray-300">Per Km Plan:</span> Base fare plus ₹25 for each additional kilometer</p>
-              <p><span className="font-bold text-gray-300">Per Min Plan:</span> Base fare plus ₹15 for each minute of journey time</p>
+              <p id='trip%20insurance'><span className="font-bold text-gray-300">Per Min Plan:</span> Base fare plus ₹15 for each minute of journey time</p>
             </div>
           </div>
         </div>

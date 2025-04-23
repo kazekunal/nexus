@@ -56,7 +56,7 @@ export default function Footer2() {
               </div>
               
               {/* QR Code */}
-              <div className="mt-4">
+              <div className="mt-4 md:hidden">
                 <p className="text-gray-300 mb-2">Scan to connect:</p>
                 <div className="bg-white p-1 w-24 h-24 inline-block">
                   <Image
@@ -105,9 +105,6 @@ export default function Footer2() {
       </div>
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col items-center space-y-2 text-gray-400 text-sm">
-          <Link href="/tnc">
-            <p>Copyright © 2025. CHAUFF-IT, Terms and Conditions</p>
-          </Link>
           <p>
             Designed and Developed by{' '}
             <span className="text-white hover:text-gray-300 transition-colors cursor-pointer">
