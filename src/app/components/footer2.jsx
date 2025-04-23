@@ -57,7 +57,7 @@ export default function Footer2() {
               
               {/* QR Code */}
               <div className="mt-4">
-                <p className="text-xl font-bold mb-4">Scan to connect:</p>
+                <p className="text-gray-300 mb-2">Scan to connect:</p>
                 <div className="bg-white p-1 w-24 h-24 inline-block">
                   <Image
                     src="/qr_3.png"

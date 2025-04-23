@@ -61,8 +61,8 @@ const EmailSection = () => {
     <section id="contact" className="w-full py-16 sm:pt-0 bg-black">
       <div className="max-w-6xl mx-auto px-4">
         <Card className="relative overflow-hidden border border-gray-700 bg-black/40 backdrop-blur-sm">
-          <div className="absolute -left-32 -top-32 w-80 h-80 bg-gradient-to-br from-fuchsia-500 via-purple-600 to-rose-500 opacity-50 rounded-full blur-[90px]" />
-          <div className="absolute -right-32 -bottom-32 w-80 h-80 bg-gradient-to-br from-blue-500 via-teal-400 to-cyan-300 opacity-50 rounded-full blur-[90px]" />
+        <div className="absolute -left-32 -top-32 w-80 h-80 bg-gradient-to-br from-[#720c17] via-[#8a1a24] to-[#a22833] opacity-50 rounded-full blur-[90px]" />
+          <div className="absolute -right-32 -bottom-32 w-80 h-80 bg-gradient-to-br from-[#314b4c] via-[#3a5b5c] to-[#446b6c] opacity-50 rounded-full blur-[90px]" />
 
           <CardContent className="p-6 md:p-12">
             <div className="grid md:grid-cols-2 gap-8">
@@ -72,10 +72,10 @@ const EmailSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">
+                <h2 className="text-3xl text-[#d9d1c6] md:text-4xl font-bold text-white mb-4 md:mb-6">
                 Let&apos;s Ride in Style
                 </h2>
-                <p className="text-gray-400 text-lg mb-6 leading-relaxed">
+                <p className="text-[#d9d1c6] text-lg mb-6 leading-relaxed">
                 Our team is committed to providing a seamless, comfortable, and professional experience from start to finish. Reach out to us, and we&apos;ll get back to you promptly!
                 </p>
                 <div className="flex gap-4">
@@ -88,11 +88,11 @@ const EmailSection = () => {
                     <Link
                       key={index}
                       href={social.href}
-                      className="text-gray-400 hover:text-white transform hover:scale-110 transition-all"
+                      className="text-[#d9d1c6] hover:text-white transform hover:scale-110 transition-all"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {social.icon}
+                      {social.icon} 
                     </Link>
                   ))}
                 </div>
@@ -129,19 +129,19 @@ const EmailSection = () => {
                         </div>
                       )}
                       <div>
-                        <label htmlFor="subject" className="text-white text-sm font-medium block mb-2">
+                        <label htmlFor="subject" className="text-[#d9d1c6] text-sm font-medium block mb-2">
                           Name
                         </label>
                         <Input
                           id="subject"
                           name="subject"
                           required
-                          className="bg-gray-900/50 border-gray-800 text-white w-full"
+                          className="bg-gray-900/50 border-gray-800 text-[#d9d1c6] w-full"
                           placeholder="Name..."
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="text-white text-sm font-medium block mb-2">
+                        <label htmlFor="email" className="text-[#d9d1c6] text-sm font-medium block mb-2">
                           Your email
                         </label>
                         <Input
@@ -149,12 +149,12 @@ const EmailSection = () => {
                           name="email"
                           type="email"
                           required
-                          className="bg-gray-900/50 border-gray-800 text-white w-full"
+                          className="bg-gray-900/50 border-gray-800 text-[#d9d1c6] w-full"
                           placeholder="abc@gmail.com"
                         />
                       </div>
                       <div>
-                        <label htmlFor="message" className="text-white text-sm font-medium block mb-2">
+                        <label htmlFor="message" className="text-[#d9d1c6] text-sm font-medium block mb-2">
                           Message
                         </label>
                         <Textarea
@@ -162,13 +162,13 @@ const EmailSection = () => {
                           name="message"
                           required
                           rows={4}
-                          className="bg-gray-900/50 border-gray-800 text-white w-full resize-none"
+                          className="bg-gray-900/50 border-gray-800 text-[#d9d1c6] w-full resize-none"
                           placeholder="Let's talk about..."
                         />
                       </div>
                       <Button
                         type="submit"
-                        className="w-full bg-white text-black hover:bg-gray-200 transition-colors py-3"
+                        className="w-full bg-[#720c17] text-[#d9d1c6] transition-colors py-3"
                         disabled={isLoading}
                       >
                         {isLoading ? "Sending..." : "Send Message"}
