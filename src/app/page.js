@@ -29,7 +29,7 @@ export default function Home() {
       <AboutUs/>
       <PricingComponent/>
       <TripInsurancePage/>
-      {/* <WhyChooseUsPage/> */}
+      <WhyChooseUsPage/>
       {/* <SupportSection/> */}
       <ReferralLoyaltyPage/>
       <EmailSection/>
