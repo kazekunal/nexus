@@ -35,7 +35,10 @@ const BookingPage = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: '77857d85-8d56-4e25-9c13-7247134d2421',
+          // 77857d85-8d56-4e25-9c13-7247134d2421
+          // 78c300b1-3b35-420c-bcad-7d33998dfbba
+          access_key: '78c300b1-3b35-420c-bcad-7d33998dfbba',
+          FormType: 'Booking Details',
           ...data,
         }),
       });
