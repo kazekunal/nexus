@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ChevronRight, Star, Shield, Clock, Car, Umbrella, SquareUserRound} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import bgimgDesktop from "../../../public/bg_img.png";
-import bgimgMobile from "../../../public/bg_img_3.png";
+import bgimgMobile from "../../../public/bg-img-mob.jpeg";
 import {
   Sheet,
   SheetContent,
