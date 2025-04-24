@@ -2,6 +2,7 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Check } from "lucide-react"
+import Link from "next/link"
 
 const AboutUs = () => {
   return (
@@ -28,6 +29,24 @@ const AboutUs = () => {
               service designed for customers who want the convenience and safety of a professional chauffeur for
               their personal vehicle.
             </p>
+            
+            {/* QR Code Section - Centered */}
+            <div className="flex flex-col items-center mt-8">
+              <div className="bg-white p-3 w-40 h-40 inline-block">
+                <Link href="https://mywebar.com/p/Project_2_e090eiruh6">
+                <Image
+                  src="/qr_3.png"
+                  alt="Chauffit QR Code"
+                  width={150}
+                  height={150}
+                  className="object-contain"
+                />
+                </Link>
+              </div>
+              <p className="text-[#bd8c5e] text-center mt-3 font-medium">
+                Bring our services to life — scan for the AR experience!
+              </p>
+            </div>
           </motion.div>
 
           {/* Right side: Visual Card */}
@@ -39,7 +58,7 @@ const AboutUs = () => {
           >
             <div className="bg-[#111] rounded-lg overflow-hidden border border-[#d9d1c6]/20 h-full">
               <div className="relative w-full h-48 md:h-64">
-                {/* Map iframe<iframe  width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
+                {/* Map iframe */}
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.3799341406184!2d77.06038057580592!3d28.46810257575496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1998d93a2cfb%3A0x6738361a7da66f53!2sDowntown%20Diner%20%26%20Fresh%20Beer%20Cafe!5e0!3m2!1sen!2sin!4v1745415254024!5m2!1sen!2sin"
                   height="100%"

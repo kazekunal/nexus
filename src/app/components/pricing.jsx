@@ -32,7 +32,7 @@ export default function PricingComponent() {
           <div className="flex">
             <button 
               onClick={() => setActiveTab('all')} 
-              className={`flex-1 py-4 px-6 font-medium text-center ${activeTab === 'all' ? 'bg-red-800 text-white' : 'text-gray-300 hover:bg-gray-800'}`}
+              className={`hidden md:block flex-1 py-4 px-6 font-medium text-center ${activeTab === 'all' ? 'bg-red-800 text-white' : 'text-gray-300 hover:bg-gray-800'}`}
             >
               All Plans
             </button>
@@ -112,9 +112,9 @@ export default function PricingComponent() {
                         {activeTab === 'all' && (
                           <div className="flex items-center">
                             {car.fixed}
-                            <span className="ml-2 bg-yellow-500 text-black text-xs font-bold px-2 py-0.5 rounded-full flex items-center">
+                            {/* <span className="ml-2 bg-yellow-500 text-black text-xs font-bold px-2 py-0.5 rounded-full flex items-center">
                               <Star size={10} className="mr-1" /> POPULAR
-                            </span>
+                            </span> */}
                           </div>
                         )}
                         {activeTab !== 'all' && car.fixed}
@@ -125,9 +125,9 @@ export default function PricingComponent() {
                         {activeTab === 'all' && (
                           <div className="flex items-center">
                             {car.perKm}
-                            <span className="ml-2 bg-green-500 text-black text-xs font-bold px-2 py-0.5 rounded-full flex items-center">
+                            {/* <span className="ml-2 bg-green-500 text-black text-xs font-bold px-2 py-0.5 rounded-full flex items-center">
                               <Check size={10} className="mr-1" /> BEST VALUE
-                            </span>
+                            </span> */}
                           </div>
                         )}
                         {activeTab !== 'all' && car.perKm}
@@ -159,6 +159,13 @@ export default function PricingComponent() {
               </p>
               <p id='trip%20insurance'><span className="font-bold text-gray-300">Per Min Plan:</span> Base fare plus ₹15 for each minute of journey time</p>
             </div>
+          </div>
+          
+          {/* Added disclaimer note */}
+          <div className="bg-gray-900 p-4 border-t border-gray-800">
+            <p className="text-center text-amber-300 font-medium text-sm">
+               Please note: We only provide chauffeurs and do not supply any cars. Our chauffeurs will drive your personal vehicle upon booking. All listed prices are for chauffeur services only and do not include any car rental of any segment.
+            </p>
           </div>
         </div>
       </div>

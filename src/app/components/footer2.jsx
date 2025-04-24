@@ -48,7 +48,7 @@ export default function Footer2() {
               </div>
               
               {/* QR Code */}
-              <div className="mt-4 md:hidden">
+              {/* <div className="mt-4 md:hidden">
                 <p className="text-gray-300 mb-2">Scan to connect:</p>
                 <div className="bg-white p-1 w-24 h-24 inline-block">
                   <Image
@@ -59,7 +59,7 @@ export default function Footer2() {
                     className="object-contain"
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

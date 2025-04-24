@@ -63,14 +63,14 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-20 left-0 right-0 bg-black z-40 px-6 py-8 md:hidden border-b border-[#bd8c5e]/30 bg-[#d9d1c6]"
+            className="fixed top-20 left-0 right-0 z-40 px-6 py-8 md:hidden border-b border-[#bd8c5e]/30 bg-[#d9d1c6]"
           >
             <div className="flex flex-col gap-6">
-              {["Features", "How it works", "About us", "Contact"].map((item) => (
+              {["Features", "How it works", "About us","Pricing","Trip Insurance", "Contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-[#720c17] hover:text-[#bd8c5e] transition-colors text-lg font-light tracking-wide"
+                  className="text-[#720c17] hover:text-[#bd8c5e] transition-colors font-light"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item}
