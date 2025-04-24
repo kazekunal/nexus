@@ -1,168 +1,287 @@
 'use client'
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Clock, Shield, MapPin, Menu, X } from 'lucide-react';
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Loader2, Check } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import Navbar from './navbar';
+import Footer from './footer';
+import Footer2 from './footer2';
 
-const ServiceCards = () => {
-  const [expandedCard, setExpandedCard] = useState(null);
+const BookingPage = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-  
-  const services = [
-    {
-      id: 1,
-      title: "One-Way Luxury Ride",
-      description: "Ideal for a single journey with comfort & class",
-      price: "₹2,500",
-      icon: <Clock className="w-8 h-8 text-white" />,
-      features: [
-        "Professional chauffeur",
-        "Enhanced safety",
-        "Door-to-door service",
-        "Live tracking"
-      ]
-    },
-    {
-      id: 2,
-      title: " Round-Trip Prestige Travel",
-      description: "Ideal for those seeking a luxurious round-trip experience",
-      price: "₹4,500",
-      icon: <Shield className="w-8 h-8 text-white" />,
-      recommended: true,
-      features: [
-        "Return journey guaranteed",
-        "Same chauffeur both ways",
-        "Flexible waiting time",
-        "Premium vehicle options"
-      ]
-    },
-    {
-      id: 3,
-      title: "VIP Nightlife Experience",
-      description: "Designed for clubs, concerts & exclusive events",
-      price: "₹3,500",
-      icon: <MapPin className="w-8 h-8 text-white" />,
-      features: [
-        "Priority venue access",
-        "24/7 availability",
-        "Dedicated concierge",
-        "Enhanced security"
-      ]
+  const toggleForm = () => {
+    setIsFormOpen(!isFormOpen);
+    if (isSuccess) {
+      setIsSuccess(false);
     }
-  ];
-
-  const handleCardClick = (id, e) => {
-    e.stopPropagation();
-    setExpandedCard(expandedCard === id ? null : id);
   };
 
-  const handleFormClick = (e) => {
-    e.stopPropagation();
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '77857d85-8d56-4e25-9c13-7247134d2421',
+          ...data,
+        }),
+      });
+      
+      const responseData = await response.json();
+      
+      if (response.status === 200) {
+        setIsSuccess(true);
+        reset();
+      } else {
+        console.error('Form submission error:', responseData);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
-  const BookingForm = () => (
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.3 }}
-      className="mt-6 grid gap-4"
-      onClick={handleFormClick}
-    >
-      <div className="grid gap-2">
-        <Label htmlFor="name" className="text-gray-300">Full Name</Label>
-        <Input id="name" placeholder="Enter your name" className="bg-gray-800 border-gray-700 text-white" />
-      </div>
-      <div className="grid gap-2">
-        <Label htmlFor="people" className="text-gray-300">Number of People</Label>
-        <Input id="people" type="number" placeholder="Enter number of people" className="bg-gray-800 border-gray-700 text-white" />
-      </div>
-      <div className="grid gap-2">
-        <Label htmlFor="aadhar" className="text-gray-300">Aadhar Number</Label>
-        <Input id="aadhar" placeholder="Enter Aadhar number" className="bg-gray-800 border-gray-700 text-white" />
-      </div>
-      <div className="grid gap-2">
-        <Label htmlFor="time" className="text-gray-300">Pickup Time</Label>
-        <Input id="time" type="datetime-local" className="bg-gray-800 border-gray-700 text-white" />
-      </div>
-      <div className="grid gap-2">
-        <Label htmlFor="pickup" className="text-gray-300">Pickup Location</Label>
-        <Input id="pickup" placeholder="Enter pickup location" className="bg-gray-800 border-gray-700 text-white" />
-      </div>
-      <div className="grid gap-2">
-        <Label htmlFor="dropoff" className="text-gray-300">Drop-off Location</Label>
-        <Input id="dropoff" placeholder="Enter drop-off location" className="bg-gray-800 border-gray-700 text-white" />
-      </div>
-      <Button className="mt-4 w-full bg-white hover:bg-gray-200 text-black">
-        Confirm Booking
-      </Button>
-    </motion.div>
-  );
 
   return (
-    <div className="min-h-screen bg-black p-8">
-        
-      <div className="max-w-6xl mx-auto py-10 pt-28">
-        
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">Choose Your Premium Travel Experience</h2>
-          <p className="text-gray-400">Seamless, Luxurious, and Secure Transportation for Every Occasion</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <div key={service.id} className="h-full">
-              <Card 
-                className={`h-full bg-[#0A0C10] border-gray-800 text-white`}
-              >
-                <CardHeader className="text-center pt-8">
-                  <div className="mx-auto rounded-full bg-gray-800 p-3 w-16 h-16 flex items-center justify-center mb-4">
-                    {service.icon}
-                  </div>
-                  <CardTitle className="text-2xl font-bold text-white mb-2">{service.title}</CardTitle>
-                  <p className="text-gray-400 mb-4">{service.description}</p>
-                  <div className="text-3xl font-bold text-white mb-4">
-                    {service.price}
-                    <span className="text-sm text-gray-400 font-normal">/trip</span>
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <ul className="mb-6 space-y-3">
-                    {service.features.map((feature, index) => (
-                      <li key={index} className="flex items-center text-gray-300">
-                        <svg className="w-4 h-4 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <Button 
-                    className={`w-full ${
-                      expandedCard === service.id 
-                        ? 'bg-gray-800 hover:bg-gray-700 text-white' 
-                        : 'bg-white hover:bg-gray-200 text-black'
-                    }`}
-                    onClick={(e) => handleCardClick(service.id, e)}
-                  >
-                    {expandedCard === service.id ? 'Close' : 'Book Now'}
-                  </Button>
-                  
-                  <AnimatePresence>
-                    {expandedCard === service.id && <BookingForm />}
-                  </AnimatePresence>
-                </CardContent>
-              </Card>
+    <div className="min-h-screen bg-black bg-cover bg-center bg-no-repeat bg-blend-overlay">
+      <Navbar/>
+
+      <main className="max-w-6xl mx-auto px-4 py-36 pb-24">
+      <div className="text-center space-y-4 py-16">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white [text-wrap:balance] mx-auto">
+                Your Personal <span className="text-[#bd8c5e]">Chauffeur</span><br/>  Just a Tap Away!
+              </h1>
+              <p className="text-lg sm:text-xl text-[#d9d1c6] max-w-2xl mx-auto">
+              Professional, safe, and reliable chauffeurs for your personal car – now available in Gurgaon for Friday & Saturday nights!
+              </p>
             </div>
-          ))}
+
+        <div className="flex justify-center">
+          <div className="w-full max-w-2xl">
+            <Card className="bg-black/80 border border-gray-800 overflow-hidden">
+              <CardContent className="p-8 text-center">
+                {!isFormOpen ? (
+                  <>
+                    <h3 className="text-3xl font-bold text-white mb-6">
+                      Premium Chauffeur Service
+                    </h3>
+                    <p className="text-gray-300 mb-8">
+                      Enjoy a luxurious and safe ride with our professional chauffeurs. 
+                      Book now for the ultimate travel experience.
+                    </p>
+                    <Button 
+                      onClick={toggleForm}
+                      className="bg-red-800 hover:bg-red-900 text-white px-8 py-6 text-lg"
+                    >
+                      Book a Chauffeur
+                    </Button>
+                  </>
+                ) : (
+                  <AnimatePresence>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {isSuccess ? (
+                        <div className="py-8 text-center">
+                          <div className="rounded-full bg-green-600 w-16 h-16 mx-auto flex items-center justify-center mb-6">
+                            <Check className="w-8 h-8 text-white" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-white mb-4">Booking Confirmed!</h3>
+                          <p className="text-gray-300 mb-6">
+                            Thank you for booking with Chauffit. We've received your request and will contact you shortly.
+                          </p>
+                          <Button 
+                            onClick={toggleForm}
+                            className="bg-[#720c17] hover:bg-[#5a0912] text-white"
+                          >
+                            Close
+                          </Button>
+                        </div>
+                      ) : (
+                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 text-left">
+                          <h3 className=" text-2xl font-bold text-white mb-4 text-center">
+                            Book Your Chauffeur
+                          </h3>
+                          
+                          <div>
+                            <Label htmlFor="name" className="text-gray-300">Full Name</Label>
+                            <Input 
+                              id="name" 
+                              {...register('name', { required: true })}
+                              className="bg-gray-800 border-gray-700 text-white mt-1" 
+                              placeholder="Enter your full name"
+                            />
+                            {errors.name && <p className="text-red-500 text-sm mt-1">Name is required</p>}
+                          </div>
+                          
+                          <div>
+                            <Label htmlFor="number" className="text-gray-300">Phone Number</Label>
+                            <Input 
+                              id="number" 
+                              type="tel"
+                              {...register('number', { required: true })}
+                              className="bg-gray-800 border-gray-700 text-white mt-1" 
+                              placeholder="Enter your phone number"
+                            />
+                            {errors.number && <p className="text-red-500 text-sm mt-1">Phone number is required</p>}
+                          </div>
+                          
+                          <div>
+                            <Label htmlFor="email" className="text-gray-300">Email Address</Label>
+                            <Input 
+                              id="email" 
+                              type="email"
+                              {...register('email', { required: true })}
+                              className="bg-gray-800 border-gray-700 text-white mt-1" 
+                              placeholder="Enter your email address"
+                            />
+                            {errors.email && <p className="text-red-500 text-sm mt-1">Email is required</p>}
+                          </div>
+                          
+                          <div>
+                            <Label className="text-gray-300 block mb-2">Car Segment</Label>
+                            <RadioGroup defaultValue="sedan" {...register('carSegment', { required: true })}>
+                              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="hatchback" id="hatchback" className="text-amber-500" />
+                                  <Label htmlFor="hatchback" className="text-gray-300">Hatchback</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="microsuv" id="microsuv" className="text-amber-500" />
+                                  <Label htmlFor="microsuv" className="text-gray-300">Micro SUV</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="midsuv" id="midsuv" className="text-amber-500" />
+                                  <Label htmlFor="midsuv" className="text-gray-300">Mid-size SUV</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="sedan" id="sedan" className="text-amber-500" />
+                                  <Label htmlFor="sedan" className="text-gray-300">Sedan</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="fullsuv" id="fullsuv" className="text-amber-500" />
+                                  <Label htmlFor="fullsuv" className="text-gray-300">Full-size SUV</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="luxury" id="luxury" className="text-amber-500" />
+                                  <Label htmlFor="luxury" className="text-gray-300">Luxury</Label>
+                                </div>
+                              </div>
+                            </RadioGroup>
+                            {errors.carSegment && <p className="text-red-500 text-sm mt-1">Car segment is required</p>}
+                          </div>
+                          
+                          <div>
+                            <Label className="text-gray-300 block mb-2">Transmission</Label>
+                            <RadioGroup defaultValue="automatic" {...register('transmission', { required: true })}>
+                              <div className="flex space-x-4">
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="automatic" id="automatic" className="text-amber-500" />
+                                  <Label htmlFor="automatic" className="text-gray-300">Automatic</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="manual" id="manual" className="text-amber-500" />
+                                  <Label htmlFor="manual" className="text-gray-300">Manual</Label>
+                                </div>
+                              </div>
+                            </RadioGroup>
+                            {errors.transmission && <p className="text-red-500 text-sm mt-1">Transmission is required</p>}
+                          </div>
+                          
+                          <div>
+                            <Label className="text-gray-300 block mb-2">Price Variant</Label>
+                            <RadioGroup defaultValue="fixed" {...register('priceVariant', { required: true })}>
+                              <div className="flex flex-wrap gap-4">
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="fixed" id="fixed" className="text-amber-500" />
+                                  <Label htmlFor="fixed" className="text-gray-300">Fixed</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="perkm" id="perkm" className="text-amber-500" />
+                                  <Label htmlFor="perkm" className="text-gray-300">Per KM</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="permin" id="permin" className="text-amber-500" />
+                                  <Label htmlFor="permin" className="text-gray-300">Per Min</Label>
+                                </div>
+                              </div>
+                            </RadioGroup>
+                            {errors.priceVariant && <p className="text-red-500 text-sm mt-1">Price variant is required</p>}
+                          </div>
+                          
+                          <div>
+                            <Label htmlFor="pickup" className="text-gray-300">Pick up Location</Label>
+                            <Input 
+                              id="pickup" 
+                              value="Sector 29"
+                              disabled
+                              className="bg-gray-700 border-gray-600 text-gray-400 mt-1" 
+                            />
+                          </div>
+                          
+                          <div>
+                            <Label htmlFor="dropoff" className="text-gray-300">Drop off Location</Label>
+                            <Input 
+                              id="dropoff" 
+                              {...register('dropoff', { required: true })}
+                              className="bg-gray-800 border-gray-700 text-white mt-1" 
+                              placeholder="Enter your destination"
+                            />
+                            {errors.dropoff && <p className="text-red-500 text-sm mt-1">Drop off location is required</p>}
+                          </div>
+                          
+                          <div className="flex gap-4 pt-4">
+                            <Button 
+                              type="button"
+                              onClick={toggleForm}
+                              className="flex-1 bg-gray-700 hover:bg-gray-600 text-white"
+                            >
+                              Cancel
+                            </Button>
+                            <Button 
+                              type="submit"
+                              className="flex-1 bg-red-800 hover:bg-red-900 text-white"
+                              disabled={isSubmitting}
+                            >
+                              {isSubmitting ? (
+                                <>
+                                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                  Processing
+                                </>
+                              ) : (
+                                "Confirm Booking"
+                              )}
+                            </Button>
+                          </div>
+                        </form>
+                      )}
+                    </motion.div>
+                  </AnimatePresence>
+                )}
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </div>
+      </main>
+      <Footer2/>
     </div>
   );
 };
 
-export default ServiceCards;
+export default BookingPage;
