@@ -78,7 +78,7 @@ const EmailSection = () => {
                 <p className="text-[#d9d1c6] text-lg mb-6 leading-relaxed">
                 Our team is committed to providing a seamless, comfortable, and professional experience from start to finish. Reach out to us, and we&apos;ll get back to you promptly!
                 </p>
-                <div className="flex gap-4">
+                {/* <div className="flex gap-4">
                   {[
                     { icon: <Instagram className="w-6 h-6" />, href: "https://www.instagram.com/chauff.it?igsh=dmUxZjQxMnhlMXYy&utm_source=qr" },
                     { icon: <Github className="w-6 h-6" />, href: "#" },
@@ -95,7 +95,7 @@ const EmailSection = () => {
                       {social.icon} 
                     </Link>
                   ))}
-                </div>
+                </div> */}
               </motion.div>
 
               {/* Right Column */}
