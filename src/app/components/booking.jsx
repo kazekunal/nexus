@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Loader2, Check } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import Navbar from './navbar';
@@ -105,7 +106,7 @@ const BookingPage = () => {
                           <div className="rounded-full bg-green-600 w-16 h-16 mx-auto flex items-center justify-center mb-6">
                             <Check className="w-8 h-8 text-white" />
                           </div>
-                          <h3 className="text-2xl font-bold text-white mb-4">Booking Confirmed!</h3>
+                          <h3 className="text-2xl font-bold text-white mb-4">Booking processed!</h3>
                           <p className="text-gray-300 mb-6">
                             Thank you for booking with Chauffit. We've received your request and will contact you shortly.
                           </p>
@@ -159,7 +160,7 @@ const BookingPage = () => {
                           
                           <div>
                             <Label className="text-gray-300 block mb-2">Car Segment</Label>
-                            <RadioGroup defaultValue="sedan" {...register('carSegment', { required: true })}>
+                            <RadioGroup {...register('carSegment', { required: true })}>
                               <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="hatchback" id="hatchback" className="text-amber-500" />
@@ -192,7 +193,7 @@ const BookingPage = () => {
                           
                           <div>
                             <Label className="text-gray-300 block mb-2">Transmission</Label>
-                            <RadioGroup defaultValue="automatic" {...register('transmission', { required: true })}>
+                            <RadioGroup {...register('transmission', { required: true })}>
                               <div className="flex space-x-4">
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="automatic" id="automatic" className="text-amber-500" />
@@ -209,7 +210,7 @@ const BookingPage = () => {
                           
                           <div>
                             <Label className="text-gray-300 block mb-2">Trip Insurance (Optional)</Label>
-                            <RadioGroup defaultValue="none" {...register('tripInsurance')}>
+                            <RadioGroup {...register('tripInsurance')}>
                               <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="scratch" id="scratch" className="text-amber-500" />
@@ -235,7 +236,7 @@ const BookingPage = () => {
                             <Label htmlFor="pickup" className="text-gray-300">Pick up Location</Label>
                             <Input 
                               id="pickup" 
-                              value="Sector 29"
+                              value="Sector 29, main parking, near downtown, Gurgaon"
                               disabled
                               className="bg-gray-700 border-gray-600 text-gray-400 mt-1" 
                             />
@@ -254,7 +255,7 @@ const BookingPage = () => {
                           
                           <div>
                             <Label className="text-gray-300 block mb-2">Price Variant</Label>
-                            <RadioGroup defaultValue="fixed" {...register('priceVariant', { required: true })}>
+                            <RadioGroup {...register('priceVariant', { required: true })}>
                               <div className="flex flex-wrap gap-4">
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="fixed" id="fixed" className="text-amber-500" />
@@ -282,6 +283,18 @@ const BookingPage = () => {
                               placeholder="Enter referral code if you have one"
                             />
                           </div>
+                          
+                          <div className="flex items-center space-x-2 pt-2">
+                            <Checkbox 
+                              id="termsAndConditions" 
+                              {...register('termsAndConditions', { required: true })}
+                              className="border-amber-500 text-amber-500 data-[state=checked]:bg-amber-500 data-[state=checked]:text-white" 
+                            />
+                            <Label htmlFor="termsAndConditions" className="text-gray-300 text-sm">
+                              I agree to the terms and conditions and understand that my booking is subject to availability
+                            </Label>
+                          </div>
+                          {errors.termsAndConditions && <p className="text-red-500 text-sm mt-1">You must agree to the terms and conditions</p>}
                           
                           <div className="flex gap-4 pt-4">
                             <Button 

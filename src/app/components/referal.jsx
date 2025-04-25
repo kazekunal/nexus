@@ -20,15 +20,15 @@ export default function ReferralLoyaltyPage() {
       <section className="px-4 pb-16 max-w-4xl mx-auto">
         <div className="bg-gray-900 rounded-lg border border-gray-800 overflow-hidden">
           {/* Top Section with Tabs */}
-          <div className="grid grid-cols-2 border-b border-gray-800">
+          <div className="grid grid-cols-1 border-b border-gray-800">
             <div className="flex items-center justify-center py-4 px-2 bg-gray-800">
               <Share2 className="h-5 w-5 text-[#bd8c5e] mr-2" />
-              <h2 className="text-xl font-bold">Referral Program</h2>
+              <h2 className="text-xl font-bold">Referral & Loyalty Program</h2>
             </div>
-            <div className="flex items-center justify-center py-4 px-2">
+            {/* <div className="flex items-center justify-center py-4 px-2">
               <Award className="h-5 w-5 text-[#bd8c5e] mr-2" />
               <h2 className="text-xl font-bold">Loyalty Program</h2>
-            </div>
+            </div> */}
           </div>
 
           <div className="p-6">
