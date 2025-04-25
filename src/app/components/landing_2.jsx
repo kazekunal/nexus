@@ -85,7 +85,7 @@ export default function Landing() {
               <Sheet>
                 <SheetTrigger asChild>
                   <Button className="md:hidden" size="lg" variant="outline"
-                    style={{ borderColor: 'rgba(189, 140, 94, 0.5)', color: '#d9d1c6' }}>
+                    style={{ borderColor: '#bd8c5e', color: '#bd8c5e' }}>
                     Add as App
                   </Button>
                 </SheetTrigger>
