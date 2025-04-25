@@ -38,7 +38,7 @@ const FeaturesSection = () => {
   ]
 
   return (
-    <section className="w-full pb-24 bg-black" id="features">
+    <section className="w-full pb-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* <div className="text-center mb-16">
           <motion.div

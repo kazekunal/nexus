@@ -75,7 +75,7 @@ export default function Landing() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center" id="features">
               <a href="/bookings">
                 <Button size="lg" className="group bg-[#720c17] hover:bg-[#5a0912] text-white">
                   Book a Chauffeur
