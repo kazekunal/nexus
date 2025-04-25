@@ -1,0 +1,17 @@
+{
+    "name": "Chauffit",
+    "start_url": "https://www.chauffit.in/",
+    "display": "standalone",
+    "icons": [
+      {
+        "src": "/icon.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/icon.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }
