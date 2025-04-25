@@ -160,30 +160,60 @@ const BookingPage = () => {
                           
                           <div>
                             <Label className="text-gray-300 block mb-2">Car Segment</Label>
-                            <RadioGroup {...register('carSegment', { required: true })}>
+                            <RadioGroup defaultValue="hatchback">
                               <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="hatchback" id="hatchback" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="hatchback" 
+                                    id="hatchback" 
+                                    className="text-amber-500"
+                                    {...register('carSegment', { required: true })}
+                                  />
                                   <Label htmlFor="hatchback" className="text-gray-300">Hatchback</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="microsuv" id="microsuv" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="microsuv" 
+                                    id="microsuv" 
+                                    className="text-amber-500"
+                                    {...register('carSegment', { required: true })}
+                                  />
                                   <Label htmlFor="microsuv" className="text-gray-300">Micro SUV</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="midsuv" id="midsuv" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="midsuv" 
+                                    id="midsuv" 
+                                    className="text-amber-500"
+                                    {...register('carSegment', { required: true })}
+                                  />
                                   <Label htmlFor="midsuv" className="text-gray-300">Mid-size SUV</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="sedan" id="sedan" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="sedan" 
+                                    id="sedan" 
+                                    className="text-amber-500"
+                                    {...register('carSegment', { required: true })}
+                                  />
                                   <Label htmlFor="sedan" className="text-gray-300">Sedan</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="fullsuv" id="fullsuv" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="fullsuv" 
+                                    id="fullsuv" 
+                                    className="text-amber-500"
+                                    {...register('carSegment', { required: true })}
+                                  />
                                   <Label htmlFor="fullsuv" className="text-gray-300">Full-size SUV</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="luxury" id="luxury" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="luxury" 
+                                    id="luxury" 
+                                    className="text-amber-500"
+                                    {...register('carSegment', { required: true })}
+                                  />
                                   <Label htmlFor="luxury" className="text-gray-300">Luxury</Label>
                                 </div>
                               </div>
@@ -193,14 +223,24 @@ const BookingPage = () => {
                           
                           <div>
                             <Label className="text-gray-300 block mb-2">Transmission</Label>
-                            <RadioGroup {...register('transmission', { required: true })}>
+                            <RadioGroup defaultValue="automatic">
                               <div className="flex space-x-4">
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="automatic" id="automatic" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="automatic" 
+                                    id="automatic" 
+                                    className="text-amber-500"
+                                    {...register('transmission', { required: true })}
+                                  />
                                   <Label htmlFor="automatic" className="text-gray-300">Automatic</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="manual" id="manual" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="manual" 
+                                    id="manual" 
+                                    className="text-amber-500"
+                                    {...register('transmission', { required: true })}
+                                  />
                                   <Label htmlFor="manual" className="text-gray-300">Manual</Label>
                                 </div>
                               </div>
@@ -210,22 +250,42 @@ const BookingPage = () => {
                           
                           <div>
                             <Label className="text-gray-300 block mb-2">Trip Insurance (Optional)</Label>
-                            <RadioGroup {...register('tripInsurance')}>
+                            <RadioGroup defaultValue="none">
                               <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="scratch" id="scratch" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="scratch" 
+                                    id="scratch" 
+                                    className="text-amber-500"
+                                    {...register('tripInsurance')}
+                                  />
                                   <Label htmlFor="scratch" className="text-gray-300">Scratch Coverage</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="scratchdent" id="scratchdent" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="scratchdent" 
+                                    id="scratchdent" 
+                                    className="text-amber-500"
+                                    {...register('tripInsurance')}
+                                  />
                                   <Label htmlFor="scratchdent" className="text-gray-300">Scratch & Dent Coverage</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="full" id="full" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="full" 
+                                    id="full" 
+                                    className="text-amber-500"
+                                    {...register('tripInsurance')}
+                                  />
                                   <Label htmlFor="full" className="text-gray-300">Full Coverage</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="none" id="none" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="none" 
+                                    id="none" 
+                                    className="text-amber-500"
+                                    {...register('tripInsurance')}
+                                  />
                                   <Label htmlFor="none" className="text-gray-300">No Insurance</Label>
                                 </div>
                               </div>
@@ -255,18 +315,33 @@ const BookingPage = () => {
                           
                           <div>
                             <Label className="text-gray-300 block mb-2">Price Variant</Label>
-                            <RadioGroup {...register('priceVariant', { required: true })}>
+                            <RadioGroup defaultValue="fixed">
                               <div className="flex flex-wrap gap-4">
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="fixed" id="fixed" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="fixed" 
+                                    id="fixed" 
+                                    className="text-amber-500"
+                                    {...register('priceVariant', { required: true })}
+                                  />
                                   <Label htmlFor="fixed" className="text-gray-300">Fixed</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="perkm" id="perkm" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="perkm" 
+                                    id="perkm" 
+                                    className="text-amber-500"
+                                    {...register('priceVariant', { required: true })}
+                                  />
                                   <Label htmlFor="perkm" className="text-gray-300">Per KM</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="permin" id="permin" className="text-amber-500" />
+                                  <RadioGroupItem 
+                                    value="permin" 
+                                    id="permin" 
+                                    className="text-amber-500"
+                                    {...register('priceVariant', { required: true })}
+                                  />
                                   <Label htmlFor="permin" className="text-gray-300">Per Min</Label>
                                 </div>
                               </div>
@@ -291,7 +366,7 @@ const BookingPage = () => {
                               className="border-amber-500 text-amber-500 data-[state=checked]:bg-amber-500 data-[state=checked]:text-white" 
                             />
                             <Label htmlFor="termsAndConditions" className="text-gray-300 text-sm">
-                              I agree to the terms and conditions and understand that my booking is subject to availability
+                              I agree to the <a href='/tnc' className="text-amber-500 hover:underline">terms and conditions</a> and understand that my booking is subject to availability
                             </Label>
                           </div>
                           {errors.termsAndConditions && <p className="text-red-500 text-sm mt-1">You must agree to the terms and conditions</p>}

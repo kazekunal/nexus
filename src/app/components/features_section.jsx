@@ -15,6 +15,7 @@ const FeaturesSection = () => {
       description:
         "Two-factor authentication, driver profiles, dashcam footage, and live tracking available for 24 hours with sharing options.",
     },
+    
     {
       icon: <SquareUserRound className="w-10 h-10" style={{ color: accentColor }} />,
       title: "Premium Chauffeurs",
@@ -37,9 +38,9 @@ const FeaturesSection = () => {
   ]
 
   return (
-    <section className="w-full py-24 bg-black" id="features">
+    <section className="w-full pb-24 bg-black" id="features">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        {/* <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +55,7 @@ const FeaturesSection = () => {
               unmatched chauffeur experience.
             </p>
           </motion.div>
-        </div>
+        </div> */}
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {features.map((feature, index) => (

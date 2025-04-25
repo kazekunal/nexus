@@ -149,36 +149,7 @@ export default function Landing() {
               </Sheet>
             </div>
 
-            <div className="pt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-              <div className="flex items-center gap-3 bg-[#111]/80 p-4 rounded-lg transition-colors text-center flex-col">
-                <SquareUserRound className="h-8 w-8 text-[#bd8c5e]" />
-                <div>
-                  <h3 className="font-semibold text-white">Premium Chauffeurs</h3>
-                  {/* <p className="text-sm text-[#d9d1c6]">Seamless reservations</p> */}
-                </div>
-              </div>
-              <div className="flex items-center gap-3 bg-[#111]/80 p-4 rounded-lg transition-colors text-center flex-col">
-                <Clock className="h-8 w-8 text-[#bd8c5e]" />
-                <div>
-                  <h3 className="font-semibold text-white"> Customer Support</h3>
-                  {/* <p className="text-sm text-[#d9d1c6]">Seamless reservations</p> */}
-                </div>
-              </div>
-              <div className="flex items-center gap-3 bg-[#111]/80 p-4 rounded-lg transition-colors text-center flex-col">
-                <Shield className="h-8 w-8 text-[#bd8c5e]" />
-                <div>
-                  <h3 className="font-semibold text-white">Real-Time Tracking</h3>
-                  {/* <p className="text-sm text-[#d9d1c6]">Your safety, Our priority</p> */}
-                </div>
-              </div>
-              <div className="flex items-center gap-3 bg-[#111]/80 p-4 rounded-lg transition-colors text-center flex-col">
-                <Umbrella className="h-8 w-8 text-[#bd8c5e]" />
-                <div>
-                  <h3 className="font-semibold text-white">Trip <br className="hidden md:block"/>Insurance</h3>
-                  {/* <p className="text-sm text-[#d9d1c6]">At affordable <br className="hidden md:block"/>rates</p> */}
-                </div>
-              </div>
-            </div>
+            
 
             {/* <div className="flex flex-col items-center gap-4 pt-8 bg-[#111]/80 p-4 rounded-lg">
               <div className="flex -space-x-2">
