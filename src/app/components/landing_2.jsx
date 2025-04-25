@@ -63,7 +63,7 @@ export default function Landing() {
 
 
       {/* Content section below the image */}
-      <div id="content-section" className="w-full bg-black min-h-screen">
+      <div id="content-section" className="w-full bg-black h-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-24 md:pt-32">
           <div className="max-w-3xl mx-auto space-y-8 text-center">
             <div className="space-y-4">
