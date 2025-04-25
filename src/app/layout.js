@@ -18,10 +18,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <Head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" sizes="192x192" href="/icon.png" />
-        <meta name="theme-color" content="#ffffff" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="Chauffit" />
       </Head>
       <body className={`${poppins.variable} antialiased`}>
         {children}
