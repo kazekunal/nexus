@@ -208,24 +208,27 @@ const BookingPage = () => {
                           </div>
                           
                           <div>
-                            <Label className="text-gray-300 block mb-2">Price Variant</Label>
-                            <RadioGroup defaultValue="fixed" {...register('priceVariant', { required: true })}>
-                              <div className="flex flex-wrap gap-4">
+                            <Label className="text-gray-300 block mb-2">Trip Insurance (Optional)</Label>
+                            <RadioGroup defaultValue="none" {...register('tripInsurance')}>
+                              <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="fixed" id="fixed" className="text-amber-500" />
-                                  <Label htmlFor="fixed" className="text-gray-300">Fixed</Label>
+                                  <RadioGroupItem value="scratch" id="scratch" className="text-amber-500" />
+                                  <Label htmlFor="scratch" className="text-gray-300">Scratch Coverage</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="perkm" id="perkm" className="text-amber-500" />
-                                  <Label htmlFor="perkm" className="text-gray-300">Per KM</Label>
+                                  <RadioGroupItem value="scratchdent" id="scratchdent" className="text-amber-500" />
+                                  <Label htmlFor="scratchdent" className="text-gray-300">Scratch & Dent Coverage</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="permin" id="permin" className="text-amber-500" />
-                                  <Label htmlFor="permin" className="text-gray-300">Per Min</Label>
+                                  <RadioGroupItem value="full" id="full" className="text-amber-500" />
+                                  <Label htmlFor="full" className="text-gray-300">Full Coverage</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="none" id="none" className="text-amber-500" />
+                                  <Label htmlFor="none" className="text-gray-300">No Insurance</Label>
                                 </div>
                               </div>
                             </RadioGroup>
-                            {errors.priceVariant && <p className="text-red-500 text-sm mt-1">Price variant is required</p>}
                           </div>
                           
                           <div>
@@ -247,6 +250,37 @@ const BookingPage = () => {
                               placeholder="Enter your destination"
                             />
                             {errors.dropoff && <p className="text-red-500 text-sm mt-1">Drop off location is required</p>}
+                          </div>
+                          
+                          <div>
+                            <Label className="text-gray-300 block mb-2">Price Variant</Label>
+                            <RadioGroup defaultValue="fixed" {...register('priceVariant', { required: true })}>
+                              <div className="flex flex-wrap gap-4">
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="fixed" id="fixed" className="text-amber-500" />
+                                  <Label htmlFor="fixed" className="text-gray-300">Fixed</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="perkm" id="perkm" className="text-amber-500" />
+                                  <Label htmlFor="perkm" className="text-gray-300">Per KM</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="permin" id="permin" className="text-amber-500" />
+                                  <Label htmlFor="permin" className="text-gray-300">Per Min</Label>
+                                </div>
+                              </div>
+                            </RadioGroup>
+                            {errors.priceVariant && <p className="text-red-500 text-sm mt-1">Price variant is required</p>}
+                          </div>
+                          
+                          <div>
+                            <Label htmlFor="referralCode" className="text-gray-300">Referral Code (Optional)</Label>
+                            <Input 
+                              id="referralCode" 
+                              {...register('referralCode')}
+                              className="bg-gray-800 border-gray-700 text-white mt-1" 
+                              placeholder="Enter referral code if you have one"
+                            />
                           </div>
                           
                           <div className="flex gap-4 pt-4">
