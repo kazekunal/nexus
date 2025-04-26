@@ -1,3 +1,5 @@
+// kunal - 77857d85-8d56-4e25-9c13-7247134d2421
+// varun bhaiya -  78c300b1-3b35-420c-bcad-7d33998dfbba
 'use client'
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -17,13 +19,23 @@ const BookingPage = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  
+  const { register, handleSubmit, reset, formState: { errors }, watch, setValue } = useForm({
+    defaultValues: {
+      carSegment: 'hatchback',
+      transmission: 'automatic',
+      tripInsurance: 'none',
+      priceVariant: 'fixed',
+      termsandconditions: false
+    }
+  });
 
   const toggleForm = () => {
     setIsFormOpen(!isFormOpen);
     if (isSuccess) {
       setIsSuccess(false);
     }
+    reset();
   };
 
   const onSubmit = async (data) => {
@@ -36,8 +48,6 @@ const BookingPage = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          // 77857d85-8d56-4e25-9c13-7247134d2421
-          // 78c300b1-3b35-420c-bcad-7d33998dfbba
           access_key: '78c300b1-3b35-420c-bcad-7d33998dfbba',
           FormType: 'Booking Details',
           ...data,
@@ -64,14 +74,14 @@ const BookingPage = () => {
       <Navbar/>
 
       <main className="max-w-6xl mx-auto px-4 py-36 pb-24">
-      <div className="text-center space-y-4 py-16">
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white [text-wrap:balance] mx-auto">
-                Your Personal <span className="text-[#bd8c5e]">Chauffeur</span><br/>  Just a Tap Away!
-              </h1>
-              <p className="text-lg sm:text-xl text-[#d9d1c6] max-w-2xl mx-auto">
-              Professional, safe, and reliable chauffeurs for your personal car – now available in Gurgaon for Friday & Saturday nights!
-              </p>
-            </div>
+        <div className="text-center space-y-4 py-16">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white [text-wrap:balance] mx-auto">
+            Your Personal <span className="text-[#bd8c5e]">Chauffeur</span><br/> Just a Tap Away!
+          </h1>
+          <p className="text-lg sm:text-xl text-[#d9d1c6] max-w-2xl mx-auto">
+            Professional, safe, and reliable chauffeurs for your personal car – now available in Gurgaon for Friday & Saturday nights!
+          </p>
+        </div>
 
         <div className="flex justify-center">
           <div className="w-full max-w-2xl">
@@ -119,7 +129,7 @@ const BookingPage = () => {
                         </div>
                       ) : (
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 text-left">
-                          <h3 className=" text-2xl font-bold text-white mb-4 text-center">
+                          <h3 className="text-2xl font-bold text-white mb-4 text-center">
                             Book Your Chauffeur
                           </h3>
                           
@@ -127,11 +137,11 @@ const BookingPage = () => {
                             <Label htmlFor="name" className="text-gray-300">Full Name</Label>
                             <Input 
                               id="name" 
-                              {...register('name', { required: true })}
+                              {...register('name', { required: "Name is required" })}
                               className="bg-gray-800 border-gray-700 text-white mt-1" 
                               placeholder="Enter your full name"
                             />
-                            {errors.name && <p className="text-red-500 text-sm mt-1">Name is required</p>}
+                            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
                           </div>
                           
                           <div>
@@ -139,11 +149,11 @@ const BookingPage = () => {
                             <Input 
                               id="number" 
                               type="tel"
-                              {...register('number', { required: true })}
+                              {...register('number', { required: "Phone number is required" })}
                               className="bg-gray-800 border-gray-700 text-white mt-1" 
                               placeholder="Enter your phone number"
                             />
-                            {errors.number && <p className="text-red-500 text-sm mt-1">Phone number is required</p>}
+                            {errors.number && <p className="text-red-500 text-sm mt-1">{errors.number.message}</p>}
                           </div>
                           
                           <div>
@@ -151,11 +161,17 @@ const BookingPage = () => {
                             <Input 
                               id="email" 
                               type="email"
-                              {...register('email', { required: true })}
+                              {...register('email', { 
+                                required: "Email is required",
+                                pattern: {
+                                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                  message: "Invalid email address"
+                                }
+                              })}
                               className="bg-gray-800 border-gray-700 text-white mt-1" 
                               placeholder="Enter your email address"
                             />
-                            {errors.email && <p className="text-red-500 text-sm mt-1">Email is required</p>}
+                            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
                           </div>
                           
                           <div>
@@ -167,7 +183,7 @@ const BookingPage = () => {
                                     value="hatchback" 
                                     id="hatchback" 
                                     className="text-amber-500"
-                                    {...register('carSegment', { required: true })}
+                                    {...register('carSegment')}
                                   />
                                   <Label htmlFor="hatchback" className="text-gray-300">Hatchback</Label>
                                 </div>
@@ -176,7 +192,7 @@ const BookingPage = () => {
                                     value="microsuv" 
                                     id="microsuv" 
                                     className="text-amber-500"
-                                    {...register('carSegment', { required: true })}
+                                    {...register('carSegment')}
                                   />
                                   <Label htmlFor="microsuv" className="text-gray-300">Micro SUV</Label>
                                 </div>
@@ -185,7 +201,7 @@ const BookingPage = () => {
                                     value="midsuv" 
                                     id="midsuv" 
                                     className="text-amber-500"
-                                    {...register('carSegment', { required: true })}
+                                    {...register('carSegment')}
                                   />
                                   <Label htmlFor="midsuv" className="text-gray-300">Mid-size SUV</Label>
                                 </div>
@@ -194,7 +210,7 @@ const BookingPage = () => {
                                     value="sedan" 
                                     id="sedan" 
                                     className="text-amber-500"
-                                    {...register('carSegment', { required: true })}
+                                    {...register('carSegment')}
                                   />
                                   <Label htmlFor="sedan" className="text-gray-300">Sedan</Label>
                                 </div>
@@ -203,7 +219,7 @@ const BookingPage = () => {
                                     value="fullsuv" 
                                     id="fullsuv" 
                                     className="text-amber-500"
-                                    {...register('carSegment', { required: true })}
+                                    {...register('carSegment')}
                                   />
                                   <Label htmlFor="fullsuv" className="text-gray-300">Full-size SUV</Label>
                                 </div>
@@ -212,13 +228,12 @@ const BookingPage = () => {
                                     value="luxury" 
                                     id="luxury" 
                                     className="text-amber-500"
-                                    {...register('carSegment', { required: true })}
+                                    {...register('carSegment')}
                                   />
                                   <Label htmlFor="luxury" className="text-gray-300">Luxury</Label>
                                 </div>
                               </div>
                             </RadioGroup>
-                            {errors.carSegment && <p className="text-red-500 text-sm mt-1">Car segment is required</p>}
                           </div>
                           
                           <div>
@@ -230,7 +245,7 @@ const BookingPage = () => {
                                     value="automatic" 
                                     id="automatic" 
                                     className="text-amber-500"
-                                    {...register('transmission', { required: true })}
+                                    {...register('transmission')}
                                   />
                                   <Label htmlFor="automatic" className="text-gray-300">Automatic</Label>
                                 </div>
@@ -239,13 +254,12 @@ const BookingPage = () => {
                                     value="manual" 
                                     id="manual" 
                                     className="text-amber-500"
-                                    {...register('transmission', { required: true })}
+                                    {...register('transmission')}
                                   />
                                   <Label htmlFor="manual" className="text-gray-300">Manual</Label>
                                 </div>
                               </div>
                             </RadioGroup>
-                            {errors.transmission && <p className="text-red-500 text-sm mt-1">Transmission is required</p>}
                           </div>
                           
                           <div>
@@ -306,11 +320,11 @@ const BookingPage = () => {
                             <Label htmlFor="dropoff" className="text-gray-300">Drop off Location</Label>
                             <Input 
                               id="dropoff" 
-                              {...register('dropoff', { required: true })}
+                              {...register('dropoff', { required: "Drop off location is required" })}
                               className="bg-gray-800 border-gray-700 text-white mt-1" 
                               placeholder="Enter your destination"
                             />
-                            {errors.dropoff && <p className="text-red-500 text-sm mt-1">Drop off location is required</p>}
+                            {errors.dropoff && <p className="text-red-500 text-sm mt-1">{errors.dropoff.message}</p>}
                           </div>
                           
                           <div>
@@ -322,7 +336,7 @@ const BookingPage = () => {
                                     value="fixed" 
                                     id="fixed" 
                                     className="text-amber-500"
-                                    {...register('priceVariant', { required: true })}
+                                    {...register('priceVariant')}
                                   />
                                   <Label htmlFor="fixed" className="text-gray-300">Fixed</Label>
                                 </div>
@@ -331,7 +345,7 @@ const BookingPage = () => {
                                     value="perkm" 
                                     id="perkm" 
                                     className="text-amber-500"
-                                    {...register('priceVariant', { required: true })}
+                                    {...register('priceVariant')}
                                   />
                                   <Label htmlFor="perkm" className="text-gray-300">Per KM</Label>
                                 </div>
@@ -340,13 +354,12 @@ const BookingPage = () => {
                                     value="permin" 
                                     id="permin" 
                                     className="text-amber-500"
-                                    {...register('priceVariant', { required: true })}
+                                    {...register('priceVariant')}
                                   />
                                   <Label htmlFor="permin" className="text-gray-300">Per Min</Label>
                                 </div>
                               </div>
                             </RadioGroup>
-                            {errors.priceVariant && <p className="text-red-500 text-sm mt-1">Price variant is required</p>}
                           </div>
                           
                           <div>
@@ -361,15 +374,22 @@ const BookingPage = () => {
                           
                           <div className="flex items-center space-x-2 pt-2">
                             <Checkbox 
-                              id="termsAndConditions" 
-                              {...register('termsAndConditions', { required: true })}
+                              id="termsandconditions"
+                              onCheckedChange={(checked) => {
+                                setValue('termsandconditions', checked === true);
+                              }}
+                              {...register('termsandconditions', { 
+                                required: "Terms and conditions are required" 
+                              })}
                               className="border-amber-500 text-amber-500 data-[state=checked]:bg-amber-500 data-[state=checked]:text-white" 
                             />
-                            <Label htmlFor="termsAndConditions" className="text-gray-300 text-sm">
+                            <Label htmlFor="termsandconditions" className="text-gray-300 text-sm">
                               I agree to the <a href='/tnc' className="text-amber-500 hover:underline">terms and conditions</a> and understand that my booking is subject to availability
                             </Label>
                           </div>
-                          {errors.termsAndConditions && <p className="text-red-500 text-sm mt-1">You must agree to the terms and conditions</p>}
+                          {errors.termsandconditions && (
+                            <p className="text-red-500 text-sm mt-1">{errors.termsandconditions.message}</p>
+                          )}
                           
                           <div className="flex gap-4 pt-4">
                             <Button 
