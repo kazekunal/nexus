@@ -83,13 +83,13 @@ export default function PricingComponent() {
                   {(activeTab === 'all' || activeTab === 'perKm') && 
                     <th className="py-3 px-4 text-left border-b border-gray-700">
                       <div className="flex items-center">
-                        Base Fair (+ ₹25 Per Km)
+                        Base Fare (+ ₹25 Per Km)
                         
                       </div>
                     </th>
                   }
                   {(activeTab === 'all' || activeTab === 'perMin') && 
-                    <th className="py-3 px-4 text-left border-b border-gray-700">Base Fair (+ ₹15 Per Min)</th>
+                    <th className="py-3 px-4 text-left border-b border-gray-700">Base Fare (+ ₹15 Per Min)</th>
                   }
                 </tr>
               </thead>
