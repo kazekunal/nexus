@@ -33,8 +33,8 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} antialiased`}>
         {children}
+        <GoogleAnalytics gaId="G-MERSXMJ4FR" />
       </body>
-      <GoogleAnalytics gaId="G-MERSXMJ4FR" />
     </html>
   );
 }
