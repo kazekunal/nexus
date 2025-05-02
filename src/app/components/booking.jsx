@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Loader2, Check } from 'lucide-react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import Navbar from './navbar';
 import Footer2 from './footer2';
 
@@ -20,7 +20,7 @@ const BookingPage = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [submissionError, setSubmissionError] = useState("");
   
-  const { register, handleSubmit, reset, formState: { errors }, watch, setValue } = useForm({
+  const { register, handleSubmit, reset, formState: { errors }, watch, setValue, control } = useForm({
     defaultValues: {
       carSegment: 'hatchback',
       transmission: 'automatic',
@@ -51,7 +51,7 @@ const BookingPage = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: '78c300b1-3b35-420c-bcad-7d33998dfbba', // varun's key
+          access_key: '77857d85-8d56-4e25-9c13-7247134d2421', // kunal's key
           FormType: 'Booking Details',
           ...data,
         }),
@@ -260,137 +260,164 @@ const BookingPage = () => {
                             />
                             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
                           </div>
+
+                          <div>
+                            <Label htmlFor="emergencyContact" className="text-gray-300">Emergency Contact</Label>
+                            <Input 
+                              id="emergencyContact" 
+                              type="tel"
+                              {...register('emergencyContact', { required: "Emergency contact is required" })}
+                              className="bg-gray-800 border-gray-700 text-white mt-1" 
+                              placeholder="Enter emergency contact number"
+                            />
+                            {errors.emergencyContact && <p className="text-red-500 text-sm mt-1">{errors.emergencyContact.message}</p>}
+                          </div>
                           
                           <div>
                             <Label className="text-gray-300 block mb-2">Car Segment</Label>
-                            <RadioGroup defaultValue="hatchback">
-                              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="hatchback" 
-                                    id="hatchback" 
-                                    className="text-amber-500"
-                                    {...register('carSegment')}
-                                  />
-                                  <Label htmlFor="hatchback" className="text-gray-300">Hatchback</Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="microsuv" 
-                                    id="microsuv" 
-                                    className="text-amber-500"
-                                    {...register('carSegment')}
-                                  />
-                                  <Label htmlFor="microsuv" className="text-gray-300">Micro SUV</Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="midsuv" 
-                                    id="midsuv" 
-                                    className="text-amber-500"
-                                    {...register('carSegment')}
-                                  />
-                                  <Label htmlFor="midsuv" className="text-gray-300">Mid-size SUV</Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="sedan" 
-                                    id="sedan" 
-                                    className="text-amber-500"
-                                    {...register('carSegment')}
-                                  />
-                                  <Label htmlFor="sedan" className="text-gray-300">Sedan</Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="fullsuv" 
-                                    id="fullsuv" 
-                                    className="text-amber-500"
-                                    {...register('carSegment')}
-                                  />
-                                  <Label htmlFor="fullsuv" className="text-gray-300">Full-size SUV</Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="luxury" 
-                                    id="luxury" 
-                                    className="text-amber-500"
-                                    {...register('carSegment')}
-                                  />
-                                  <Label htmlFor="luxury" className="text-gray-300">Luxury</Label>
-                                </div>
-                              </div>
-                            </RadioGroup>
+                            <Controller
+                              name="carSegment"
+                              control={control}
+                              render={({ field }) => (
+                                <RadioGroup 
+                                  value={field.value} 
+                                  onValueChange={field.onChange}
+                                >
+                                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="hatchback" 
+                                        id="hatchback" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="hatchback" className="text-gray-300">Hatchback</Label>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="microsuv" 
+                                        id="microsuv" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="microsuv" className="text-gray-300">Micro SUV</Label>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="midsuv" 
+                                        id="midsuv" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="midsuv" className="text-gray-300">Mid-size SUV</Label>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="sedan" 
+                                        id="sedan" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="sedan" className="text-gray-300">Sedan</Label>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="fullsuv" 
+                                        id="fullsuv" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="fullsuv" className="text-gray-300">Full-size SUV</Label>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="luxury" 
+                                        id="luxury" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="luxury" className="text-gray-300">Luxury</Label>
+                                    </div>
+                                  </div>
+                                </RadioGroup>
+                              )}
+                            />
                           </div>
                           
                           <div>
                             <Label className="text-gray-300 block mb-2">Transmission</Label>
-                            <RadioGroup defaultValue="automatic">
-                              <div className="flex space-x-4">
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="automatic" 
-                                    id="automatic" 
-                                    className="text-amber-500"
-                                    {...register('transmission')}
-                                  />
-                                  <Label htmlFor="automatic" className="text-gray-300">Automatic</Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="manual" 
-                                    id="manual" 
-                                    className="text-amber-500"
-                                    {...register('transmission')}
-                                  />
-                                  <Label htmlFor="manual" className="text-gray-300">Manual</Label>
-                                </div>
-                              </div>
-                            </RadioGroup>
+                            <Controller
+                              name="transmission"
+                              control={control}
+                              render={({ field }) => (
+                                <RadioGroup 
+                                  value={field.value} 
+                                  onValueChange={field.onChange}
+                                >
+                                  <div className="flex space-x-4">
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="automatic" 
+                                        id="automatic" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="automatic" className="text-gray-300">Automatic</Label>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="manual" 
+                                        id="manual" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="manual" className="text-gray-300">Manual</Label>
+                                    </div>
+                                  </div>
+                                </RadioGroup>
+                              )}
+                            />
                           </div>
                           
                           <div>
                             <Label className="text-gray-300 block mb-2">Trip Insurance (Optional)</Label>
-                            <RadioGroup defaultValue="none">
-                              <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="scratch" 
-                                    id="scratch" 
-                                    className="text-amber-500"
-                                    {...register('tripInsurance')}
-                                  />
-                                  <Label htmlFor="scratch" className="text-gray-300">Scratch Coverage</Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="scratchdent" 
-                                    id="scratchdent" 
-                                    className="text-amber-500"
-                                    {...register('tripInsurance')}
-                                  />
-                                  <Label htmlFor="scratchdent" className="text-gray-300">Scratch & Dent Coverage</Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="full" 
-                                    id="full" 
-                                    className="text-amber-500"
-                                    {...register('tripInsurance')}
-                                  />
-                                  <Label htmlFor="full" className="text-gray-300">Full Coverage</Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="none" 
-                                    id="none" 
-                                    className="text-amber-500"
-                                    {...register('tripInsurance')}
-                                  />
-                                  <Label htmlFor="none" className="text-gray-300">No Insurance</Label>
-                                </div>
-                              </div>
-                            </RadioGroup>
+                            <Controller
+                              name="tripInsurance"
+                              control={control}
+                              render={({ field }) => (
+                                <RadioGroup 
+                                  value={field.value} 
+                                  onValueChange={field.onChange}
+                                >
+                                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="scratch" 
+                                        id="scratch" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="scratch" className="text-gray-300">Scratch Coverage</Label>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="scratchdent" 
+                                        id="scratchdent" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="scratchdent" className="text-gray-300">Scratch & Dent Coverage</Label>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="full" 
+                                        id="full" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="full" className="text-gray-300">Full Coverage</Label>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="none" 
+                                        id="none" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="none" className="text-gray-300">No Insurance</Label>
+                                    </div>
+                                  </div>
+                                </RadioGroup>
+                              )}
+                            />
                           </div>
                           
                           <div>
@@ -416,37 +443,43 @@ const BookingPage = () => {
                           
                           <div>
                             <Label className="text-gray-300 block mb-2">Price Variant</Label>
-                            <RadioGroup defaultValue="fixed">
-                              <div className="flex flex-wrap gap-4">
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="fixed" 
-                                    id="fixed" 
-                                    className="text-amber-500"
-                                    {...register('priceVariant')}
-                                  />
-                                  <Label htmlFor="fixed" className="text-gray-300">Fixed</Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="perkm" 
-                                    id="perkm" 
-                                    className="text-amber-500"
-                                    {...register('priceVariant')}
-                                  />
-                                  <Label htmlFor="perkm" className="text-gray-300">Per KM</Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem 
-                                    value="permin" 
-                                    id="permin" 
-                                    className="text-amber-500"
-                                    {...register('priceVariant')}
-                                  />
-                                  <Label htmlFor="permin" className="text-gray-300">Per Min</Label>
-                                </div>
-                              </div>
-                            </RadioGroup>
+                            <Controller
+                              name="priceVariant"
+                              control={control}
+                              render={({ field }) => (
+                                <RadioGroup 
+                                  value={field.value} 
+                                  onValueChange={field.onChange}
+                                >
+                                  <div className="flex flex-wrap gap-4">
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="fixed" 
+                                        id="fixed" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="fixed" className="text-gray-300">Fixed</Label>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="perkm" 
+                                        id="perkm" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="perkm" className="text-gray-300">Per KM</Label>
+                                    </div>
+                                    <div className="flex items-center space-x-2">
+                                      <RadioGroupItem 
+                                        value="permin" 
+                                        id="permin" 
+                                        className="text-amber-500"
+                                      />
+                                      <Label htmlFor="permin" className="text-gray-300">Per Min</Label>
+                                    </div>
+                                  </div>
+                                </RadioGroup>
+                              )}
+                            />
                           </div>
                           
                           <div>
