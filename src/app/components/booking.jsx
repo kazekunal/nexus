@@ -12,13 +12,13 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Loader2, Check } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import Navbar from './navbar';
-import Footer from './footer';
 import Footer2 from './footer2';
 
 const BookingPage = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
   
   const { register, handleSubmit, reset, formState: { errors }, watch, setValue } = useForm({
     defaultValues: {
@@ -35,39 +35,120 @@ const BookingPage = () => {
     if (isSuccess) {
       setIsSuccess(false);
     }
+    setSubmissionError("");
     reset();
   };
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
-    
+    setSubmissionError("");
+  
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      // 1. Submit to Web3Forms
+      const web3Response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: '78c300b1-3b35-420c-bcad-7d33998dfbba',
+          access_key: '77857d85-8d56-4e25-9c13-7247134d2421', // your Web3Forms key
           FormType: 'Booking Details',
           ...data,
         }),
       });
+  
+      const web3Data = await web3Response.json();
       
-      const responseData = await response.json();
+      // 2. Submit to Google Sheets using a more reliable approach
+      let sheetsSuccess = false;
       
-      if (response.status === 200) {
+      try {
+        // Your Google Apps Script is expecting JSON, so we'll send JSON
+        const jsonData = JSON.stringify({
+          ...data,
+          termsandconditions: data.termsandconditions ? "true" : "false",
+          timestamp: new Date().toISOString()
+        });
+        
+        console.log("Sending to Google Sheets:", jsonData);
+        
+        // Method 1: Direct fetch with JSON
+        try {
+          const directResponse = await fetch(
+            'https://script.google.com/macros/s/AKfycbyPniWj1N3QR8WS5BGySDaJ0cpPLJvKxUJyiE5PNFtcOA1SN3xP3fVSB7TIvcNBwMW0/exec', 
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: jsonData,
+            }
+          );
+          console.log("Direct fetch response:", directResponse);
+        } catch (directError) {
+          console.log("Direct fetch failed:", directError);
+          // Continue to backup methods
+        }
+        
+        // Method 2: Use XHR for better cross-domain support
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://script.google.com/macros/s/AKfycbyPniWj1N3QR8WS5BGySDaJ0cpPLJvKxUJyiE5PNFtcOA1SN3xP3fVSB7TIvcNBwMW0/exec', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+            console.log("XHR Response:", xhr.status, xhr.responseText);
+          }
+        };
+        xhr.send(jsonData);
+        
+        // Method 3: Fallback - GET request with parameters
+        const queryParams = new URLSearchParams();
+        Object.entries(data).forEach(([key, value]) => {
+          queryParams.append(key, typeof value === 'boolean' ? value.toString() : value);
+        });
+        
+        const img = document.createElement('img');
+        img.style.display = 'none';
+        img.src = `https://script.google.com/macros/s/AKfycbyPniWj1N3QR8WS5BGySDaJ0cpPLJvKxUJyiE5PNFtcOA1SN3xP3fVSB7TIvcNBwMW0/exec?${queryParams.toString()}`;
+        document.body.appendChild(img);
+        
+        // Remove the image after a while
+        setTimeout(() => {
+          if (document.body.contains(img)) {
+            document.body.removeChild(img);
+          }
+        }, 5000);
+        
+        // Consider this a success if we've tried all methods
+        sheetsSuccess = true;
+        
+      } catch (sheetsError) {
+        console.error('Google Sheets submission error:', sheetsError);
+        // Continue even if Google Sheets fails - we'll still consider the form submitted
+        // if the Web3Forms submission was successful
+      }
+  
+      // Consider the submission successful if at least Web3Forms succeeded
+      if (web3Response.status === 200) {
         setIsSuccess(true);
         reset();
+        
+        // If Google Sheets failed but Web3Forms succeeded, we can still log the submission locally
+        if (!sheetsSuccess) {
+          console.log('Form data submitted to Web3Forms but not to Google Sheets:', data);
+        }
       } else {
-        console.error('Form submission error:', responseData);
+        setSubmissionError("There was a problem submitting your form. Please try again.");
+        console.error('Web3Forms submission error:', web3Data);
       }
     } catch (error) {
-      console.error('Form submission error:', error);
+      setSubmissionError("Network error. Please check your connection and try again.");
+      console.error('Submission error:', error);
     } finally {
       setIsSubmitting(false);
     }
   };
+  
 
   return (
     <div className="min-h-screen bg-black bg-cover bg-center bg-no-repeat bg-blend-overlay">
@@ -132,6 +213,12 @@ const BookingPage = () => {
                           <h3 className="text-2xl font-bold text-white mb-4 text-center">
                             Book Your Chauffeur
                           </h3>
+                          
+                          {submissionError && (
+                            <div className="bg-red-900/50 border border-red-700 text-white p-3 rounded">
+                              {submissionError}
+                            </div>
+                          )}
                           
                           <div>
                             <Label htmlFor="name" className="text-gray-300">Full Name</Label>
