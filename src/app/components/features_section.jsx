@@ -13,7 +13,7 @@ const FeaturesSection = () => {
       icon: <Shield className="w-10 h-10" style={{ color: accentColor }} />,
       title: "Enhanced Safety",
       description:
-        "Two-factor authentication, driver profiles, dashcam footage, and live tracking available for 24 hours with sharing options.",
+        "Two-factor authentication, driver profiles, dashcam footage (Coming Soon), and live tracking available for 24 hours with sharing options.",
     },
     
     {
@@ -34,7 +34,7 @@ const FeaturesSection = () => {
     "Live tracking and enhanced security measures",
     "Professional chauffeurs with extensive training",
     "Seamless booking with 5-10 minute driver availability",
-    "Dashcam access for security and trip memories",
+    "Dashcam access (Coming Soon) for security and trip memories",
   ]
 
   return (
