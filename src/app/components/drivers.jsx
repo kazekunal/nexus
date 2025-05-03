@@ -29,6 +29,7 @@ const drivers = [
     { id: 4, name: 'Dharmendar Kumar Singh', photo: 'dharmender.jpeg', experience: 8, languages: ['Hindi'], license: 'JH-1320130008694 ', licenseExpiry: '07-09-2033', aadhaarVerified: true, bloodGroup: 'A+', emergencyContact: '+91-99123XXXXX', rating: 4.9, reviews: 154, },
     { id: 5, name: 'Rintu Kumar', photo: 'rintu.jpeg', experience: 6, languages: ['Hindi', 'Haryanvi'], license: 'BRO2-20240001850 ', licenseExpiry: '31-12-2043', aadhaarVerified: true, bloodGroup: 'A+', emergencyContact: '+91-97890XXXXX', rating: 4.8, reviews: 112, },
     { id: 6, name: 'Sonu Kumar Ram', photo: 'sonu.jpeg', experience: 3, languages: ['Hindi'], license: 'JH13-20200041308', licenseExpiry: '18-08-2040 ', aadhaarVerified: true, bloodGroup: 'O+', emergencyContact: '+91-96543XXXXX', rating: 4.6, reviews: 58, },
+    { id: 7, name: 'Pramod Yadav', photo: 'pramod.jpeg', experience: 3, languages: ['Hindi'], license: 'JH13-20100002993', licenseExpiry: '19-06-2039' , aadhaarVerified: true, bloodGroup: 'A+', emergencyContact: '+91-96543XXXXX', rating: 4.6, reviews: 58, },
 ];
 
 // --- Components ---

@@ -30,7 +30,7 @@ export default function Navbar() {
             {["Features", "How it works", "About us","Pricing","Trip Insurance", "Contact"].map((item) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`/#${item.toLowerCase()}`}
                 className="text-[#720c17] hover:text-[#bd8c5e] transition-colors"
               >
                 {item}
@@ -69,7 +69,7 @@ export default function Navbar() {
               {["Features", "How it works", "About us","Pricing","Trip Insurance", "Contact"].map((item) => (
                 <a
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  href={`/#${item.toLowerCase()}`}
                   className="text-[#720c17] hover:text-[#bd8c5e] transition-colors font-light"
                   onClick={() => setIsMenuOpen(false)}
                 >
