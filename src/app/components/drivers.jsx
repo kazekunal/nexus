@@ -23,13 +23,13 @@ const colors = {
 
 // Mock data for driver profiles (assuming this remains the same)
 const drivers = [
-    { id: 1, name: 'Birendra Yadav', photo: 'birender.png', experience: 2, languages: ['Hindi'], license: 'JH13-20220004459 ', licenseExpiry: '03-12-2038', aadhaarVerified: true, bloodGroup: 'O+', emergencyContact: '+91-8800422624', rating: 4.8, reviews: 124, },
-    { id: 2, name: 'Ashutosh Kumar', photo: 'ashutosh.jpeg', experience: 7, languages: ['Hindi'], license: 'UP5O-20099001829', licenseExpiry: '25-03-2029 ', aadhaarVerified: true, bloodGroup: 'Unknown', emergencyContact: '+91-98123XXXXX', rating: 4.9, reviews: 98, },
-    { id: 3, name: 'Brajesh Kumar', photo: 'brajesh.jpeg', experience: 4, languages: ['Hindi'], license: 'JH13-20090002776 ', licenseExpiry: '09-12-2029', aadhaarVerified: true, bloodGroup: 'O+', emergencyContact: '+91-95678XXXXX', rating: 4.7, reviews: 86, },
-    { id: 4, name: 'Dharmendar Kumar Singh', photo: 'dharmender.jpeg', experience: 8, languages: ['Hindi'], license: 'JH-1320130008694 ', licenseExpiry: '07-09-2033', aadhaarVerified: true, bloodGroup: 'A+', emergencyContact: '+91-99123XXXXX', rating: 4.9, reviews: 154, },
-    { id: 5, name: 'Rintu Kumar', photo: 'rintu.jpeg', experience: 6, languages: ['Hindi', 'Haryanvi'], license: 'BRO2-20240001850 ', licenseExpiry: '31-12-2043', aadhaarVerified: true, bloodGroup: 'A+', emergencyContact: '+91-97890XXXXX', rating: 4.8, reviews: 112, },
-    { id: 6, name: 'Sonu Kumar Ram', photo: 'sonu.jpeg', experience: 3, languages: ['Hindi'], license: 'JH13-20200041308', licenseExpiry: '18-08-2040 ', aadhaarVerified: true, bloodGroup: 'O+', emergencyContact: '+91-96543XXXXX', rating: 4.6, reviews: 58, },
-    { id: 7, name: 'Pramod Yadav', photo: 'pramod.jpeg', experience: 3, languages: ['Hindi'], license: 'JH13-20100002993', licenseExpiry: '19-06-2039' , aadhaarVerified: true, bloodGroup: 'A+', emergencyContact: '+91-96543XXXXX', rating: 4.6, reviews: 58, },
+    { id: 1, name: 'Birendra Yadav', photo: 'birender.png', experience: 12, languages: ['Hindi'], license: 'JH13-20220004459 ', licenseExpiry: '03-12-2038', aadhaarVerified: true, bloodGroup: 'O+', emergencyContact: '+91-8800422624', rating: 4.8, reviews: 124, },
+    { id: 2, name: 'Ashutosh Kumar', photo: 'ashutosh.jpeg', experience: 16, languages: ['Hindi'], license: 'UP5O-20099001829', licenseExpiry: '25-03-2029 ', aadhaarVerified: true, bloodGroup: 'Unknown', emergencyContact: '+91-98123XXXXX', rating: 4.9, reviews: 98, },
+    { id: 3, name: 'Brajesh Kumar', photo: 'brajesh.jpeg', experience: 14, languages: ['Hindi'], license: 'JH13-20090002776 ', licenseExpiry: '09-12-2029', aadhaarVerified: true, bloodGroup: 'O+', emergencyContact: '+91-95678XXXXX', rating: 4.7, reviews: 86, },
+    { id: 4, name: 'Dharmendar Kumar Singh', photo: 'dharmender.jpeg', experience: 10, languages: ['Hindi'], license: 'JH-1320130008694 ', licenseExpiry: '07-09-2033', aadhaarVerified: true, bloodGroup: 'A+', emergencyContact: '+91-99123XXXXX', rating: 4.9, reviews: 154, },
+    { id: 5, name: 'Rintu Kumar', photo: 'rintu.jpeg', experience: 16, languages: ['Hindi', 'Haryanvi'], license: 'BRO2-20240001850 ', licenseExpiry: '31-12-2043', aadhaarVerified: true, bloodGroup: 'A+', emergencyContact: '+91-97890XXXXX', rating: 4.8, reviews: 112, },
+    { id: 6, name: 'Sonu Kumar Ram', photo: 'sonu.jpeg', experience: 13, languages: ['Hindi'], license: 'JH13-20200041308', licenseExpiry: '18-08-2040 ', aadhaarVerified: true, bloodGroup: 'O+', emergencyContact: '+91-96543XXXXX', rating: 4.6, reviews: 58, },
+    { id: 7, name: 'Pramod Yadav', photo: 'pramod.jpeg', experience: 13, languages: ['Hindi'], license: 'JH13-20100002993', licenseExpiry: '19-06-2039' , aadhaarVerified: true, bloodGroup: 'A+', emergencyContact: '+91-96543XXXXX', rating: 4.6, reviews: 58, },
 ];
 
 // --- Components ---
@@ -304,7 +304,7 @@ function DriverProfilePage({ driver, onBack, activeTab, setActiveTab, colors }) 
 
       {/* Tabs Navigation */}
       <div className="flex border-b mb-6" style={{ borderColor: '#4B5563' }}>
-        {['details', 'reviews', 'availability'].map((tabName) => (
+        {['details','availability'].map((tabName) => (
              <button
               key={tabName}
               onClick={() => setActiveTab(tabName)}
