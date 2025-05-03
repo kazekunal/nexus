@@ -82,13 +82,13 @@ export default function Landing() {
                   <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
-              {/* <a href="/portal">
+              <a href="/portal">
                 <Button size="lg" className="group bg-[#720c17] hover:bg-[#5a0912] text-white">
                   View Our Fleet
                   <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
-              <br/> */}
+              <br/>
               <Sheet>
                 <SheetTrigger asChild>
                   <Button className="md:hidden" size="lg" variant="outline"
