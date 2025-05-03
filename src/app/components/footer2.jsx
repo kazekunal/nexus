@@ -21,7 +21,7 @@ export default function Footer2() {
               <li><a href="#about-us" className="text-gray-300 hover:text-red-400 transition-colors">About Us</a></li>
               <li><a href="#trip-insurance" className="text-gray-300 hover:text-red-400 transition-colors">Trip Insurance</a></li>
               <li><a href="#contact" className="text-gray-300 hover:text-red-400 transition-colors">Contact</a></li>
-              <li><a href="/portal" className="text-gray-300 hover:text-red-400 transition-colors">Driver's Portal</a></li>
+              <li><a href="/portal" className="text-gray-300 hover:text-red-400 transition-colors">Our chauffeurs</a></li>
             </ul>
           </div>
 
