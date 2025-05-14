@@ -100,7 +100,7 @@ export default function Footer2() {
         <div className="flex flex-col items-center space-y-2 text-gray-400 text-sm">
           <p>
             Designed and Developed by{' '}
-            <span className="text-white hover:text-gray-300 transition-colors cursor-pointer">
+            <span className="text-white hover:text-gray-300 transition-colors cursor-pointer underline">
               <a href='https://kunalpassan.vercel.app/'>Kunal Passan</a>
             </span>
           </p>
