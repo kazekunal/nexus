@@ -6,12 +6,32 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "../../../public/navbar.png";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  useAuth
+} from '@clerk/nextjs';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const { isSignedIn } = useAuth();
+
+  const handleBookNowClick = (e) => {
+    e.preventDefault();
+    if (isSignedIn) {
+      router.push('/bookings');
+    } else {
+      // This will open the sign-in modal
+      document.querySelector('[data-clerk-sign-in]')?.click();
+    }
+  };
 
   return (
-    <nav className="fixed  w-full z-50 bg-[#d9d1c6]/80 backdrop-blur-lg border-b border-[#bd8c5e]/30">
+    <nav className="fixed w-full z-50 bg-[#d9d1c6]/80 backdrop-blur-lg border-b border-[#bd8c5e]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <a href="/">
@@ -39,13 +59,32 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Auth Buttons */}
-          <a href="/bookings">
-            <div className="hidden md:flex items-center space-x-4">
-              <Button className="bg-[#720c17] hover:bg-[#5a0912] text-white">
-                Book Now
-              </Button>
-            </div>
-          </a>
+          <div className="hidden md:flex items-center space-x-4">
+            <Button 
+              className="bg-[#720c17] hover:bg-[#5a0912] text-white"
+              onClick={handleBookNowClick}
+            >
+              Book Now
+            </Button>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button variant="outline" className="bg-[#720c17] hover:bg-[#5a0912] text-white]">
+                  Log In / Sign Up
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton 
+                afterSignOutUrl="/"
+                appearance={{
+                  elements: {
+                    userButtonAvatarBox: "w-10 h-10"
+                  }
+                }}
+              />
+            </SignedIn>
+          </div>
+          
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -77,13 +116,34 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="flex flex-col gap-4 pt-4 border-t border-[#bd8c5e]/30">
-                <a href="/bookings" className="w-full">
-                  <Button
-                    className="bg-[#720c17] hover:bg-[#5a0912] text-white w-full text-base font-medium"
-                  >
-                    Book Now
-                  </Button>
-                </a>
+                <Button
+                  className="bg-[#720c17] hover:bg-[#5a0912] text-white w-full text-base font-medium"
+                  onClick={(e) => {
+                    setIsMenuOpen(false);
+                    handleBookNowClick(e);
+                  }}
+                >
+                  Book Now
+                </Button>
+                <SignedOut>
+                  <SignInButton mode="modal">
+                    <Button variant="outline" className="border-[#720c17] text-white hover:bg-[#720c17] w-full text-base font-medium">
+                      Sign In / Sign Up
+                    </Button>
+                  </SignInButton>
+                </SignedOut>
+                <SignedIn>
+                  <div className="flex items-center justify-center mb-2">
+                    <UserButton 
+                      afterSignOutUrl="/"
+                      appearance={{
+                        elements: {
+                          userButtonAvatarBox: "w-10 h-10"
+                        }
+                      }}
+                    />
+                  </div>
+                </SignedIn>
               </div>
             </div>
           </motion.div>

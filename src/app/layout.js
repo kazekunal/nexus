@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -30,11 +31,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} antialiased`}>
-        {children}
-        <GoogleAnalytics gaId="G-MERSXMJ4FR" />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${poppins.variable} antialiased`}>
+          {children}
+          <GoogleAnalytics gaId="G-MERSXMJ4FR" />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
