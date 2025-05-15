@@ -15,8 +15,20 @@ import {
   SheetClose
 } from "@/components/ui/sheet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  useAuth
+} from '@clerk/nextjs';
+
+
 
 export default function Landing() {
+
+  const { isSignedIn } = useAuth();
+
   return (
     <div className="flex flex-col">
       {/* Full-width hero image section */}
@@ -76,18 +88,32 @@ export default function Landing() {
             </div>
 
             <div className="flex flex-wrap gap-4 justify-center" id="features">
-              <a href="/bookings">
-                <Button size="lg" className="group bg-[#720c17] hover:bg-[#5a0912] text-white">
-                  Book a Chauffeur
-                  <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </a>
-              <a href="/portal">
-                <Button size="lg" className="group bg-[#720c17] hover:bg-[#5a0912] text-white">
-                  View Our Fleet
-                  <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </a>
+    {isSignedIn ? (
+      <a href="/bookings">
+      <Button 
+        size="lg" 
+        className="group bg-[#720c17] hover:bg-[#5a0912] text-white"
+        // onClick={(e) => {
+        //   e.preventDefault();
+        //   router.push('/bookings');
+        // }}
+      >
+        Book a Chauffeur
+      </Button>
+      </a>
+    ) : (
+      <SignInButton mode="modal" redirectUrl="/bookings">
+          <Button size="lg" className="group bg-[#720c17] hover:bg-[#5a0912] text-white">
+            Book a Chauffeur
+          </Button>
+      </SignInButton>
+    )}
+  <a href="/portal">
+    <Button size="lg" className="group bg-[#720c17] hover:bg-[#5a0912] text-white">
+      View Our Fleet
+      <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+    </Button>
+  </a>
               <br/>
               <Sheet>
                 <SheetTrigger asChild>

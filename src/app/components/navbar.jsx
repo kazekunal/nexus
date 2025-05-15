@@ -15,6 +15,7 @@ import {
   useAuth
 } from '@clerk/nextjs';
 
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
@@ -24,6 +25,7 @@ export default function Navbar() {
     e.preventDefault();
     router.push('/bookings');
   };
+  
 
   return (
     <nav className="fixed w-full z-50 bg-[#d9d1c6]/80 backdrop-blur-lg border-b border-[#bd8c5e]/30">
@@ -55,18 +57,31 @@ export default function Navbar() {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
+          {isSignedIn ? (
             <Button 
               className="bg-[#720c17] hover:bg-[#5a0912] text-white"
-              onClick={handleBookNowClick}
+              onClick={(e) => {
+                e.preventDefault();
+                router.push('/bookings');
+              }}
             >
               Book Now
             </Button>
-            <SignedOut>
-              <SignInButton mode="modal" afterSignInUrl="/bookings">
-                <Button variant="outline" className="bg-[#720c17] hover:bg-[#5a0912] text-white]">
-                  Log In / Sign Up
+          ) : (
+            <SignInButton mode="modal" redirectUrl="/bookings">
+              <div>
+                <Button className="bg-[#720c17] hover:bg-[#5a0912] text-white">
+                  Book Now
                 </Button>
-              </SignInButton>
+              </div>
+            </SignInButton>
+              )}
+            <SignedOut>
+            <SignInButton mode="modal">
+              <Button variant="outline" className="bg-[#720c17] hover:bg-[#5a0912] text-white">
+                Log In / Sign Up
+              </Button>
+          </SignInButton>
             </SignedOut>
             <SignedIn>
               <UserButton 
@@ -121,7 +136,7 @@ export default function Navbar() {
                   Book Now
                 </Button>
                 <SignedOut>
-                  <SignInButton mode="modal" afterSignInUrl="/bookings">
+                  <SignInButton mode="modal">
                     <Button variant="outline" className="border-[#720c17] text-white hover:bg-[#720c17] w-full text-base font-medium">
                       Sign In / Sign Up
                     </Button>
