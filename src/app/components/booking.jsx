@@ -2,6 +2,7 @@
 // varun -  78c300b1-3b35-420c-bcad-7d33998dfbba
 'use client'
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -13,12 +14,15 @@ import { Loader2, Check } from 'lucide-react';
 import { useForm, Controller } from 'react-hook-form';
 import Navbar from './navbar';
 import Footer2 from './footer2';
+import { useUser } from '@clerk/nextjs';
 
 const BookingPage = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [submissionError, setSubmissionError] = useState("");
+  const { isSignedIn, user } = useUser();
+
   
   const { register, handleSubmit, reset, formState: { errors }, watch, setValue, control } = useForm({
     defaultValues: {
@@ -148,6 +152,12 @@ const BookingPage = () => {
       setIsSubmitting(false);
     }
   };
+
+  useEffect(() => {
+    if (isSignedIn && user) {
+      setValue('email', user.primaryEmailAddress?.emailAddress || '');
+    }
+  }, [isSignedIn, user, setValue]);
   
 
   return (
@@ -243,23 +253,46 @@ const BookingPage = () => {
                             {errors.number && <p className="text-red-500 text-sm mt-1">{errors.number.message}</p>}
                           </div>
                           
+                          {isSignedIn ? (
+                          <>
+                            <div>
+                              <Label htmlFor="email" className="text-gray-300">Email Address</Label>
+                              <Input
+                                id="email"
+                                type="email"
+                                value={user?.primaryEmailAddress?.emailAddress || ''}
+                                disabled
+                                className="bg-gray-700 border-gray-600 text-white mt-1"
+                              />
+                            </div>
+                            {/* Hidden input to ensure email is submitted */}
+                            <input
+                              type="hidden"
+                              {...register('email', { required: true })}
+                              value={user?.primaryEmailAddress?.emailAddress || ''}
+                            />
+                          </>
+                        ) : (
                           <div>
                             <Label htmlFor="email" className="text-gray-300">Email Address</Label>
-                            <Input 
-                              id="email" 
+                            <Input
+                              id="email"
                               type="email"
-                              {...register('email', { 
+                              {...register('email', {
                                 required: "Email is required",
                                 pattern: {
                                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                   message: "Invalid email address"
                                 }
                               })}
-                              className="bg-gray-800 border-gray-700 text-white mt-1" 
+                              className="bg-gray-800 border-gray-700 text-white mt-1"
                               placeholder="Enter your email address"
                             />
-                            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
+                            {errors.email && (
+                              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                            )}
                           </div>
+                        )}
 
                           <div>
                             <Label htmlFor="emergencyContact" className="text-gray-300">Emergency Contact</Label>

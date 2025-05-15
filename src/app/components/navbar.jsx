@@ -22,12 +22,7 @@ export default function Navbar() {
 
   const handleBookNowClick = (e) => {
     e.preventDefault();
-    if (isSignedIn) {
-      router.push('/bookings');
-    } else {
-      // This will open the sign-in modal
-      document.querySelector('[data-clerk-sign-in]')?.click();
-    }
+    router.push('/bookings');
   };
 
   return (
@@ -67,7 +62,7 @@ export default function Navbar() {
               Book Now
             </Button>
             <SignedOut>
-              <SignInButton mode="modal">
+              <SignInButton mode="modal" afterSignInUrl="/bookings">
                 <Button variant="outline" className="bg-[#720c17] hover:bg-[#5a0912] text-white]">
                   Log In / Sign Up
                 </Button>
@@ -126,7 +121,7 @@ export default function Navbar() {
                   Book Now
                 </Button>
                 <SignedOut>
-                  <SignInButton mode="modal">
+                  <SignInButton mode="modal" afterSignInUrl="/bookings">
                     <Button variant="outline" className="border-[#720c17] text-white hover:bg-[#720c17] w-full text-base font-medium">
                       Sign In / Sign Up
                     </Button>
