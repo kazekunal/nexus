@@ -84,7 +84,7 @@ export default function PricingComponent() {
           </div>
           
           {/* Added disclaimer note */}
-          <div className="bg-gray-900 p-4 border-t border-gray-800">
+          <div id='trip%20insurance' className="bg-gray-900 p-4 border-t border-gray-800">
             <p className="text-center text-amber-300 font-medium text-sm">
               Please note: We only provide chauffeurs and do not supply any cars. Our chauffeurs will drive your personal vehicle upon booking. All listed prices are for chauffeur services only and do not include any car rental of any segment.
             </p>
