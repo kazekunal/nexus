@@ -60,7 +60,7 @@ const AboutUs = () => {
               <div className="relative w-full h-48 md:h-64">
                 {/* Map iframe */}
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.3799341406184!2d77.06038057580592!3d28.46810257575496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1998d93a2cfb%3A0x6738361a7da66f53!2sDowntown%20Diner%20%26%20Fresh%20Beer%20Cafe!5e0!3m2!1sen!2sin!4v1745415254024!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28059.283897488876!2d77.03024415809182!3d28.46718209831867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5fe8e5c64b1e!2sGurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1747398598646!5m2!1sen!2sin"
                   height="100%"
                   width="100%"
                   style={{ border: 0 }}

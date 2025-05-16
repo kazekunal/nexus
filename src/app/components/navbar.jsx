@@ -70,10 +70,9 @@ export default function Navbar() {
           ) : (
             <SignInButton mode="modal">
               <div>
-                <a href="/bookings">
                 <Button className="bg-[#720c17] hover:bg-[#5a0912] text-white">
                   Book Now
-                </Button></a>
+                </Button>
               </div>
             </SignInButton>
               )}

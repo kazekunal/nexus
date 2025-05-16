@@ -26,7 +26,7 @@ const BookingPage = () => {
   
   const { register, handleSubmit, reset, formState: { errors }, watch, setValue, control } = useForm({
     defaultValues: {
-      carSegment: 'hatchback',
+      carSegment: 'standard',
       transmission: 'automatic',
       tripInsurance: 'none',
       priceVariant: 'fixed',
@@ -316,46 +316,14 @@ const BookingPage = () => {
                                   value={field.value} 
                                   onValueChange={field.onChange}
                                 >
-                                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                                  <div className="grid grid-cols-2">
                                     <div className="flex items-center space-x-2">
                                       <RadioGroupItem 
-                                        value="hatchback" 
-                                        id="hatchback" 
+                                        value="standard" 
+                                        id="standard" 
                                         className="text-amber-500"
                                       />
-                                      <Label htmlFor="hatchback" className="text-gray-300">Hatchback</Label>
-                                    </div>
-                                    <div className="flex items-center space-x-2">
-                                      <RadioGroupItem 
-                                        value="microsuv" 
-                                        id="microsuv" 
-                                        className="text-amber-500"
-                                      />
-                                      <Label htmlFor="microsuv" className="text-gray-300">Micro SUV</Label>
-                                    </div>
-                                    <div className="flex items-center space-x-2">
-                                      <RadioGroupItem 
-                                        value="midsuv" 
-                                        id="midsuv" 
-                                        className="text-amber-500"
-                                      />
-                                      <Label htmlFor="midsuv" className="text-gray-300">Mid-size SUV</Label>
-                                    </div>
-                                    <div className="flex items-center space-x-2">
-                                      <RadioGroupItem 
-                                        value="sedan" 
-                                        id="sedan" 
-                                        className="text-amber-500"
-                                      />
-                                      <Label htmlFor="sedan" className="text-gray-300">Sedan</Label>
-                                    </div>
-                                    <div className="flex items-center space-x-2">
-                                      <RadioGroupItem 
-                                        value="fullsuv" 
-                                        id="fullsuv" 
-                                        className="text-amber-500"
-                                      />
-                                      <Label htmlFor="fullsuv" className="text-gray-300">Full-size SUV</Label>
+                                      <Label htmlFor="standard" className="text-gray-300">Standard</Label>
                                     </div>
                                     <div className="flex items-center space-x-2">
                                       <RadioGroupItem 
@@ -457,10 +425,11 @@ const BookingPage = () => {
                             <Label htmlFor="pickup" className="text-gray-300">Pick up Location</Label>
                             <Input 
                               id="pickup" 
-                              value="Sector 29, main parking, near downtown, Gurgaon"
-                              disabled
-                              className="bg-gray-700 border-gray-600 text-gray-400 mt-1" 
+                              {...register('pickup', { required: "Pick up location is required" })}
+                              className="bg-gray-800 border-gray-700 text-white mt-1" 
+                              placeholder="Enter your pickup location"
                             />
+                            {errors.pickup && <p className="text-red-500 text-sm mt-1">{errors.pickup.message}</p>}
                           </div>
                           
                           <div>
@@ -474,7 +443,7 @@ const BookingPage = () => {
                             {errors.dropoff && <p className="text-red-500 text-sm mt-1">{errors.dropoff.message}</p>}
                           </div>
                           
-                          <div>
+                          {/* <div>
                             <Label className="text-gray-300 block mb-2">Price Variant</Label>
                             <Controller
                               name="priceVariant"
@@ -513,7 +482,7 @@ const BookingPage = () => {
                                 </RadioGroup>
                               )}
                             />
-                          </div>
+                          </div> */}
                           
                           <div>
                             <Label htmlFor="referralCode" className="text-gray-300">Referral Code (Optional)</Label>
@@ -521,7 +490,7 @@ const BookingPage = () => {
                               id="referralCode" 
                               {...register('referralCode')}
                               className="bg-gray-800 border-gray-700 text-white mt-1" 
-                              placeholder="Enter referral code if you have one"
+                              placeholder="Enter referral code"
                             />
                           </div>
                           
