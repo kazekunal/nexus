@@ -11,6 +11,7 @@ const HowItWorks = () => {
   }
 
   const onlineBookingSteps = [
+    "Sign in through your email id on our website",
     "Click on \"Book Now\"",
     "Share your pickup location and car details",
     "A trained Chauffit chauffeur arrives at your location",
@@ -97,7 +98,7 @@ const HowItWorks = () => {
         </div>
 
         {/* Offline Booking Flow */}
-        <div>
+        {/* <div>
           <motion.h3 
             className="text-2xl font-bold mb-8 text-center text-[#d9d1c6]"
             initial={{ opacity: 0 }}
@@ -108,7 +109,7 @@ const HowItWorks = () => {
           </motion.h3>
 
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Illustration on the left for desktop, but will appear below heading on mobile */}
+           
             <motion.div 
               className="bg-[#111] rounded-lg p-6 h-auto max-h-96 flex items-center justify-center"
               initial={{ opacity: 0, x: 30 }}
@@ -122,7 +123,6 @@ const HowItWorks = () => {
               />
             </motion.div>
 
-            {/* Steps on the right for desktop */}
             <motion.div 
               className="space-y-6 md:order-2 order-1"
               initial={{ opacity: 0, x: 30 }}
@@ -145,7 +145,7 @@ const HowItWorks = () => {
               ))}
             </motion.div>
           </div>
-        </div>
+        </div> */}
         
         <motion.div
           className="mt-16 text-center"

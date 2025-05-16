@@ -68,11 +68,12 @@ export default function Navbar() {
               Book Now
             </Button>
           ) : (
-            <SignInButton mode="modal" redirectUrl="/bookings">
+            <SignInButton mode="modal">
               <div>
+                <a href="/bookings">
                 <Button className="bg-[#720c17] hover:bg-[#5a0912] text-white">
                   Book Now
-                </Button>
+                </Button></a>
               </div>
             </SignInButton>
               )}

@@ -112,7 +112,7 @@ export default function ChauffeurPortal() {
               <div className="relative">
                 <input
                   type="text"
-                  placeholder="Search Chauffeur by Name..."
+                  placeholder="Search Driver by Name..."
                   value={searchQuery}
                   onChange={handleSearchChange}
                   className="w-full px-4 py-3 pl-10 rounded-lg focus:outline-none focus:ring-2"
@@ -154,7 +154,7 @@ function DriverListSection({ drivers, onViewProfile, colors, searchQuery }) {
   return (
     <div>
       <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center" style={{ color: colors.white }}>
-        Our Professional <span style={{ color: colors.secondary }}>Chauffeurs</span>
+        Our Professional <span style={{ color: colors.secondary }}>Drivers</span>
       </h2>
       {drivers.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -171,7 +171,7 @@ function DriverListSection({ drivers, onViewProfile, colors, searchQuery }) {
       ) : (
         // Message when no drivers match the search
         <p className="text-center text-xl mt-10" style={{ color: colors.lightGray }}>
-          No chauffeurs found matching "{searchQuery}".
+          No Drivers found matching "{searchQuery}".
         </p>
       )}
     </div>
@@ -197,7 +197,7 @@ function DriverCard({ driver, onViewProfile, colors, index }) {
         <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-2" style={{ borderColor: colors.secondary }}>
           <img
             src={driver.photo}
-            alt={`${driver.name} - Chauffeur`}
+            alt={`${driver.name} - Driver`}
             className="w-full h-full object-cover"
           />
         </div>
@@ -251,7 +251,7 @@ function DriverProfilePage({ driver, onBack, activeTab, setActiveTab, colors }) 
         className="mb-6 px-4 py-2 rounded flex items-center transition-transform hover:scale-105"
         style={{ backgroundColor: colors.cardBg, color: colors.lightGray, border:`1px solid ${colors.secondary}` }}
       >
-        &larr; Back to All Chauffeurs
+        &larr; Back to All Drivers
       </button>
 
       {/* Driver Header */}
@@ -280,7 +280,7 @@ function DriverProfilePage({ driver, onBack, activeTab, setActiveTab, colors }) 
             <span className="ml-2" style={{ color: colors.lightGray }}>({driver.reviews} reviews)</span>
           </div>
           <p className="text-xl mb-4" style={{ color: colors.secondary }}>
-            Professional Chauffeur with {driver.experience} Years of Experience
+            Professional Drivers with {driver.experience} Years of Experience
           </p>
           {/* Tags */}
           <div className="flex flex-wrap gap-3 mb-6"> {/* Increased margin-bottom */}

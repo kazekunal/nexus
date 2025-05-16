@@ -3,8 +3,7 @@
 import Image from "next/image";
 import { ChevronRight, Star, Shield, Clock, Car, Umbrella, SquareUserRound} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import bgimgDesktop from "../../../public/bg_img.png";
-import bgimgMobile from "../../../public/bg-img-mob.jpeg";
+import { useEffect, useRef } from "react";
 import {
   Sheet,
   SheetContent,
@@ -23,97 +22,120 @@ import {
   useAuth
 } from '@clerk/nextjs';
 
-
-
 export default function Landing() {
-
   const { isSignedIn } = useAuth();
+  const desktopVideoRef = useRef(null);
+  const mobileVideoRef = useRef(null);
+  
+  // Setup video autoplay once component loads
+  useEffect(() => {
+    // Try to autoplay videos
+    if (desktopVideoRef.current) {
+      desktopVideoRef.current.play().catch(error => {
+        console.log("Desktop video autoplay failed:", error);
+      });
+    }
+    
+    if (mobileVideoRef.current) {
+      mobileVideoRef.current.play().catch(error => {
+        console.log("Mobile video autoplay failed:", error);
+      });
+    }
+  }, []);
 
   return (
     <div className="flex flex-col">
-      {/* Full-width hero image section */}
+      {/* Full-width hero video section */}
       <div className="relative w-full h-screen">
-  {/* Desktop Image */}
-  <div className="hidden sm:block absolute inset-0">
-    <Image
-      src={bgimgDesktop} // your desktop image
-      alt="Luxury car desktop"
-      fill
-      className="object-cover object-center"
-      priority
-    />
-  </div>
+        {/* Desktop Video */}
+        <div className="hidden sm:block absolute inset-0">
+          <video
+            ref={desktopVideoRef}
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="/landingVideo.mp4" type="video/mp4" />
+            {/* Fallback for browsers that don't support video */}
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-  {/* Mobile Image */}
-  <div className="block w-full h-full sm:hidden absolute inset-0">
-  <Image
-    src={bgimgMobile} // your mobile image
-    alt="Luxury car mobile"
-    fill
-    className=""
-    priority
-  />
-</div>
+        {/* Mobile Video */}
+        <div className="block sm:hidden absolute inset-0">
+          <video
+            ref={mobileVideoRef}
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="/mobile.mp4" type="video/mp4" />
+            {/* Fallback for browsers that don't support video */}
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-  {/* Overlay Content */}
-  <div className="absolute bottom-0 left-0 right-0 text-center p-4 md:p-6 bg-gradient-to-t from-black to-transparent">
-    <Button
-      size="lg"
-      className="group bg-[#720c17] hover:bg-[#5a0912] text-white animate-bounce mb-20 md:mb-0"
-      onClick={() =>
-        document
-          .getElementById('content-section')
-          .scrollIntoView({ behavior: 'smooth' })
-      }
-    >
-      Scroll Down
-      <ChevronRight className="ml-2 h-4 w-4 transform rotate-90" />
-    </Button>
-  </div>
-</div>
+        {/* Video Overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
+        {/* Overlay Content */}
+        <div className="absolute bottom-0 left-0 right-0 text-center p-4 md:p-6 bg-gradient-to-t from-black to-transparent">
+          <Button
+            size="lg"
+            className="group bg-[#720c17] hover:bg-[#5a0912] text-white animate-bounce mb-20 md:mb-0"
+            onClick={() =>
+              document
+                .getElementById('content-section')
+                .scrollIntoView({ behavior: 'smooth' })
+            }
+          >
+            Scroll Down
+            <ChevronRight className="ml-2 h-4 w-4 transform rotate-90" />
+          </Button>
+        </div>
+      </div>
 
-
-      {/* Content section below the image */}
+      {/* Content section below the video */}
       <div id="content-section" className="w-full bg-black h-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-24 md:pt-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-24 md:pt-32">
           <div className="max-w-3xl mx-auto space-y-8 text-center">
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white [text-wrap:balance] mx-auto">
                 Your Personal <span className="text-[#bd8c5e]">Chauffeur</span><br/>  Just a Tap Away!
               </h1>
               <p className="text-lg sm:text-xl text-[#d9d1c6] max-w-2xl mx-auto">
-              Professional, safe, and reliable chauffeurs for your personal car – now available in Gurgaon for Friday & Saturday nights!
+                Professional, safe, and reliable chauffeurs for your personal car – now available in Gurgaon for Friday & Saturday nights!
               </p>
             </div>
 
             <div className="flex flex-wrap gap-4 justify-center" id="features">
-    {isSignedIn ? (
-      <a href="/bookings">
-      <Button 
-        size="lg" 
-        className="group bg-[#720c17] hover:bg-[#5a0912] text-white"
-        // onClick={(e) => {
-        //   e.preventDefault();
-        //   router.push('/bookings');
-        // }}
-      >
-        Book a Chauffeur
-      </Button>
-      </a>
-    ) : (
-      <SignInButton mode="modal" redirectUrl="/bookings">
-          <Button size="lg" className="group bg-[#720c17] hover:bg-[#5a0912] text-white">
-            Book a Chauffeur
-          </Button>
-      </SignInButton>
-    )}
-  <a href="/portal">
-    <Button size="lg" className="group bg-[#720c17] hover:bg-[#5a0912] text-white">
-      View Our Fleet
-      <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-    </Button>
-  </a>
+              {isSignedIn ? (
+                <a href="/bookings">
+                  <Button 
+                    size="lg" 
+                    className="group bg-[#720c17] hover:bg-[#5a0912] text-white"
+                  >
+                    Book a Chauffeur
+                  </Button>
+                </a>
+              ) : (
+                <SignInButton mode="modal">
+                  <Button size="lg" className="group bg-[#720c17] hover:bg-[#5a0912] text-white">
+                    Book a Chauffeur
+                  </Button>
+                </SignInButton>
+              )}
+              
+              {/* <a href="/portal">
+                <Button size="lg" className="group bg-[#720c17] hover:bg-[#5a0912] text-white">
+                  View Our Fleet
+                  <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a> */}
               <br/>
               <Sheet>
                 <SheetTrigger asChild>
@@ -181,8 +203,6 @@ export default function Landing() {
                 </SheetContent>
               </Sheet>
             </div>
-
-            
 
             {/* <div className="flex flex-col items-center gap-4 pt-8 bg-[#111]/80 p-4 rounded-lg">
               <div className="flex -space-x-2">
