@@ -76,7 +76,7 @@ const EmailSection = () => {
                 Let&apos;s Ride in Style
                 </h2>
                 <p className="text-[#d9d1c6] text-lg mb-6 leading-relaxed">
-                Our team is committed to providing a seamless, comfortable, and professional experience from start to finish. Reach out to us, and we&apos;ll get back to you promptly!
+                Our team is committed to providing a seamless, comfortable, and professional experience from start to finish. To know more about us!
                 </p>
                 {/* <div className="flex gap-4">
                   {[

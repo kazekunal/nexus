@@ -6,8 +6,8 @@ import Link from "next/link"
 
 const AboutUs = () => {
   return (
-    <section className="bg-black text-white py-16" id="about us">
-      <div className="max-w-7xl mx-auto px-4" >
+    <section className="bg-black text-white pb-16" >
+      <div className="max-w-7xl mx-auto pb-4" >
         <motion.h2
           className="text-4xl md:text-5xl font-bold mb-8 text-center pt-8"
           initial={{ opacity: 0, y: -20 }}
@@ -77,13 +77,13 @@ const AboutUs = () => {
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-[#d9d1c6]">Weekend Service</h3>
                 <p className="text-gray-300 mb-4">
-                  Our chauffeurs are available for Friday and Saturday nights in Gurgaon,
-                  ensuring you have a safe ride home after your weekend events.
+                  Our chauffeurs are available for your nights and days in Gurgaon and Delhi NCR,
+                  ensuring you have a safe ride home after your every event.
                 </p>
-                <div className="flex items-center gap-2">
+                {/* <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-[#720c17]"></div>
                   <span className="text-[#d9d1c6] text-sm">Service available from 10 PM to 3:30 AM</span>
-                </div>
+                </div> */}
               </div>
             </div>
           </motion.div>

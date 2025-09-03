@@ -41,9 +41,9 @@ export default function WhyChooseUsPage() {
                   <Check className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-2 text-white">Affordable & Transparent Pricing</h3>
+                  <h3 className="text-2xl font-bold mb-2 text-white">Affordable Pricing</h3>
                   <p className="text-gray-300">
-                    No hidden fees or surprises. Our competitive rates mean luxury service without the luxury price tag.
+                    Our competitive rates mean luxury service without the luxury price tag.
                   </p>
                 </div>
               </div>
@@ -65,9 +65,9 @@ export default function WhyChooseUsPage() {
                   <Check className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-2 text-white">Available Friday & Saturday Nights</h3>
+                  <h3 className="text-2xl font-bold mb-2 text-white">AI Monitored Driver tracking for enhanced safety</h3>
                   <p className="text-gray-300" id='pricing'>
-                    Enjoy your weekend nights without worrying about driving. We're available when you need us most in Gurgaon.
+                  Our advanced AI continuously monitors driver behavior, detecting fatigue or distractions in real time and providing alerts to ensure a safer ride.
                   </p>
                 </div>
               </div>

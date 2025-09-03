@@ -13,7 +13,7 @@ const FeaturesSection = () => {
       icon: <Shield className="w-10 h-10" style={{ color: accentColor }} />,
       title: "Enhanced Safety",
       description:
-        "Two-factor authentication, driver profiles, dashcam footage (Coming Soon), and live tracking available for 24 hours with sharing options.",
+        "Two-factor authentication, driver profiles, AI driver tracking, and live tracking available with sharing options. Chauffit bike runners for safety response and faster driver arrival.",
     },
     
     {
@@ -26,15 +26,16 @@ const FeaturesSection = () => {
       icon: <MapPin className="w-10 h-10" style={{ color: accentColor }} />,
       title: "Venue Partners",
       description:
-        "Find our suited teams at five premium nightlife venues in Gurgaon soon, ready to assist you with immediate bookings.",
+        "Find our suited teams at premium nightlife venues in Gurgaon & Delhi NCR soon, ready to assist you with immediate bookings.",
     },
   ]
 
   const services = [
     "Live tracking and enhanced security measures",
     "Professional chauffeurs with extensive training",
-    "Seamless booking with 5-10 minute driver availability",
-    "Dashcam access (Coming Soon) for security and trip memories",
+    "Seamless booking with quick driver response",
+    "AI-monitored driving system with autonomous fatigue detection, distraction alerts, and real-time safety warnings",
+    "SOS Button for any problem - Chauffit bike runners will be there to assist you."
   ]
 
   return (

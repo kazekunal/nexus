@@ -2,6 +2,12 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Check } from "lucide-react"
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs';
 
 const HowItWorks = () => {
   const fadeIn = {
@@ -11,9 +17,9 @@ const HowItWorks = () => {
   }
 
   const onlineBookingSteps = [
-    "Sign in through your email id on our website",
-    "Click on \"Book Now\"",
-    "Share your pickup location and car details",
+    "Once the app is out, Click on Book Now to download the app, open it, and complete your booking.",
+    "Sign up, enter your personal and vehicle details, and continue your journey with us.",
+    "Enter your pickup and drop-off locations to proceed.",
     "A trained Chauffit chauffeur arrives at your location",
     "Sit back and enjoy a safe ride in your own car"
   ]
@@ -42,20 +48,47 @@ const HowItWorks = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          Get home safely and hassle-free with Chauffit. Whether you book online or find us outside your favorite
-          venue, we make the process seamless.
+          Get home safely and hassle-free with Chauffit. We make the process seamless.
         </motion.p>
 
         {/* Online Booking Flow */}
         <div className="mb-20">
-          <motion.h3 
-            className="text-2xl font-bold mb-8 text-center text-[#d9d1c6]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            For Online Bookings:
-          </motion.h3>
+        <motion.div
+  className="mb-8 text-center"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.4, duration: 0.6 }}
+>
+  {/* Waitlist heading clickable */}
+  <div className="text-2xl font-bold text-[#d9d1c6] cursor-pointer">
+    <SignedOut>
+      <SignInButton mode="modal">
+        <span className="hover:text-[#bd8c5e] transition-colors">
+          Join Our Waitlist
+        </span>
+      </SignInButton>
+    </SignedOut>
+
+    <SignedIn>
+      <span
+        onClick={() => router.push("/bookings")}
+        className="hover:text-[#bd8c5e] transition-colors"
+      >
+        Join Our Waitlist
+      </span>
+    </SignedIn>
+  </div>
+
+  {/* Subheading */}
+  <motion.p
+    className="text-base text-[#d9d1c6] mt-2"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.6, duration: 0.6 }}
+  >
+    Sign in through your email on our website and avail early bird offers.
+  </motion.p>
+</motion.div>
 
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Steps on the left */}
@@ -147,7 +180,7 @@ const HowItWorks = () => {
           </div>
         </div> */}
         
-        <motion.div
+        {/* <motion.div
           className="mt-16 text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -159,8 +192,9 @@ const HowItWorks = () => {
           >
             Book a Chauffeur
           </a>
-        </motion.div>
+        </motion.div> */}
       </div>
+      <div id="about us"></div>
     </section>
   )
 }

@@ -6,42 +6,31 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "../../../public/navbar.png";
 import { motion, AnimatePresence } from "framer-motion";
-import { useRouter } from "next/navigation";
 import {
   SignInButton,
   SignedIn,
   SignedOut,
   UserButton,
-  useAuth
 } from '@clerk/nextjs';
-
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const router = useRouter();
-  const { isSignedIn } = useAuth();
-
-  const handleBookNowClick = (e) => {
-    e.preventDefault();
-    router.push('/bookings');
-  };
-  
 
   return (
     <nav className="fixed w-full z-50 bg-[#d9d1c6]/80 backdrop-blur-lg border-b border-[#bd8c5e]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
+          {/* Logo */}
           <a href="/">
-            <div className="text-2xl font-bold tracking-tighter text-white">
-              <Image
-                src={logo}
-                alt="Luxury car"
-                width="200"
-                height="100"
-                className="object-cover object-center"
-              />
-            </div>
+            <Image
+              src={logo}
+              alt="Luxury car"
+              width="200"
+              height="100"
+              className="object-cover object-center"
+            />
           </a>
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {["Features", "How it works", "About us","Pricing","Trip Insurance", "Contact"].map((item) => (
@@ -57,34 +46,16 @@ export default function Navbar() {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-          {isSignedIn ? (
-            <Button 
-              className="bg-[#720c17] hover:bg-[#5a0912] text-white"
-              onClick={(e) => {
-                e.preventDefault();
-                router.push('/bookings');
-              }}
-            >
-              Book Now
-            </Button>
-          ) : (
-            <SignInButton mode="modal">
-              <div>
-                <Button className="bg-[#720c17] hover:bg-[#5a0912] text-white">
-                  Book Now
-                </Button>
-              </div>
-            </SignInButton>
-              )}
             <SignedOut>
-            <SignInButton mode="modal">
-              <Button variant="outline" className="bg-[#720c17] hover:bg-[#5a0912] text-white">
-                Log In / Sign Up
-              </Button>
-          </SignInButton>
+              <SignInButton mode="modal">
+                <Button className="bg-[#720c17] hover:bg-[#5a0912] text-white">
+                  Join Now
+                </Button>
+              </SignInButton>
             </SignedOut>
+
             <SignedIn>
-              <UserButton 
+              <UserButton
                 afterSignOutUrl="/"
                 appearance={{
                   elements: {
@@ -94,7 +65,7 @@ export default function Navbar() {
               />
             </SignedIn>
           </div>
-          
+
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -125,26 +96,20 @@ export default function Navbar() {
                   {item}
                 </a>
               ))}
+
+              {/* Mobile Auth Buttons */}
               <div className="flex flex-col gap-4 pt-4 border-t border-[#bd8c5e]/30">
-                <Button
-                  className="bg-[#720c17] hover:bg-[#5a0912] text-white w-full text-base font-medium"
-                  onClick={(e) => {
-                    setIsMenuOpen(false);
-                    handleBookNowClick(e);
-                  }}
-                >
-                  Book Now
-                </Button>
                 <SignedOut>
                   <SignInButton mode="modal">
-                    <Button variant="outline" className="border-[#720c17] text-white hover:bg-[#720c17] w-full text-base font-medium">
-                      Sign In / Sign Up
+                    <Button className="bg-[#720c17] hover:bg-[#5a0912] text-white w-full text-base font-medium">
+                      Join Now
                     </Button>
                   </SignInButton>
                 </SignedOut>
+
                 <SignedIn>
                   <div className="flex items-center justify-center mb-2">
-                    <UserButton 
+                    <UserButton
                       afterSignOutUrl="/"
                       appearance={{
                         elements: {

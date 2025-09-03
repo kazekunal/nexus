@@ -32,7 +32,7 @@ export default function Home() {
       <TripInsurancePage/>
       
       {/* <SupportSection/> */}
-      <ReferralLoyaltyPage/>
+      {/* <ReferralLoyaltyPage/> */}
       <EmailSection/>
       <Footer2/>
     </div>

@@ -108,7 +108,7 @@ export default function Landing() {
                 Your Personal <span className="text-[#bd8c5e]">Chauffeur</span><br/>  Just a Tap Away!
               </h1>
               <p className="text-lg sm:text-xl text-[#d9d1c6] max-w-2xl mx-auto">
-                Professional, safe, and reliable chauffeurs for your personal car – now available in Gurgaon for Friday & Saturday nights!
+                Professional, safe, and reliable chauffeurs for your personal car – now available in Gurgaon!
               </p>
             </div>
 
@@ -119,13 +119,13 @@ export default function Landing() {
                     size="lg" 
                     className="group bg-[#720c17] hover:bg-[#5a0912] text-white"
                   >
-                    Book a Chauffeur
+                    Join Our Waitlist
                   </Button>
                 </a>
               ) : (
                 <SignInButton mode="modal">
                   <Button size="lg" className="group bg-[#720c17] hover:bg-[#5a0912] text-white">
-                    Book a Chauffeur
+                    Join Our Waitlist
                   </Button>
                 </SignInButton>
               )}

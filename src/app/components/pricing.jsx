@@ -17,7 +17,7 @@ export default function PricingComponent() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold mb-4 text-white">Pricing <span className="text-[#bd8c5e]">Plans</span></h2>
-          <p className="text-xl text-[#d9d1c6] mb-6">Find the right chauffeur for your needs. Chauffit offers flexible and transparent pricing.</p>
+          <p className="text-xl text-[#d9d1c6] mb-6">Find the right chauffeur for your needs. Chauffit offers the best pricing with the best features.</p>
         </div>
         
         <div className="bg-gray-900 rounded-lg shadow-lg overflow-hidden border border-gray-800">
@@ -31,7 +31,7 @@ export default function PricingComponent() {
             <div className="text-center">
             <p className="text-xl text-gray-300 mt-2">Price starts at</p>
               <div className="text-5xl font-bold text-white mb-2">
-                <span className="text-[#bd8c5e]">₹349</span> <span className="text-2xl">+ ₹5/min</span>
+                <span className="text-[#bd8c5e]">₹199</span> <span className="text-2xl">+ ₹3/min + ₹5/Km</span>
               </div>
               
             </div>
@@ -85,8 +85,9 @@ export default function PricingComponent() {
           
           {/* Added disclaimer note */}
           <div id='trip%20insurance' className="bg-gray-900 p-4 border-t border-gray-800">
-            <p className="text-center text-amber-300 font-medium text-sm">
-              Please note: We only provide chauffeurs and do not supply any cars. Our chauffeurs will drive your personal vehicle upon booking. All listed prices are for chauffeur services only and do not include any car rental of any segment.
+            <p className="text-center text-amber-300 font-medium text-xs">
+              
+              Please note: We have dynamic pricing which makes your rides more affordable. We only provide chauffeurs and do not supply any cars. Our chauffeurs will drive your personal vehicle upon booking. All listed prices are for chauffeur services only and do not include any car rental of any segment.
             </p>
           </div>
         </div>
