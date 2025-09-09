@@ -6,18 +6,17 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "../../../public/navbar.png";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from '@clerk/nextjs';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleJoinNow = () => {
+    // Redirect to your desired page - replace '/dashboard' with your target route
+    window.location.href = '/bookings';
+  };
+
   return (
-    <nav className="fixed w-full z-50 bg-[#d9d1c6]/80 backdrop-blur-lg border-b border-[#bd8c5e]/30">
+    <nav className="fixed w-full z-50 bg-[#F9F6EE]/80 backdrop-blur-lg border-b border-[#bd8c5e]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -44,26 +43,14 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop Auth Buttons */}
+          {/* Desktop Join Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <SignedOut>
-              <SignInButton mode="modal">
-                <Button className="bg-[#720c17] hover:bg-[#5a0912] text-white">
-                  Join Now
-                </Button>
-              </SignInButton>
-            </SignedOut>
-
-            <SignedIn>
-              <UserButton
-                afterSignOutUrl="/"
-                appearance={{
-                  elements: {
-                    userButtonAvatarBox: "w-10 h-10"
-                  }
-                }}
-              />
-            </SignedIn>
+            <Button 
+              onClick={handleJoinNow}
+              className="bg-[#720c17] hover:bg-[#5a0912] text-white"
+            >
+              Join Now
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -97,28 +84,14 @@ export default function Navbar() {
                 </a>
               ))}
 
-              {/* Mobile Auth Buttons */}
+              {/* Mobile Join Button */}
               <div className="flex flex-col gap-4 pt-4 border-t border-[#bd8c5e]/30">
-                <SignedOut>
-                  <SignInButton mode="modal">
-                    <Button className="bg-[#720c17] hover:bg-[#5a0912] text-white w-full text-base font-medium">
-                      Join Now
-                    </Button>
-                  </SignInButton>
-                </SignedOut>
-
-                <SignedIn>
-                  <div className="flex items-center justify-center mb-2">
-                    <UserButton
-                      afterSignOutUrl="/"
-                      appearance={{
-                        elements: {
-                          userButtonAvatarBox: "w-10 h-10"
-                        }
-                      }}
-                    />
-                  </div>
-                </SignedIn>
+                <Button 
+                  onClick={handleJoinNow}
+                  className="bg-[#720c17] hover:bg-[#5a0912] text-white w-full text-base font-medium"
+                >
+                  Join Now
+                </Button>
               </div>
             </div>
           </motion.div>

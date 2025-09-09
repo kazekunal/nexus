@@ -1,7 +1,8 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 import Image from 'next/image';
-import logo from "../../../public/navbar.png";
+import logo from "../../../public/logo.png";
+import logoWritten from "../../../public/logo_written.png";
 import Link from 'next/link';
 
 export default function Footer2() {
@@ -66,16 +67,23 @@ export default function Footer2() {
         </div>
 
         {/* Social Icons */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
+        <div className="border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-center items-center">
-            <div className="mb-4 md:mb-0">
-              <div className="text-2xl font-bold tracking-tighter text-white">
+            <div className="mb-0 md:mb-0">
+              <div className="flex items-center gap-0">
                 <Image
                   src={logo}
-                  alt="Luxury car"
-                  width="250"
-                  height="150"
-                  className="object-cover object-center"
+                  alt="Chauffit Logo"
+                  width="80"
+                  height="40"
+                  className="object-contain"
+                />
+                <Image
+                  src={logoWritten}
+                  alt="Chauffit Written Logo"
+                  width="200"
+                  height="40"
+                  className="object-contain -ml-6"
                 />
               </div>
             </div>

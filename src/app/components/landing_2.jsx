@@ -14,16 +14,8 @@ import {
   SheetClose
 } from "@/components/ui/sheet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-  useAuth
-} from '@clerk/nextjs';
 
 export default function Landing() {
-  const { isSignedIn } = useAuth();
   const desktopVideoRef = useRef(null);
   const mobileVideoRef = useRef(null);
   
@@ -42,6 +34,11 @@ export default function Landing() {
       });
     }
   }, []);
+
+  const handleWaitlistClick = () => {
+    // Redirect to your desired page - replace '/bookings' with your target route
+    window.location.href = '/bookings';
+  };
 
   return (
     <div className="flex flex-col">
@@ -113,22 +110,13 @@ export default function Landing() {
             </div>
 
             <div className="flex flex-wrap gap-4 justify-center" id="features">
-              {isSignedIn ? (
-                <a href="/bookings">
-                  <Button 
-                    size="lg" 
-                    className="group bg-[#720c17] hover:bg-[#5a0912] text-white"
-                  >
-                    Join Our Waitlist
-                  </Button>
-                </a>
-              ) : (
-                <SignInButton mode="modal">
-                  <Button size="lg" className="group bg-[#720c17] hover:bg-[#5a0912] text-white">
-                    Join Our Waitlist
-                  </Button>
-                </SignInButton>
-              )}
+              <Button 
+                size="lg" 
+                className="group bg-[#720c17] hover:bg-[#5a0912] text-white"
+                onClick={handleWaitlistClick}
+              >
+                Join Our Waitlist
+              </Button>
               
               {/* <a href="/portal">
                 <Button size="lg" className="group bg-[#720c17] hover:bg-[#5a0912] text-white">

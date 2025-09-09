@@ -16,7 +16,7 @@ export default function PricingComponent() {
     <div className="bg-black py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold mb-4 text-white">Pricing <span className="text-[#bd8c5e]">Plans</span></h2>
+          <h2 className="text-4xl font-bold mb-4 text-white"> <span className="text-[#bd8c5e]">Pricing</span></h2>
           <p className="text-xl text-[#d9d1c6] mb-6">Find the right chauffeur for your needs. Chauffit offers the best pricing with the best features.</p>
         </div>
         
@@ -31,7 +31,7 @@ export default function PricingComponent() {
             <div className="text-center">
             <p className="text-xl text-gray-300 mt-2">Price starts at</p>
               <div className="text-5xl font-bold text-white mb-2">
-                <span className="text-[#bd8c5e]">₹199</span> <span className="text-2xl">+ ₹3/min + ₹5/Km</span>
+                <span className="text-[#bd8c5e]">₹199</span> <span className="text-2xl">+ ₹3/min OR ₹5/Km</span>
               </div>
               
             </div>
@@ -87,7 +87,7 @@ export default function PricingComponent() {
           <div id='trip%20insurance' className="bg-gray-900 p-4 border-t border-gray-800">
             <p className="text-center text-amber-300 font-medium text-xs">
               
-              Please note: We have dynamic pricing which makes your rides more affordable. We only provide chauffeurs and do not supply any cars. Our chauffeurs will drive your personal vehicle upon booking. All listed prices are for chauffeur services only and do not include any car rental of any segment.
+              Please note: Our dynamic pricing makes rides more affordable. We only offer chauffeur services, not vehicles. Our chauffeurs will operate your personal car when you book. Prices are for chauffeur services only and don’t include car rental charges.
             </p>
           </div>
         </div>

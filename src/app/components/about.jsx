@@ -2,12 +2,7 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Check } from "lucide-react"
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from '@clerk/nextjs';
+import { Button } from "@/components/ui/button"
 
 const HowItWorks = () => {
   const fadeIn = {
@@ -16,12 +11,17 @@ const HowItWorks = () => {
     transition: { duration: 0.6 },
   }
 
+  const handleWaitlistClick = () => {
+    // Redirect to your desired page - replace '/bookings' with your target route
+    window.location.href = '/bookings';
+  }
+
   const onlineBookingSteps = [
-    "Once the app is out, Click on Book Now to download the app, open it, and complete your booking.",
-    "Sign up, enter your personal and vehicle details, and continue your journey with us.",
-    "Enter your pickup and drop-off locations to proceed.",
-    "A trained Chauffit chauffeur arrives at your location",
-    "Sit back and enjoy a safe ride in your own car"
+    "Select \"Book Now\" to initiate the download and launch of the application.",
+    "During registration, kindly provide personal and vehicle-related information.",
+    "Specify the pickup and drop-off locations.",
+    "A professional chauffeur will arrive at your designated location.",
+    "Indulge in a secure and comfortable journey while relaxing in your own vehicle."
   ]
 
   const offlineBookingSteps = [
@@ -53,42 +53,31 @@ const HowItWorks = () => {
 
         {/* Online Booking Flow */}
         <div className="mb-20">
-        <motion.div
-  className="mb-8 text-center"
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ delay: 0.4, duration: 0.6 }}
->
-  {/* Waitlist heading clickable */}
-  <div className="text-2xl font-bold text-[#d9d1c6] cursor-pointer">
-    <SignedOut>
-      <SignInButton mode="modal">
-        <span className="hover:text-[#bd8c5e] transition-colors">
-          Join Our Waitlist
-        </span>
-      </SignInButton>
-    </SignedOut>
+          <motion.div
+            className="mb-8 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            {/* Waitlist button */}
+            <Button
+              size="lg"
+              className="bg-[#720c17] hover:bg-[#5a0912] text-white text-xl font-bold px-8 py-3 mb-4"
+              onClick={handleWaitlistClick}
+            >
+              Join Our Waitlist
+            </Button>
 
-    <SignedIn>
-      <span
-        onClick={() => router.push("/bookings")}
-        className="hover:text-[#bd8c5e] transition-colors"
-      >
-        Join Our Waitlist
-      </span>
-    </SignedIn>
-  </div>
-
-  {/* Subheading */}
-  <motion.p
-    className="text-base text-[#d9d1c6] mt-2"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ delay: 0.6, duration: 0.6 }}
-  >
-    Sign in through your email on our website and avail early bird offers.
-  </motion.p>
-</motion.div>
+            {/* Subheading */}
+            <motion.p
+              className="text-base text-[#d9d1c6] mt-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+            >
+              Sign in through your email on our website and avail early bird offers.
+            </motion.p>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Steps on the left */}
@@ -116,17 +105,17 @@ const HowItWorks = () => {
 
             {/* Illustration on the right */}
             <motion.div 
-  className="bg-[#111] rounded-lg p-6 h-auto max-h-96 flex items-center justify-center"
-  initial={{ opacity: 0, x: 30 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ delay: 0.5, duration: 0.8 }}
->
-  <img
-    src="/online.png"
-    alt="Luxury Chauffeur Service"
-    className="w-full h-auto max-h-full object-cover rounded-md"
-  />
-</motion.div>
+              className="bg-[#111] rounded-lg p-6 h-auto max-h-96 flex items-center justify-center"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              <img
+                src="/online.png"
+                alt="Luxury Chauffeur Service"
+                className="w-full h-auto max-h-full object-cover rounded-md"
+              />
+            </motion.div>
           </div>
         </div>
 

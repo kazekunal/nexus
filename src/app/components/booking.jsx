@@ -346,7 +346,7 @@ const BookingPage = () => {
                                   Processing
                                 </>
                               ) : (
-                                "Confirm Booking"
+                                "Join Now"
                               )}
                             </Button>
                           </div>
